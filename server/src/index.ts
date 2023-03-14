@@ -16,9 +16,7 @@ app.get('/', (req: Request, res:Response)=>{
     res.send('Street art to server running');
 });
 
-app.use('/api/todo', artRoutes);
-
-
+app.use('/api/art', artRoutes);
 
 mongoose.set('strictQuery', false);
 mongoose.connect(

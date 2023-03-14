@@ -2,7 +2,6 @@ import  { InferSchemaType, model, Schema } from 'mongoose';
 
 
 const ArtSchema = new Schema({
-    _id: String,
     likes:Number,
     createdDate: Date,
     fields: {
