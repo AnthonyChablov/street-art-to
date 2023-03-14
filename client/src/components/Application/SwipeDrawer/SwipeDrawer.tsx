@@ -48,10 +48,10 @@ return (
         <CssBaseline />
         <Global
             styles={{
-            '.MuiDrawer-root > .MuiPaper-root': {
-                height: `calc(70% - ${drawerBleeding}px)`,
-                overflow: 'visible',
-            },
+                '.MuiDrawer-root > .MuiPaper-root': {
+                    height: `calc(70% - ${drawerBleeding}px)`,
+                    overflow: 'visible',
+                },
             }}
         />
         <SwipeableDrawer

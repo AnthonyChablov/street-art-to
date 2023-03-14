@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, useMap, Popup, Marker, ZoomControl } from 'react-leaflet'
-import {AiOutlineZoomIn} from 'react-icons/ai'
+
 
 const Map = () => {
   return (
@@ -20,7 +20,10 @@ const Map = () => {
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
-        <ZoomControl position="topleft" zoomInText='+' zoomOutText="-" />
+        <div >
+          <ZoomControl zoomInText='+' zoomOutText="-" />
+        </div>
+        
 
       </Marker>
     </MapContainer>
