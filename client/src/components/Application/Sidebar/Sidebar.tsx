@@ -1,18 +1,9 @@
 import {useState} from 'react'
-import { Drawer , IconButton } from '@mui/material';
+import { Drawer  } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
 import useWindowSize from '../../../hooks/useWindowDimensions';
+
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -24,8 +15,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   }));
 
 const Sidebar = () => {
-    const windowDimensions = useWindowSize();
-    const drawerWidth = windowDimensions.width > 1200 ? '34%' : '30%';
+
+    const drawerWidth ='27%' 
 
     const theme = useTheme();
     const [open, setOpen] = useState(false);
@@ -58,11 +49,13 @@ const Sidebar = () => {
                     <p className='text-xl text-zinc-100'>
                         Display
                     </p>
+                    
                 </DrawerHeader> 
-                <Divider className='bg-zinc-800' sx={{ height:'3px'}}/><Divider/>
+                <Divider className='bg-zinc-700' sx={{ height:'3px'}}/><Divider/>
                 
             </div>
         </Drawer>
+
     )
 }
 

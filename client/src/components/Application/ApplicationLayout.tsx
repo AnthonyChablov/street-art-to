@@ -2,13 +2,15 @@ import Map from './Map/Map'
 import useWindowSize from '../../hooks/useWindowDimensions'
 import SwipeDrawer from './SwipeDrawer/SwipeDrawer';
 import Sidebar from './Sidebar/Sidebar';
-
+import Title from './Title/Title';
+import Navbar from './Navbar/Navbar';
 
 const ApplicationLayout = () => {
   const windowDimensions = useWindowSize();
   return (
     <div className='h-screen'>
-      
+      <Title/>
+      <Navbar/>
       <Map/>
       {
         /* render Sidebar for mobile, Card for large screens */
