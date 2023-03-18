@@ -6,6 +6,7 @@ const HomePage = lazy(()=> import('./pages/Home'));
 const AppPage = lazy(()=> import ('./pages/App'));
 const RouteNotFoundPage = React.lazy(() => import('./pages/RouteNotFound'));
 const GlobalErrorPage = React.lazy(() => import('./pages/GlobalError'));
+const Login = React.lazy(() => import('./pages/Login'));
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/app", 
         element: <AppPage/> ,
+      },
+      {
+        path: "/login", 
+        element: <Login/> ,
       },
       {
         path: "*", 

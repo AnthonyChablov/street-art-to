@@ -7,14 +7,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import List from '@mui/material/List';
 import HomeIcon from '@mui/icons-material/Home';
 import NavIcon from './NavIcon/NavIcon';
+import MapIcon from '@mui/icons-material/Map';
 import useWindowSize from '../../../hooks/useWindowDimensions';
-
 
 
 const Navbar = () => {
     const windowDimension = useWindowSize();
     const drawerWidth = '3.5rem';
-
 
     return (
     <Drawer
@@ -33,14 +32,8 @@ const Navbar = () => {
         <Divider />
         <List sx={{overflow:'hidden'}}>
             <div className="flex flex-col justify-between h-[50vh]">
-                <ListItem disablePadding>
-                    <ListItemButton >
-                        <ListItemIcon>
-                            <HomeIcon sx={{color:'white'}}/>
-                        </ListItemIcon>
-                    </ListItemButton>
-                </ListItem>
-                <div className="">
+                <NavIcon/>
+                <div>
                     <NavIcon/>
                     <NavIcon/>
                     <NavIcon/>

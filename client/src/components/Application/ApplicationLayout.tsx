@@ -10,12 +10,14 @@ const ApplicationLayout = () => {
   return (
     <div className='h-screen'>
       <Title/>
-      <Navbar/>
       <Map/>
       {
         /* render Sidebar for mobile, Card for large screens */
         windowDimensions.width >= 850
-          ? <Sidebar/>
+          ? <>
+              <Navbar/>
+              <Sidebar/>
+            </>      
           : <SwipeDrawer/>
       }
     </div>

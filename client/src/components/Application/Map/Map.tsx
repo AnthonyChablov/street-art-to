@@ -1,14 +1,17 @@
-import { MapContainer, TileLayer, useMap, Popup, Marker, ZoomControl } from 'react-leaflet'
+import { MapContainer, TileLayer, Popup, Marker, ZoomControl } from 'react-leaflet'
+import useWindowSize from '../../../hooks/useWindowDimensions'
 
 const Map = () => {
- 
 
+  const windowDimensions = useWindowSize();
+  const mapWidth = windowDimensions.width >= 850 ? '73%' : '100%';
+  
   return (
     <MapContainer 
       center={[43.651070, -79.347015]} 
       zoom={13} 
       scrollWheelZoom={true}  
-      style={{ height: "100vh", width:'73%' }} 
+      style={{ height: "100vh", width: `${mapWidth}` }} 
       zoomControl={false}
     >
       <TileLayer
