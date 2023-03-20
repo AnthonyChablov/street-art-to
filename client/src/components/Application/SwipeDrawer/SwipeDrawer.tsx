@@ -7,6 +7,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Menu from '../Menu/Menu';
+import DisplayLayout from '../Display/DisplayLayout';
+import { useArtStore } from '../../../store/Art/artStore';
+import { shallow } from 'zustand/shallow';
 
 /* How much drawer extends outwards */
 const drawerBleeding = 56;
@@ -32,6 +35,15 @@ const Puller = styled(Box)(({ theme }) => ({
 }));
   
 export default function SwipeDrawer(props: any) {
+    /* State */
+    const { data, setData, artId } = useArtStore(
+        (state) => ({ 
+        data : state.data, 
+        setData : state.setData,
+        artId: state.artId,
+        }), shallow
+    );
+
     const { window } = props;
     const [open, setOpen] = React.useState(false);
 
@@ -63,7 +75,7 @@ return (
             swipeAreaWidth={drawerBleeding}
             disableSwipeToOpen={false}
             ModalProps={{
-            keepMounted: true,
+                keepMounted: true,
             }}
         >
             <StyledBox
@@ -78,18 +90,17 @@ return (
             }}
             >
             <Puller />
-            <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+            <Typography sx={{ p: 2, color: 'text.secondary' }}>{`${data.length} results`}</Typography>
             </StyledBox>
             <StyledBox
                 sx={{
-                    px: 2,
+                    px: 6,
                     pb: 2,
                     height: '100%',
                     overflow: 'auto',
                 }}
             >
-                <Menu/>
-            
+                <DisplayLayout/>
             </StyledBox>
         </SwipeableDrawer>
         </Root>

@@ -2,12 +2,12 @@ import create from 'zustand';
 
 type State = {
     data: [],
-    artId : number
+    artId : number,
 }
 
 type Action = {
     setData: Function,
-    setArtId : Function,
+    setArtId : Function
 }
 
 export const useArtStore = create<State & Action>((set)=>({

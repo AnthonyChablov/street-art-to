@@ -19,7 +19,7 @@ const Map = () => {
   
   useEffect(()=>{
     console.log(data);
-  },[data])
+  },[data]);
 
   return (
     <MapContainer 
@@ -34,20 +34,24 @@ const Map = () => {
         &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
       />
-      {
-        data.map(( art : IART, index )=>{ 
-          return (
-            <MapMarker 
-              key={index} 
-              id={index}
-              latitude={art.fields.latitude} 
-              longitude={art.fields.longitude} 
-              text={art.fields.Identifier}
-            />
-          )
-        })
-      }
-      <ZoomControl position='bottomright' zoomInText='+' zoomOutText="-" />
+        {
+          data.map(( art : IART, index )=>{ 
+            return (
+              <MapMarker 
+                key={index} 
+                id={index}
+                latitude={art.fields.latitude} 
+                longitude={art.fields.longitude} 
+                text={art.fields.Identifier}
+              />
+            )
+          })
+        }
+      <ZoomControl 
+        position={`${windowDimensions.width <= 850 ? 'topright' : 'bottomright'}`} 
+        zoomInText='+' 
+        zoomOutText="-" 
+      />
     </MapContainer>
   )
 }

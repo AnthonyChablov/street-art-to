@@ -1,8 +1,7 @@
 import {useState} from 'react'
 import { Drawer  } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
-import Divider from '@mui/material/Divider';
-import Display from '../Display/Display';
+import DisplayLayout from '../Display/DisplayLayout';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -44,12 +43,12 @@ const Sidebar = () => {
         >
             <div className="px-10 relative">
                 <DrawerHeader sx={{p:0}}>
-                    <p className='text-xl text-zinc-100'>
+                    <p className='text-md text-zinc-100'>
                         Display
                     </p>
-                    <Display/>
+                    
                 </DrawerHeader> 
-                <Divider className='bg-zinc-700' sx={{ height:'3px'}}/><Divider/>
+                <DisplayLayout/>
             </div>
         </Drawer>
 

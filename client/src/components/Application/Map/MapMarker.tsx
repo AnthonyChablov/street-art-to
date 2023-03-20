@@ -11,13 +11,13 @@ interface MapMarker {
     id: Number,
     latitude: String,
     longitude: String,
-    text: String,
+    text: String
 }
 
 function SetViewOnClick({ animateRef }:any) {
     const map = useMapEvent('click', (e) => {
         map.setView(e.latlng, map.getZoom(), {
-        animate: animateRef.current || false,
+            animate: animateRef.current || false,
         })
     });
     return null;
@@ -35,14 +35,13 @@ const MapMarker = ({id, latitude, longitude, text} : MapMarker) => {
     }
 
     return (
-        
         <Marker 
             position={ [+latitude, +longitude] }
             icon= { customMarkerIcon }
             eventHandlers={{
                 click: () => {
                     console.log(`marker ${id} clicked`);
-                    setArtOnClick()
+                    setArtOnClick();
                 },
             }}
         >
