@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+import { useEffect } from 'react';
 import {shallow} from 'zustand/shallow';
 import useWindowSize from '../../hooks/useWindowDimensions';
 import { db } from '../../config/firebase';
@@ -18,10 +19,11 @@ const ApplicationLayout = () => {
     const artCollectionRef = collection(db, 'art');
 
     /* State */
-    const { data, setData } = useArtStore(
+    const { data, setData, artId } = useArtStore(
       (state) => ({ 
         data : state.data, 
-        setData : state.setData
+        setData : state.setData,
+        artId: state.artId,
       }), shallow
     );
 
@@ -40,6 +42,10 @@ const ApplicationLayout = () => {
       setData(filteredData);
     }
    
+    useEffect(()=>{
+      console.log(artId);
+    },[artId]);
+
     return (
       <div className='h-screen'>
         <Title/>

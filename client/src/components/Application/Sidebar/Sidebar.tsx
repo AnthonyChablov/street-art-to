@@ -2,8 +2,8 @@ import {useState} from 'react'
 import { Drawer  } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
+import Display from '../Display/Display';
 import useWindowSize from '../../../hooks/useWindowDimensions';
-
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -16,8 +16,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Sidebar = () => {
 
-    const drawerWidth ='27%' 
-
+    const drawerWidth ='27%';
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 
@@ -44,15 +43,13 @@ const Sidebar = () => {
             open={true}
         >
             <div className="px-10 relative">
-                
                 <DrawerHeader sx={{p:0}}>
                     <p className='text-xl text-zinc-100'>
                         Display
                     </p>
-                    
+                    <Display/>
                 </DrawerHeader> 
                 <Divider className='bg-zinc-700' sx={{ height:'3px'}}/><Divider/>
-                
             </div>
         </Drawer>
 

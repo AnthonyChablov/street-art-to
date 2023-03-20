@@ -30,15 +30,21 @@ const Map = () => {
       zoomControl={false}
     >
       <TileLayer
-        attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> 
+        &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
       />
       {
-        data.map(( art : IART )=>{ 
+        data.map(( art : IART, index )=>{ 
           return (
-            <MapMarker id={art.id} latitude={art.fields.latitude} longitude={art.fields.longitude} text={art.fields.identifier}/>
+            <MapMarker 
+              key={index} 
+              id={index}
+              latitude={art.fields.latitude} 
+              longitude={art.fields.longitude} 
+              text={art.fields.Identifier}
+            />
           )
-          
         })
       }
       <ZoomControl position='bottomright' zoomInText='+' zoomOutText="-" />
