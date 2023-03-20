@@ -2,8 +2,6 @@ import { useState } from 'react'; // the auth variable is used for signing in us
 import {auth, googleProvider, db} from '../../config/firebase';
 import {createUserWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
 
-
-
 const LoginLayout = () => {
 
     const [email, setEmail] = useState("");
@@ -35,6 +33,10 @@ const LoginLayout = () => {
             
         }
     }
+
+
+    
+    
 
     return (
         <div className='text-center'>
