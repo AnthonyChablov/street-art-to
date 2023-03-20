@@ -60,26 +60,44 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                     </IconButton>
                 </div>
                 {/* Content */}
-                <motion.div className={`${minimize ? 'collapse h-0' : 'visible h-100'} overflow-hidden`} 
+                <motion.div className={`${minimize ? 'collapse h-0' : 'visible h-100'} overflow-hidden `} 
                     variants={minimizeVariants}
                     animate={!minimize?'open':'close'}
                 >
-                    {mode === 'General' 
-                        ?<><SubDisplay 
-                            title={'Address'} 
-                            detail={selectedArt?.fields.address}
-                        />
-                        <SubDisplay 
-                            title={'Description'} 
-                            detail={selectedArt?.fields.description}
-                        />
-                        <SubDisplay 
-                            title={'Year'} 
-                            detail={selectedArt?.fields.year}
-                        /></> 
-                        : 
-                        <></>
+                    { mode === 'General' 
+                        &&
+                        <>
+                            <SubDisplay 
+                                title={'Address'} 
+                                detail={selectedArt?.fields.address}
+                            />
+                            <SubDisplay 
+                                title={'Description'} 
+                                detail={selectedArt?.fields.description}
+                            />
+                            <SubDisplay 
+                                title={'Year'} 
+                                detail={selectedArt?.fields.year}
+                            />
+                        </>
                     }
+                    { mode === 'Image' 
+                        &&
+                        <>
+                        
+                        </>
+                    }
+                    { mode === 'Comments' 
+                        &&
+                        <>
+                            <SubDisplay 
+                                title={`@${'FatalSlap123'}`} 
+                                detail={
+                                    `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi et saepe quasi vitae optio officia suscipit praesentium deleniti quidem tenetur ipsa, laborum neque mollitia sunt voluptatem veniam facere! Accusamus, vero.
+                                    Molestiae quia numquam sint obcaecati `
+                                }
+                            />
+                        </> }
                 </motion.div>
             </section>
         </>

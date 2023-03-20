@@ -21,7 +21,7 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
-    backgroundColor: '#424242',
+    backgroundColor: '#191919',
 }));
   
 const Puller = styled(Box)(({ theme }) => ({
@@ -30,11 +30,13 @@ const Puller = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'light' ? grey[300] : grey[900],
     borderRadius: 3,
     position: 'absolute',
-    top: 8,
+    top: 13,
     left: 'calc(50% - 15px)',
+    
 }));
   
 export default function SwipeDrawer(props: any) {
+
     /* State */
     const { data, setData, artId } = useArtStore(
         (state) => ({ 
@@ -79,18 +81,22 @@ return (
             }}
         >
             <StyledBox
-            sx={{
-                position: 'absolute',
-                top: -drawerBleeding,
-                borderTopLeftRadius: 8,
-                borderTopRightRadius: 8,
-                visibility: 'visible',
-                right: 0,
-                left: 0,
-            }}
+                sx={{
+                    position: 'absolute',
+                    top: -drawerBleeding,
+                    borderTopLeftRadius: 8,
+                    borderTopRightRadius: 8,
+                    visibility: 'visible',
+                    right: 0,
+                    left: 0,
+                }}
             >
-            <Puller />
-            <Typography sx={{ p: 2, color: 'text.secondary' }}>{`${data.length} results`}</Typography>
+                
+                <Puller />
+                <Typography sx={{ p: 2, color: 'white' }}>
+                    {`${data.length} results`}
+                </Typography>
+                
             </StyledBox>
             <StyledBox
                 sx={{

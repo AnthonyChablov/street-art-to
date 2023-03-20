@@ -32,6 +32,7 @@ const DisplayLayout = () => {
       <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
       <SectionDisplay mode={'Image'}/>
       <SectionDisplay mode={'General'}/>
+      <SectionDisplay mode={'Comments'}/>
     </div>
   )
 }

@@ -11,11 +11,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
-  }));
+}));
 
 const Sidebar = () => {
 
-    const drawerWidth ='27%';
+    const drawerWidth ='32%';
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 
@@ -46,7 +46,6 @@ const Sidebar = () => {
                     <p className='text-md text-zinc-100'>
                         Display
                     </p>
-                    
                 </DrawerHeader> 
                 <DisplayLayout/>
             </div>

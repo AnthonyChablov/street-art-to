@@ -15,7 +15,7 @@ const Map = () => {
   );
 
   const windowDimensions = useWindowSize();
-  const mapWidth = windowDimensions.width >= 850 ? '73%' : '100%';
+  const mapWidth = windowDimensions.width >= 850 ? '68%' : '100%';
   
   useEffect(()=>{
     console.log(data);

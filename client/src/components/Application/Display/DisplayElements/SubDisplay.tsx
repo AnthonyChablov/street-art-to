@@ -10,7 +10,7 @@ const SubDisplay = ({title, detail}:ISubDisplay) => {
     
     return (
         <div className="mb-7">
-            <h3 className="text-sm text-gray-500 ">
+            <h3 className="text-md text-gray-500 ">
                 {title}
             </h3>
             <p className="pt-3 pb-5">
