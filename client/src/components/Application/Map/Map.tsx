@@ -5,6 +5,7 @@ import { useArtStore } from '../../../store/Art/artStore';
 import MapMarker from './MapMarker';
 import { useEffect } from 'react';
 import { IART } from '../../../api/getArt';
+import { IStreetArt } from '../../../models/streetArt';
 
 const Map = () => {
 
