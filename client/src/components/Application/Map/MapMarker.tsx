@@ -7,10 +7,10 @@ import { useRef } from 'react';
 import { useArtStore } from '../../../store/Art/artStore';
 
 interface MapMarker {
-    key: Number,
-    id: Number,
-    latitude: String,
-    longitude: String,
+    key: number,
+    id: number,
+    latitude: number,
+    longitude: number,
     text: String
 }
 
@@ -36,7 +36,7 @@ const MapMarker = ({id, latitude, longitude, text} : MapMarker) => {
 
     return (
         <Marker 
-            position={ [+latitude, +longitude] }
+            position={ [latitude, longitude] }
             icon= { customMarkerIcon }
             eventHandlers={{
                 click: () => {

@@ -7,7 +7,7 @@ export interface IStreetArt{
 }
 
 interface IGeometry{
-    coordinates: [],
+    coordinates: number[],
     type:String,
    
 }
@@ -15,14 +15,15 @@ interface IGeometry{
 interface IProperties{
     address: String,
     description : String,
-    media: [IMedia],
+    media: IMedia[],
+    medium: String,
+    organizations: String,
     program: String, 
     status: String,
     title: String,
     uid: number,
     ward: String,
     year: number
-
 }
 
 interface IMedia{
@@ -42,6 +43,6 @@ interface IThumbnails{
 }
 
 interface ISocials{
-    comments: [],
+    comments: (string | number)[],
     likes: number,
 }

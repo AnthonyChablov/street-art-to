@@ -17,6 +17,7 @@ const ApplicationLayout = () => {
 
     const windowDimensions = useWindowSize();
     const artCollectionRef = collection(db, 'art');
+    const newArtCollectionRef = collection(db, 'newArt');
 
     /* State */
     const { data, setData, artId } = useArtStore(
@@ -34,7 +35,7 @@ const ApplicationLayout = () => {
     ); 
     
     async function getArt() {
-      let fetchedData = await getDocs(artCollectionRef);
+      let fetchedData = await getDocs(newArtCollectionRef);
       const filteredData = fetchedData.docs.map((doc)=>({
         ...doc.data(),
         id: doc.id,

@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import  IconButton  from "@mui/material/IconButton";
 import {motion} from 'framer-motion';
+import { shallow } from "zustand/shallow";
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import SubDisplay from "./SubDisplay";
 import { useArtStore } from "../../../../store/Art/artStore";
-import { shallow } from "zustand/shallow";
 import { IART } from "../../../../api/getArt";
+import { IStreetArt } from "../../../../models/streetArt";
 
 interface ISectionDisplay{
     mode: String
@@ -16,7 +17,6 @@ const minimizeVariants = {
     close:{
         y:-19,
         opacity:0,
-        
     },
     open:{
         y:0,
@@ -42,7 +42,11 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
         }), shallow
     );
     
-    const selectedArt:IART = data[artId];
+    const selectedArt : IStreetArt = data[artId]; 
+
+    useEffect(()=>{
+        console.log(selectedArt)
+    },[]);
 
     return (
         <>
@@ -62,23 +66,23 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                 {/* Content */}
                 <motion.div className={`${minimize ? 'collapse h-0' : 'visible h-100'} overflow-hidden `} 
                     variants={minimizeVariants}
-                    animate={!minimize?'open':'close'}
+                    animate={ !minimize ? 'open' : 'close'}
                 >
                     { mode === 'General' 
                         &&
                         <>
                             <SubDisplay 
                                 title={'Address'} 
-                                detail={selectedArt?.fields.address}
+                                detail={selectedArt?.properties.address}
                             />
                             <SubDisplay 
                                 title={'Description'} 
-                                detail={selectedArt?.fields.description}
+                                detail={selectedArt?.properties.description}
                             />
                             <SubDisplay 
                                 title={'Year'} 
-                                detail={selectedArt?.fields.year}
-                            />
+                                detail={selectedArt?.properties.year}
+                            /> 
                         </>
                     }
                     { mode === 'Image' 

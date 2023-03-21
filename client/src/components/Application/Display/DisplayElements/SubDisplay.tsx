@@ -2,7 +2,7 @@ import { Divider } from "@mui/material"
 
 interface ISubDisplay{
     title: String,
-    detail: String
+    detail: String | number
 }
 
 

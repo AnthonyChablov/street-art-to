@@ -1,10 +1,9 @@
 import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
 import { useArtStore } from "../../../store/Art/artStore"
-import { IART } from "../../../api/getArt";
 import Divider from '@mui/material/Divider';
 import SectionDisplay from "./DisplayElements/SectionDisplay";
-
+import { IStreetArt } from "../../../models/streetArt";
 
 const DisplayLayout = () => {
 
@@ -18,16 +17,16 @@ const DisplayLayout = () => {
   );
   
 
-  const selectedArt:IART = data[artId];
+  const selectedArt : IStreetArt = data[artId]; 
   
   useEffect(()=>{
-    console.log(data[artId])
+    console.log(selectedArt)
   },[artId]);
 
   return (
     <div className="text-white pt-9 overflow-auto ">
       <h1 className="text-2xl mb-5">
-        {selectedArt?.fields.Identifier}
+        {/* selectedArt.properties.title */}
       </h1>
       <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
       <SectionDisplay mode={'Image'}/>
