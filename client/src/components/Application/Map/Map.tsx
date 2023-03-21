@@ -35,19 +35,15 @@ const Map = () => {
         &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
       />
-       {
-           data.map(( art:IStreetArt, index : number )=>{ 
-            return (
-              <MapMarker 
-                key={index} 
-                id={index}
-                latitude={art.id} 
-                longitude={2} 
-                text={'o'}
-              />
-            )
-          }) 
-        }
+        <>
+          {data &&
+            data.map(( art:IStreetArt, index : number )=>{ 
+              
+              
+              {console.log(art)}
+            }) 
+          }
+        </>
       <ZoomControl 
         position={`${windowDimensions.width <= 850 ? 'topright' : 'bottomright'}`} 
         zoomInText='+' 
