@@ -32,15 +32,18 @@ const Map = () => {
       />
         <>
           {
-            data?.map(( art:IStreetArt, index : number )=>{ 
-                return <MapMarker 
+            data.map(( art:IStreetArt, index : number )=>{  
+              return (
+                <MapMarker 
                   key={index} 
                   id={index}
-                  latitude={1??art?.geometry.coordinates[0]} 
-                  longitude={1??art?.geometry.coordinates[1]} 
-                  text={''}
+                  latitude={art.geometry.coordinates[1]} 
+                  longitude={art.geometry.coordinates[0]} 
+                  title={art.properties.title}
+                  text={art.properties.description}
                 />
-            }) 
+              )
+            })  
           }
         </>
       <ZoomControl 

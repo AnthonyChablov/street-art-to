@@ -17,9 +17,17 @@ const MultiDisplay = () => {
     <div>
       <h1 className="text-3xl py-5">Art Display</h1>
       {
-        /* Object.keys(data).map((art:IStreetArt, index)=> {
-          console.log(data[art])
-       }) */
+        data.map((art : IStreetArt, index : number)=>{
+          return (
+            <CardDisplay
+              key={index} 
+              title={art?.properties.title} 
+              icon={''} 
+              address={art?.properties.address} 
+              year={art?.properties.year}
+            />
+          )
+        })
       }
     </div>
   )

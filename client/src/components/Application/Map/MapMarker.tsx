@@ -11,6 +11,7 @@ interface MapMarker {
     id: number,
     latitude: number,
     longitude: number,
+    title:String,
     text: String
 }
 
@@ -23,7 +24,7 @@ function SetViewOnClick({ animateRef }:any) {
     return null;
 }
 
-const MapMarker = ({id, latitude, longitude, text} : MapMarker) => {
+const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
   
     const setArtId = useArtStore(state => state.setArtId); // state
     const animateRef = useRef(true); // animate map center onClick of Marker
@@ -46,7 +47,10 @@ const MapMarker = ({id, latitude, longitude, text} : MapMarker) => {
             }}
         >
             <Popup>
-                {text}
+                <div className="text-center font-semibold text-lg ">
+                    <h1>{title}</h1>
+                </div>
+                <p className="text-center">{text}</p>
             </Popup>
             <SetViewOnClick animateRef={animateRef} />
         </Marker>
