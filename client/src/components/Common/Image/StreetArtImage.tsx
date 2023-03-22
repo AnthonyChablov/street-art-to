@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import graffittiImg from './../../../../public/images/graffitti-img-1.png';
+import graffittiImg from './../../../assets/images/graffitti-img-1.png';
 
 const imgVariants={
   initial:{

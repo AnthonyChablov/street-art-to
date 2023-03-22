@@ -7,7 +7,9 @@ import GoogleIcon from '@mui/icons-material/Google';
 import TextField  from '@mui/material/TextField';
 import Separator from '../Common/Form/FormElements/Separator';
 import FormFooter from '../Common/Form/FormElements/FormFooter';
-import StreetArtImage from '../Common/Image/StreetArtImage';
+import StreetArtImage from "../Common/Image/StreetArtImage";
+import FormError from '../Common/Form/FormElements/FormError';
+import { AnimatePresence } from 'framer-motion';
 
 const loginVariants = {
     initial:{
@@ -42,6 +44,7 @@ const LoginLayout = () => {
             await signInWithEmailAndPassword(auth, email, password);
         } catch(error) {
             console.error(error);
+            setErrorMessage()
         }
     }
 
@@ -50,6 +53,7 @@ const LoginLayout = () => {
             await signInWithPopup(auth, googleProvider)
         } catch(error) {    
             console.error(error);
+            setErrorMessage()
         }
     }
 
@@ -58,27 +62,35 @@ const LoginLayout = () => {
             await signOut(auth);
         } catch(error) {    
             console.error(error);
+            setErrorMessage()
         }
     }
+
+    async function setErrorMessage(){
+        setIsError(true);
+        setTimeout(() => setIsError(false), 5000);
+    };
 
     return (
         <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen  
         flex    items-center lg:justify-end">
             <StreetArtImage/>
-            <motion.div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
+            <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
                 lg:max-w-full lg:w-5/12 lg:rounded-none '
-                variants={loginVariants}
-                initial='initial'
-                animate='animate'
             >
-                <div className="lg:max-w-3xl mx-auto" > 
+                <motion.div className="lg:max-w-3xl mx-auto" 
+                    variants={loginVariants}
+                    initial='initial'
+                    animate='animate'
+                > 
                     <h1 className='font-empire text-6xl text-zinc-900 text-center mb-11'>
                         StreetArt To
                     </h1>
                     <div className='flex flex-col'>
                         <div className=" pb-6">
                             <TextField id="standard-basic" 
+                                error = {isError}
                                 label="Email" 
                                 variant="filled" 
                                 fullWidth
@@ -89,6 +101,7 @@ const LoginLayout = () => {
                                 }}
                             />
                             <TextField id="outlined-password-input" 
+                                error = {isError}
                                 label="Password" 
                                 variant="filled" 
                                 fullWidth
@@ -97,7 +110,15 @@ const LoginLayout = () => {
                                     pb:1
                                 }}
                             />
-                            <div className="text-right">
+                            
+                            <div className="flex flex-row justify-between">
+                            {/* Error msg */}
+                                <div>
+                                    { isError 
+                                        && 
+                                        (<FormError message={'Invalid Login Details'}/>)
+                                    }
+                                </div>
                                 <button >
                                     <p className='text-right text-md font-medium hover:text-zinc-500 hover:underline text-[#1769aa]'>
                                         Forgot Password
@@ -107,7 +128,11 @@ const LoginLayout = () => {
                             
                         </div>
                         <div className="flex flex-col pt-4">
-                            <Button onClick={login} variant='contained' sx={{backgroundColor:"grey", borderRadius:100, py:1.1 }}>
+                            <Button 
+                                onClick={login} 
+                                variant='contained' 
+                                sx={{backgroundColor:"grey", borderRadius:100, py:1.1 }}
+                            >
                                 Sign In
                             </Button>
                             <Separator/>
@@ -123,8 +148,8 @@ const LoginLayout = () => {
                         </div>
                         <FormFooter title={"Don't have an account?"} buttonText={'Sign Up'} link={'/register'}/>
                     </div>
-                </div>
-            </motion.div>
+                </motion.div>
+            </div>
         </div>
     )
 }

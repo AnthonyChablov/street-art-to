@@ -8,6 +8,7 @@ import TextField  from '@mui/material/TextField';
 import Separator from '../Common/Form/FormElements/Separator';
 import FormFooter from '../Common/Form/FormElements/FormFooter';
 import StreetArtImage from "../Common/Image/StreetArtImage";
+import FormError from "../Common/Form/FormElements/FormError";
 
 const registerVariants = {
   initial:{
@@ -37,6 +38,7 @@ const RegisterLayout = () => {
         await createUserWithEmailAndPassword(auth, email, password);
     } catch(error) {    
         console.error(error);
+        setErrorMessage()
     }
   }
 
@@ -45,28 +47,34 @@ const RegisterLayout = () => {
         await signInWithPopup(auth, googleProvider)
     } catch(error) {    
         console.error(error);
+        setErrorMessage();
     }
-}
+  }
+
+  async function setErrorMessage(){
+    setIsError(true);
+    setTimeout(() => setIsError(false), 5000);
+  };
 
   return (
     <>
       <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen  
         flex flex-row-reverse items-center lg:justify-end">
             <StreetArtImage/>
-            <motion.div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
+            <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
                 lg:max-w-full lg:w-5/12 lg:rounded-none '
-              variants={registerVariants}
-              initial='initial'
-              animate='animate'
             >
-              <div className="lg:max-w-3xl mx-auto" > 
+              <motion.div className="lg:max-w-3xl mx-auto" variants={registerVariants}
+              initial='initial'
+              animate='animate'> 
                 <h1 className='font-empire text-6xl text-zinc-900 text-center mb-11'>
                     StreetArt To
                 </h1>
                 <div className='flex flex-col'>
-                    <div className=" pb-6">
+                    <div className=" pb-2">
                         <TextField id="standard-basic" 
+                            error = {isError}
                             label="Email" 
                             variant="filled" 
                             fullWidth
@@ -77,6 +85,7 @@ const RegisterLayout = () => {
                             }}
                         />
                         <TextField id="outlined-password-input" 
+                            error = {isError}
                             label="Password" 
                             variant="filled" 
                             fullWidth
@@ -85,6 +94,16 @@ const RegisterLayout = () => {
                                 pb:1
                             }}
                         />
+                    </div>
+                    {/* Error msg */}
+                    <div className={`${!isError && 'pt-6'}`}>
+                      {
+                        isError 
+                          && 
+                            <div className="text-center">
+                              <FormError message={'Invalid Register Details'}/>
+                            </div>
+                      }
                     </div>
                     <div className="flex flex-col pt-4">
                         <Button onClick={register} variant='contained' sx={{backgroundColor:"grey", borderRadius:100, py:1.1 }}>
@@ -103,8 +122,8 @@ const RegisterLayout = () => {
                     </div>
                     <FormFooter title={"Have an account?"} buttonText={'Sign In'} link={'/login'}/>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
         </div>
     </>
   )

@@ -8,6 +8,7 @@ const RouteNotFoundPage = React.lazy(() => import('./pages/RouteNotFound'));
 const GlobalErrorPage = React.lazy(() => import('./pages/GlobalError'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
+const About = React.lazy(() => import('./pages/About'));
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/register", 
         element: <Register/> ,
+      },
+      {
+        path: "/about", 
+        element: <About />,
       },
       {
         path: "*", 
