@@ -1,8 +1,9 @@
-import React from 'react'
+
+import RegisterLayout from "../components/Register/RegisterLayout"
 
 const Register = () => {
   return (
-    <div>Register</div>
+    <><RegisterLayout/></>
   )
 }
 

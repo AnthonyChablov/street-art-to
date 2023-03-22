@@ -9,4 +9,4 @@ const Separator = () => {
   )
 }
 
-export default Separator;
+export default Separator

@@ -1,7 +1,7 @@
 
 const RouteNotFoundPage = () => {
   return (
-    <div>RouteNotFoundPage</div>
+    <>RouteNotFoundPage</>
   )
 }
 

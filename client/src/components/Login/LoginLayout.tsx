@@ -1,12 +1,11 @@
 import { useState } from 'react'; // the auth variable is used for signing in user and retrieving already signed in user 
 import {auth, googleProvider, db} from '../../config/firebase';
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-import  Divider  from '@mui/material/Divider';
+import { signInWithEmailAndPassword , signInWithPopup, signOut } from 'firebase/auth';
 import Button from '@mui/material/Button';
 import GoogleIcon from '@mui/icons-material/Google';
 import TextField  from '@mui/material/TextField';
-import Separator from './LoginElements/Separator';
-
+import Separator from '../Common/Form/FormElements/Separator';
+import FormFooter from '../Common/Form/FormElements/FormFooter';
 
 const LoginLayout = () => {
 
@@ -19,7 +18,7 @@ const LoginLayout = () => {
 
     async function login(){
         try{ // whenever we are dealing with async functions need to be error handelling
-            await createUserWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth, email, password);
         } catch(error) {
             console.error(error);
         }
@@ -44,7 +43,7 @@ const LoginLayout = () => {
     return (
         <div className="bg-zinc-800 h-screen  flex items-center">
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit'>
-                <h1 className='font-empire text-5xl text-zinc-900 text-center mb-11'>
+                <h1 className='font-empire text-6xl text-zinc-900 text-center mb-11'>
                     StreetArt To
                 </h1>
                 <div className='flex flex-col'>
@@ -70,7 +69,9 @@ const LoginLayout = () => {
                         />
                         <div className="text-right">
                             <button >
-                                <p className='text-right text-md font-medium hover:text-zinc-500 hover:underline'>Forgot Password</p>
+                                <p className='text-right text-md font-medium hover:text-zinc-500 hover:underline'>
+                                    Forgot Password
+                                </p>
                             </button>
                         </div>
                         
@@ -90,17 +91,11 @@ const LoginLayout = () => {
                         </Button>
                         {/* <button onClick={logout}>Logout</button> */}
                     </div>
-                    <div className="flex flex-col justify-center items-center pt-10">
-                        <span className='pb-3 text-md capitalize'>Don't Have an account?</span>
-                        <button>
-                            <span className='text-md hover:text-zinc-500 hover:underline'>Sign Up</span>
-                        </button>
-                        
-                    </div>
+                    <FormFooter title={"Don't have an account?"} buttonText={'Sign Up'}/>
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
 export default LoginLayout
