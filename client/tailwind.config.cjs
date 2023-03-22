@@ -7,12 +7,15 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'heroImage': "url('../assets/images/graffitti-asset-1.png')",
+        'graffittiImg': "url('./public/images/graffitti-img-1.png')",
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
         'empire' : ['Empire' , 'sans-serif']
       },
+      borderRadius: {
+        extraLarge: '12rem'
+      }
     },
     container: {
       center: true,
