@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {shallow} from 'zustand/shallow';
 import useWindowSize from '../../hooks/useWindowDimensions';
 import { db } from '../../config/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collectionGroup } from 'firebase/firestore';
 import { useArtStore } from '../../store/Art/artStore';
 import Map from './Map/Map';
 import SwipeDrawer from './SwipeDrawer/SwipeDrawer';
@@ -16,8 +16,8 @@ import Navbar from './Navbar/Navbar';
 const ApplicationLayout = () => {
 
     const windowDimensions = useWindowSize();
-    const artCollectionRef = collection(db, 'art');
-    const newArtCollectionRef = collection(db, 'newArt');
+    const artCollectionRef = collectionGroup(db, 'art');
+    const newArtCollectionRef = collectionGroup(db, 'newArt');
 
     /* State */
     const { data, setData, artId } = useArtStore(
@@ -29,7 +29,7 @@ const ApplicationLayout = () => {
     );
 
     /* Fetch all art */
-    const {isLoading, isError, refetch} = useQuery( 
+    const {isFetching,isLoading, isError, isSuccess, refetch} = useQuery( 
       'art', 
       () => getArt
     ); 
@@ -44,13 +44,14 @@ const ApplicationLayout = () => {
     }
    
     useEffect(()=>{
-      console.log(artId);
-    },[artId]);
+      /* console.log(data[0]?.geometry.coordinates[0]); */
+      console.log(data);
+    },[data]);
 
     return (
       <div className='h-screen'>
         <Title/>
-        <Map/>
+        {isSuccess && <Map/>}
         {
           /* render Sidebar for mobile, Card for large screens */
           windowDimensions.width >= 850

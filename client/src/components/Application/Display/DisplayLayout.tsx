@@ -4,6 +4,9 @@ import { useArtStore } from "../../../store/Art/artStore"
 import Divider from '@mui/material/Divider';
 import SectionDisplay from "./DisplayElements/SectionDisplay";
 import { IStreetArt } from "../../../models/streetArt";
+import Button from "@mui/material/Button";
+import SingleDisplay from "./DisplayModes/SingleDisplay";
+import MultiDisplay from "./DisplayModes/MultiDisplay";
 
 const DisplayLayout = () => {
 
@@ -15,7 +18,6 @@ const DisplayLayout = () => {
       artId: state.artId,
     }), shallow
   );
-  
 
   const selectedArt : IStreetArt = data[artId]; 
   
@@ -24,14 +26,10 @@ const DisplayLayout = () => {
   },[artId]);
 
   return (
-    <div className="text-white pt-9 overflow-auto ">
-      <h1 className="text-2xl mb-5">
-        {/* selectedArt.properties.title */}
-      </h1>
-      <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
-      <SectionDisplay mode={'Image'}/>
-      <SectionDisplay mode={'General'}/>
-      <SectionDisplay mode={'Comments'}/>
+    <div className="text-white pb-40 overflow-x-auto">
+      <MultiDisplay/>
+      {/*  <SingleDisplay/> */}
+
     </div>
   )
 }

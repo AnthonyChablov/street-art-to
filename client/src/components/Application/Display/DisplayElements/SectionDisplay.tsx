@@ -15,7 +15,7 @@ interface ISectionDisplay{
 
 const minimizeVariants = {
     close:{
-        y:-19,
+        y:-5.5,
         opacity:0,
     },
     open:{
@@ -24,7 +24,7 @@ const minimizeVariants = {
         transition:{
             type: 'tween',
             ease: 'easeInOut',
-            duration: .5,
+            duration: .33,
             when: '',
         }
     },
@@ -41,16 +41,12 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
         artId: state.artId,
         }), shallow
     );
-    
-    const selectedArt : IStreetArt = data[artId]; 
 
-    useEffect(()=>{
-        console.log(selectedArt)
-    },[]);
+    const selectedArt : IStreetArt = data[artId]; 
 
     return (
         <>
-            <section className="mt-10 ">
+            <section className="mt-4 bg-zinc-800  px-9 py-5 rounded-xl">
                 {/* Header */}
                 <div className={`${ minimize ? 'mb-0' : 'mb-7'} flex justify-between items-center `}>
                     <h2 className="uppercase text-sm font-bold ">{mode}</h2>
@@ -64,7 +60,7 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                     </IconButton>
                 </div>
                 {/* Content */}
-                <motion.div className={`${minimize ? 'collapse h-0' : 'visible h-100'} overflow-hidden `} 
+                <motion.div className={`${minimize ? 'collapse h-0 pb-0' : 'visible h-100 pb-1'} overflow-hidden `} 
                     variants={minimizeVariants}
                     animate={ !minimize ? 'open' : 'close'}
                 >
@@ -87,9 +83,9 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                     }
                     { mode === 'Image' 
                         &&
-                        <>
-                        
-                        </>
+                        <div className="h-100 w-100 flex justify-center pb-8">
+                            <img src={`${selectedArt?.properties.media[0].thumbnails.large.url}`}/>
+                        </div>
                     }
                     { mode === 'Comments' 
                         &&
@@ -97,7 +93,9 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                             <SubDisplay 
                                 title={`@${'FatalSlap123'}`} 
                                 detail={
-                                    `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi et saepe quasi vitae optio officia suscipit praesentium deleniti quidem tenetur ipsa, laborum neque mollitia sunt voluptatem veniam facere! Accusamus, vero.
+                                    `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Sequi et saepe quasi vitae optio officia suscipit praesentium deleniti quidem tenetur ipsa, 
+                                    laborum neque mollitia sunt voluptatem veniam facere! Accusamus, vero.
                                     Molestiae quia numquam sint obcaecati `
                                 }
                             />

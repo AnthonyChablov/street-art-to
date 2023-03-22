@@ -42,11 +42,11 @@ const Sidebar = () => {
             open={true}
         >
             <div className="px-10 relative">
-                <DrawerHeader sx={{p:0}}>
+                {/* <DrawerHeader sx={{p:0}}>
                     <p className='text-md text-zinc-100'>
                         Display
                     </p>
-                </DrawerHeader> 
+                </DrawerHeader>  */}
                 <DisplayLayout/>
             </div>
         </Drawer>

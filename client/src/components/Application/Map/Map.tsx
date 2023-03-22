@@ -4,7 +4,6 @@ import useWindowSize from '../../../hooks/useWindowDimensions';
 import { useArtStore } from '../../../store/Art/artStore';
 import MapMarker from './MapMarker';
 import { useEffect } from 'react';
-import { IART } from '../../../api/getArt';
 import { IStreetArt } from '../../../models/streetArt';
 
 const Map = () => {
@@ -17,10 +16,6 @@ const Map = () => {
 
   const windowDimensions = useWindowSize();
   const mapWidth = windowDimensions.width >= 850 ? '68%' : '100%';
-  
-  useEffect(()=>{
-    console.log(data);
-  },[data]);
 
   return (
     <MapContainer 
@@ -36,11 +31,15 @@ const Map = () => {
         url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
       />
         <>
-          {data &&
-            data.map(( art:IStreetArt, index : number )=>{ 
-              
-              
-              {console.log(art)}
+          {
+            data?.map(( art:IStreetArt, index : number )=>{ 
+                return <MapMarker 
+                  key={index} 
+                  id={index}
+                  latitude={1??art?.geometry.coordinates[0]} 
+                  longitude={1??art?.geometry.coordinates[1]} 
+                  text={''}
+                />
             }) 
           }
         </>
@@ -54,3 +53,6 @@ const Map = () => {
 }
 
 export default Map
+
+
+

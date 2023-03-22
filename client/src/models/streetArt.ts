@@ -8,14 +8,13 @@ export interface IStreetArt{
 
 interface IGeometry{
     coordinates: number[],
-    type:String,
-   
+    type:String
 }
 
 interface IProperties{
     address: String,
     description : String,
-    media: IMedia[],
+    media: Array<IMedia>,
     medium: String,
     organizations: String,
     program: String, 
@@ -31,7 +30,7 @@ interface IMedia{
     id: String,
     size: number,
     thumbnails: IThumbnails
-
+    
 }
 
 interface IThumbnails{
