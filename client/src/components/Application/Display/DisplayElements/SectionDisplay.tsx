@@ -99,7 +99,8 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                                     Molestiae quia numquam sint obcaecati `
                                 }
                             />
-                        </> }
+                        </> 
+                    }
                 </motion.div>
             </section>
         </>

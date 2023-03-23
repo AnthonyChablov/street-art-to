@@ -10,11 +10,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const SingleDisplay = () => {
 
     /* State */
-    const { data, setData, artId } = useArtStore(
+    const { data, setData, artId, setDisplaySingleArt } = useArtStore(
         (state) => ({ 
         data : state.data, 
         setData : state.setData,
         artId: state.artId,
+        setDisplaySingleArt: state.setDisplaySingleArt
         }), shallow
     );
 
@@ -23,7 +24,9 @@ const SingleDisplay = () => {
     return (
         <div className="pt-5">
             <div className="pt-5 pb-8 text-center">
-                <Button variant="contained" onClick={()=>{}}>
+                <Button variant="contained" onClick={()=>{
+                    setDisplaySingleArt(false);
+                }}>
                     <span className="flex items-center justify-between"> 
                         <ArrowBackIcon fontSize="small"/> 
                         Back
@@ -33,7 +36,10 @@ const SingleDisplay = () => {
             <h1 className="text-2xl mb-5">
                 { selectedArt?.properties.title }
             </h1>
-            <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
+            <Divider className='bg-zinc-700' 
+                sx={{ height:'2px'}}
+            />
+            <Divider/>
             <SectionDisplay mode={'Image'}/>
             <SectionDisplay mode={'General'}/>
             <SectionDisplay mode={'Comments'}/>

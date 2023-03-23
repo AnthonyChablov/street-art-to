@@ -11,11 +11,13 @@ import MultiDisplay from "./DisplayModes/MultiDisplay";
 const DisplayLayout = () => {
 
   /* State */
-  const { data, setData, artId } = useArtStore(
+  const { data, setData, artId, displaySingleArt, setDisplaySingleArt  } = useArtStore(
     (state) => ({ 
       data : state.data, 
       setData : state.setData,
       artId: state.artId,
+      displaySingleArt: state.displaySingleArt,
+      setDisplaySingleArt : state.setDisplaySingleArt,
     }), shallow
   );
 
@@ -27,9 +29,11 @@ const DisplayLayout = () => {
 
   return (
     <div className="text-white pb-40 overflow-x-auto">
-      <MultiDisplay/>
-      {/*  <SingleDisplay/> */}
-
+      {
+        displaySingleArt 
+          ? <SingleDisplay/> 
+          : <MultiDisplay/>
+      }
     </div>
   )
 }

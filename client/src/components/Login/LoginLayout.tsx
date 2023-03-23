@@ -9,7 +9,6 @@ import Separator from '../Common/Form/FormElements/Separator';
 import FormFooter from '../Common/Form/FormElements/FormFooter';
 import StreetArtImage from "../Common/Image/StreetArtImage";
 import FormError from '../Common/Form/FormElements/FormError';
-import { AnimatePresence } from 'framer-motion';
 
 const loginVariants = {
     initial:{
@@ -27,8 +26,6 @@ const loginVariants = {
       }
     },
 }
-
-
 
 const LoginLayout = () => {
 
@@ -73,7 +70,8 @@ const LoginLayout = () => {
 
     return (
         <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen  
-        flex    items-center lg:justify-end">
+            flex items-center lg:justify-end"
+        >
             <StreetArtImage/>
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
@@ -110,7 +108,6 @@ const LoginLayout = () => {
                                     pb:1
                                 }}
                             />
-                            
                             <div className="flex flex-row justify-between">
                             {/* Error msg */}
                                 <div>
