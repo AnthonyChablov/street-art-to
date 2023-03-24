@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useArtStore } from "../../../../store/Art/artStore";
 import { shallow } from "zustand/shallow";
 import CardDisplay from "../DisplayElements/CardDisplay";
@@ -14,22 +15,28 @@ const MultiDisplay = () => {
     }), shallow
   );
 
+ 
   return (
-    <div>
+    <div className=" overflow-x-auto">
       <h1 className="text-3xl py-5">Art Display</h1>
       <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
       <div className="pt-7">
       {
         data.map((art : IStreetArt, index : number)=>{
           return (
-            <CardDisplay
-              key={index} 
-              id={index}
-              title={art?.properties.title} 
-              icon={ ''} 
-              address={art?.properties.address} 
-              year={art?.properties.year}
-            />
+            <div className=""
+              
+            >
+              <CardDisplay
+                key={index} 
+                id={index}
+                title={art?.properties.title} 
+                icon={ ''} 
+                address={art?.properties.address} 
+                year={art?.properties.year}
+              />
+            </div>
+            
           )
         })
       }

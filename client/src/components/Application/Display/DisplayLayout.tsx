@@ -28,7 +28,7 @@ const DisplayLayout = () => {
   },[artId]);
 
   return (
-    <div className="text-white pb-40 overflow-x-auto">
+    <div className="text-white pb-40">
       {
         displaySingleArt 
           ? <SingleDisplay/> 

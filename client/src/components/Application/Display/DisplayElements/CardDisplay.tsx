@@ -10,8 +10,6 @@ interface ICardDisplay{
     year:number,
 }
 
-
-
 const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   const {artId, setArtId, displaySingleArt, setDisplaySingleArt } = useArtStore(
@@ -29,10 +27,21 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
   }
 
   return (
-    <div>
+    <div
+      
+    >
         <Button 
             variant='contained' 
-            sx={{py:1.1, width:'100%', mb:'1.75em'}}
+            sx={{
+              py:1.1, 
+              width:'100%', 
+              mb:'1.75em',
+              backgroundColor:'#3f3f46',
+              '&:hover': {
+                 
+              },
+              
+            }}
             onClick={()=>{
               setDisplaySingleArt(true);
               onClickHandeller();
@@ -46,7 +55,6 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
             <p>{icon}</p>
           </div>
         </Button>
-
     </div>
   )
 }

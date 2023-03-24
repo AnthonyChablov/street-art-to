@@ -56,7 +56,6 @@ const ApplicationLayout = () => {
           /* render Sidebar for mobile, Card for large screens */
           windowDimensions.width >= 850
             ? <>
-                <Navbar/>
                 <Sidebar/>
               </>      
             : <SwipeDrawer/>

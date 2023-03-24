@@ -7,7 +7,6 @@ interface ISubDisplay{
 
 
 const SubDisplay = ({title, detail}:ISubDisplay) => {
-    
     return (
         <div className="mb-7">
             <h3 className="text-md text-gray-500 ">

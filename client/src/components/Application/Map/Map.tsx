@@ -3,11 +3,9 @@ import { shallow } from 'zustand/shallow';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 import { useArtStore } from '../../../store/Art/artStore';
 import MapMarker from './MapMarker';
-import { useEffect } from 'react';
 import { IStreetArt } from '../../../models/streetArt';
 
 const Map = () => {
-
   /* State */
   const { data } = useArtStore((state) => ({ 
       data : state.data,

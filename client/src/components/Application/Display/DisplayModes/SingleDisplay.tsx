@@ -22,7 +22,7 @@ const SingleDisplay = () => {
     const selectedArt : IStreetArt = data[artId]; 
 
     return (
-        <div className="pt-5">
+        <div className="pt-5  overflow-x-auto">
             <div className="pt-5 pb-8 text-center">
                 <Button variant="contained" onClick={()=>{
                     setDisplaySingleArt(false);
