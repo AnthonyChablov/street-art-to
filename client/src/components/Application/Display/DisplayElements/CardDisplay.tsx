@@ -23,13 +23,11 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   function onClickHandeller(){
     setDisplaySingleArt(true);
-    setArtId(id)
+    setArtId(id);
   }
 
   return (
-    <div
-      
-    >
+    <div >
         <Button 
             variant='contained' 
             sx={{
@@ -38,9 +36,8 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
               mb:'1.75em',
               backgroundColor:'#3f3f46',
               '&:hover': {
-                 
+                
               },
-              
             }}
             onClick={()=>{
               setDisplaySingleArt(true);

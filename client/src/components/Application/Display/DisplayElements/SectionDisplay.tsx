@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react";
+import { useState } from "react";
 import  IconButton  from "@mui/material/IconButton";
 import {motion} from 'framer-motion';
 import { shallow } from "zustand/shallow";
@@ -6,7 +6,6 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import SubDisplay from "./SubDisplay";
 import { useArtStore } from "../../../../store/Art/artStore";
-import { IART } from "../../../../api/getArt";
 import { IStreetArt } from "../../../../models/streetArt";
 
 interface ISectionDisplay{

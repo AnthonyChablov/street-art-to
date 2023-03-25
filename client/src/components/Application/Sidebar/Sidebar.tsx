@@ -15,7 +15,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Sidebar = () => {
 
-    const drawerWidth ='32%';
+    const drawerWidth ='33.34%';
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 

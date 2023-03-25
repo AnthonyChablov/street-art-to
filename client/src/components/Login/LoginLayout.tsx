@@ -69,8 +69,9 @@ const LoginLayout = () => {
     };
 
     return (
-        <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen  
-            flex items-center lg:justify-end"
+    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-full">
+        <div className="  
+            flex items-center lg:justify-end h-full"
         >
             <StreetArtImage/>
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
@@ -148,6 +149,7 @@ const LoginLayout = () => {
                 </motion.div>
             </div>
         </div>
+    </div>
     )
 }
 

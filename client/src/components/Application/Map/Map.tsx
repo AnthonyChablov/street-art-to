@@ -11,9 +11,9 @@ const Map = () => {
       data : state.data,
     }), shallow
   );
-
+  
   const windowDimensions = useWindowSize();
-  const mapWidth = windowDimensions.width >= 850 ? '68%' : '100%';
+  const mapWidth = windowDimensions.width >= 850 ? '66.66%' : '100%';
 
   return (
     <MapContainer 

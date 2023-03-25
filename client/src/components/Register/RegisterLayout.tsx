@@ -57,9 +57,9 @@ const RegisterLayout = () => {
   };
 
   return (
-    <>
-      <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen  
-        flex flex-row-reverse items-center lg:justify-end">
+    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-full ">
+      <div className=" 
+        flex flex-row-reverse items-center  lg:justify-end h-full">
             <StreetArtImage/>
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
@@ -125,7 +125,7 @@ const RegisterLayout = () => {
               </motion.div>
             </div>
         </div>
-    </>
+    </div>
   )
 }
 

@@ -4,6 +4,7 @@ import { shallow } from "zustand/shallow";
 import CardDisplay from "../DisplayElements/CardDisplay";
 import { IStreetArt } from "../../../../models/streetArt";
 import Divider from "@mui/material/Divider";
+import Menu from "../../Menu/Menu";
 
 const MultiDisplay = () => {
 
@@ -17,21 +18,21 @@ const MultiDisplay = () => {
 
  
   return (
-    <div className=" overflow-x-auto">
-      <h1 className="text-3xl py-5">Art Display</h1>
+    <div className=" overflow-x-auto absolute top-50 right-65 ">
+      {/* <h1 className="text-3xl py-5">Art Display</h1> */}
+      <Menu/>
       <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
-      <div className="pt-7">
+      <div className="pt-7 ">
       {
         data.map((art : IStreetArt, index : number)=>{
           return (
             <div className=""
-              
             >
               <CardDisplay
                 key={index} 
                 id={index}
                 title={art?.properties.title} 
-                icon={ ''} 
+                icon={''} 
                 address={art?.properties.address} 
                 year={art?.properties.year}
               />
