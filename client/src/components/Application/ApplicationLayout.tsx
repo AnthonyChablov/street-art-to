@@ -29,7 +29,7 @@ const ApplicationLayout = () => {
     );
 
     /* Fetch all art */
-    const {isFetching,isLoading, isError, isSuccess, refetch} = useQuery( 
+    const {isFetching, isLoading, isError, isSuccess, refetch} = useQuery( 
       'art', 
       () => getArt
     ); 
@@ -43,15 +43,10 @@ const ApplicationLayout = () => {
       setData(filteredData);
     }
    
-    useEffect(()=>{
-      /* console.log(data[0]?.geometry.coordinates[0]); */
-      console.log(data);
-    },[data]);
-
     return (
       <div className='h-screen'>
         <Title/>
-        {isSuccess && <Map/>}
+        {!isLoading && isSuccess && <Map/>}
         {
           /* render Sidebar for mobile, Card for large screens */
           windowDimensions.width >= 850

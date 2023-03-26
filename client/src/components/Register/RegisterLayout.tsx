@@ -59,8 +59,8 @@ const RegisterLayout = () => {
   return (
     <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-full ">
       <div className=" 
-        flex flex-row-reverse items-center  lg:justify-end h-full">
-            <StreetArtImage/>
+        flex flex-row-reverse items-center lg:justify-end h-full">
+            <StreetArtImage mode={3}/>
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
                 lg:max-w-full lg:w-5/12 lg:rounded-none '
@@ -95,12 +95,12 @@ const RegisterLayout = () => {
                             }}
                         />
                     </div>
-                    {/* Error msg */}
+                  {/* Error msg */}
                     <div className={`${!isError && 'pt-6'}`}>
                       {
                         isError 
                           && 
-                            <div className="text-center">
+                            <div className="text-left">
                               <FormError message={'Invalid Register Details'}/>
                             </div>
                       }

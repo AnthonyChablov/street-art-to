@@ -73,7 +73,7 @@ const LoginLayout = () => {
         <div className="  
             flex items-center lg:justify-end h-full"
         >
-            <StreetArtImage/>
+            <StreetArtImage mode={1}/>
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
                 lg:max-w-full lg:w-5/12 lg:rounded-none '
@@ -125,7 +125,7 @@ const LoginLayout = () => {
                             </div>
                             
                         </div>
-                        <div className="flex flex-col pt-4">
+                        <div className="flex flex-col pt-2">
                             <Button 
                                 onClick={login} 
                                 variant='contained' 

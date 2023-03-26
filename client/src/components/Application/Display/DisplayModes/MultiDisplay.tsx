@@ -8,36 +8,54 @@ import Menu from "../../Menu/Menu";
 
 const MultiDisplay = () => {
 
-  const { data, setData, artId } = useArtStore(
+  /* State */
+  const { 
+    data, 
+    setData, 
+    artId, 
+    artSearchQuery,
+    wardSearchQuery, 
+    programSearchQuery  
+  } = useArtStore(
     (state) => ({ 
       data : state.data, 
+      programSearchQuery: state.programSearchQuery,
+      artSearchQuery: state.artSearchQuery,
+      wardSearchQuery: state.wardSearchQuery,
       setData : state.setData,
       artId: state.artId,
     }), shallow
   );
 
- 
+
   return (
-    <div className=" overflow-x-auto absolute top-50 right-65 ">
-      {/* <h1 className="text-3xl py-5">Art Display</h1> */}
+   
+    <div className=" overflow-x-auto ">
       <Menu/>
       <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
-      <div className="pt-7 ">
+      <div className=" pt-64">
+    {/* Filter and mapping out Card Display */}
       {
-        data.map((art : IStreetArt, index : number)=>{
+        data
+          .filter((art : IStreetArt) => {
+            return (
+              art?.properties.title.includes(artSearchQuery) 
+                && 
+              art?.properties.ward.includes(wardSearchQuery)
+                &&
+              art?.properties.program.includes(programSearchQuery)
+            )
+          })
+          .map((art : IStreetArt, index : number)=>{
           return (
-            <div className=""
-            >
-              <CardDisplay
-                key={index} 
-                id={index}
-                title={art?.properties.title} 
-                icon={''} 
-                address={art?.properties.address} 
-                year={art?.properties.year}
-              />
-            </div>
-            
+            <CardDisplay
+              key={index} 
+              id={index}
+              title={art?.properties.title} 
+              icon={''} 
+              address={art?.properties.address} 
+              year={art?.properties.year}
+            />
           )
         })
       }

@@ -6,9 +6,18 @@ import MapMarker from './MapMarker';
 import { IStreetArt } from '../../../models/streetArt';
 
 const Map = () => {
+
   /* State */
-  const { data } = useArtStore((state) => ({ 
-      data : state.data,
+  const { 
+    data,
+    artSearchQuery,
+    wardSearchQuery, 
+    programSearchQuery   
+  } = useArtStore((state) => ({ 
+      data : state.data, 
+      programSearchQuery: state.programSearchQuery,
+      artSearchQuery: state.artSearchQuery,
+      wardSearchQuery: state.wardSearchQuery
     }), shallow
   );
   
@@ -29,19 +38,30 @@ const Map = () => {
         url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
       />
         <>
+        {/* Filter and mapping out Map Markers */}
           {
-            data.map(( art:IStreetArt, index : number )=>{  
-              return (
-                <MapMarker 
-                  key={index} 
-                  id={index}
-                  latitude={art.geometry.coordinates[1]} 
-                  longitude={art.geometry.coordinates[0]} 
-                  title={art.properties.title}
-                  text={art.properties.description}
-                />
-              )
-            })  
+            data
+              .filter((art : IStreetArt) => {
+                return (
+                  art?.properties.title.includes(artSearchQuery) 
+                    && 
+                  art?.properties.ward.includes(wardSearchQuery)
+                    &&
+                  art?.properties.program.includes(programSearchQuery)
+                )
+              })
+              .map(( art:IStreetArt, index : number )=>{  
+                return (
+                  <MapMarker 
+                    key={index} 
+                    id={index}
+                    latitude={art.geometry.coordinates[1]} 
+                    longitude={art.geometry.coordinates[0]} 
+                    title={art.properties.title}
+                    text={art.properties.description}
+                  />
+                )
+              })  
           }
         </>
       <ZoomControl 

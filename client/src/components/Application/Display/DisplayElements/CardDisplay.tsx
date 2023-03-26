@@ -3,11 +3,11 @@ import { useArtStore } from "../../../../store/Art/artStore";
 import Button  from "@mui/material/Button";
 
 interface ICardDisplay{
-    id: number,
-    title:String,
-    icon:String,
-    address: String,
-    year:number,
+  id: number,
+  title:String,
+  icon:String,
+  address: String,
+  year:number,
 }
 
 const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
