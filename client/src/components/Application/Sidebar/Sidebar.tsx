@@ -1,17 +1,8 @@
 import {useState} from 'react'
 import { Drawer  } from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
+import {  useTheme } from '@mui/material/styles';
 import DisplayLayout from '../Display/DisplayLayout';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-start',
-}));
 
 const Sidebar = () => {
 
@@ -41,7 +32,7 @@ const Sidebar = () => {
             anchor="right"
             open={true}
         >
-            <div className="px-10 relative">
+            <div className="px-10 relative ">
                 {/* <DrawerHeader sx={{p:0}}>
                     <p className='text-md text-zinc-100'>
                         Display

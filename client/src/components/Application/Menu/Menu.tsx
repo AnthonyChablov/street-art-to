@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { debounce } from "lodash";
 import { TextField} from "@mui/material";
-import { motion } from "framer-motion";
 import { shallow } from "zustand/shallow";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useArtStore } from "../../../store/Art/artStore";
@@ -11,23 +10,6 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
-
-const menuVariants = {
-  initial:{
-      y:-40,
-      opacity:0,
-  },
-  animate:{
-      y:0,
-      opacity:1,
-      transition:{
-          type: 'tween',
-          ease: 'easeInOut',
-          duration: .25,
-          when: '',
-      }
-  },
-}
 
 const Menu = () => {
 
@@ -70,16 +52,11 @@ const Menu = () => {
     ()=> debounce(artistChangeHandeller, debounceTime)
   , [])
 
-
   return (
-    <motion.div className="bg-zinc-500 rounded-b-2xl h-56 fixed top-0 right-0 
-      w-4/12 z-50 p-5 px-10 shadow-xl pt-4"
-      variants={menuVariants}
-      initial='initial'
-      animate='animate'
-    >
+    <div className="bg-gradient-to-r from-slate-600 via-zinc-600 
+    to-zinc-800 opacity-80 rounded-lg p-5 space-y-5 ">
       {/* Search Artists */}
-      <div className="mb-4 shadow-lg">
+      <div className=" shadow-lg">
         <Paper
           component="form"
           sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'100%' }}
@@ -119,8 +96,9 @@ const Menu = () => {
         /> */}
       </div>
       {/* Filter Program */}
-      <div className="mt-3">
+      <div className="mt-3 shadow-lg">
         <TextField
+          className="bg-zinc-100 rounded-md flex text-zinc-800 "
           id="outlined-select-currency-native"
           select
           label="Filter By Program"
@@ -130,6 +108,11 @@ const Menu = () => {
           fullWidth
           onChange={programChangeHandeller}
           value={programSearchQuery}
+          InputProps={{
+            style: {
+                color: "gray",
+            }
+          }}
         >
           <option>
             {''}
@@ -144,8 +127,9 @@ const Menu = () => {
         </TextField>
       </div>
       {/* Filter Region */}
-      <div className="mt-3">
+      <div className="mt-3 shadow-lg">
         <TextField
+          className="bg-zinc-100 rounded-md"
           id="outlined-select-currency-native"
           select
           label="Filter By Ward"
@@ -155,6 +139,11 @@ const Menu = () => {
           fullWidth
           onChange={wardChangeHandeller}
           value={wardSearchQuery}
+          InputProps={{
+            style: {
+                color: "gray",
+            }
+          }}
         >
           <option>
             {''}
@@ -168,7 +157,7 @@ const Menu = () => {
           }
         </TextField>
       </div>
-    </motion.div>
+    </div>
   )
 
 }

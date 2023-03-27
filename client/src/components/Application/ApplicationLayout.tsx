@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query';
-import { useEffect } from 'react';
 import {shallow} from 'zustand/shallow';
 import useWindowSize from '../../hooks/useWindowDimensions';
 import { db } from '../../config/firebase';
@@ -8,7 +7,7 @@ import { useArtStore } from '../../store/Art/artStore';
 import Map from './Map/Map';
 import SwipeDrawer from './SwipeDrawer/SwipeDrawer';
 import Sidebar from './Sidebar/Sidebar';
-import Title from './Title/Title';
+import SideDrawer from './SideDrawer/SideDrawer';
 import Navbar from './Navbar/Navbar';
 
  /* TODO implement red light, yellow light, and green light for components */
@@ -45,13 +44,13 @@ const ApplicationLayout = () => {
    
     return (
       <div className='h-screen'>
-        <Title/>
         {!isLoading && isSuccess && <Map/>}
         {
           /* render Sidebar for mobile, Card for large screens */
           windowDimensions.width >= 850
             ? <>
                 <Sidebar/>
+                <SideDrawer userName='Anthony'/>
               </>      
             : <SwipeDrawer/>
         }

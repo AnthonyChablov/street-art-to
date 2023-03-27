@@ -48,7 +48,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
         <div className=" pt-2 pb-2 absolute top-0 right-0 z-20 w-full flex 
           text-lg items-start justify-between pl-5 flex-row-reverse font-bold text-zinc-300"
         >
-          <div className="pr-3 ">
+          <div className="pr-3 flex">
             <IconButton onClick={()=>onClickLikeHandeller()}>
               { 
                 !liked 
@@ -64,7 +64,9 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
               }
             </IconButton>
           </div>
-          <p className={` w-60 flex-initial ${minimize ? 'truncate' : ''} `}>{title}</p>
+          <div className="hover:cursor-pointer w-full" onClick={ () => onClickOpenHandeller() }>
+            <span className={` w-60 flex-initial ${minimize ? 'truncate' : ''} `}>{title}</span>
+          </div>
         </div>
         <Button 
             variant='contained' 

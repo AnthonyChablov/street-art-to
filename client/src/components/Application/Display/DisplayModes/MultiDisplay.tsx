@@ -1,10 +1,14 @@
-import { useEffect } from "react";
 import { useArtStore } from "../../../../store/Art/artStore";
 import { shallow } from "zustand/shallow";
 import CardDisplay from "../DisplayElements/CardDisplay";
 import { IStreetArt } from "../../../../models/streetArt";
 import Divider from "@mui/material/Divider";
 import Menu from "../../Menu/Menu";
+import Title from "../../Title/Title";
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
+import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 
 const MultiDisplay = () => {
 
@@ -27,41 +31,67 @@ const MultiDisplay = () => {
     }), shallow
   );
 
+  const { toggleSideDrawer, setToggleSideDrawer } = useDrawerStore(
+    (state) => ({ 
+      toggleSideDrawer : state.toggleSideDrawer, 
+      setToggleSideDrawer : state.setToggleSideDrawer
+    }), shallow
+  );
+
 
   return (
-   
-    <div className=" overflow-x-auto ">
+    <div className=" overflow-y-auto flex-grow">
+      <div className=" pt-5 pb-4 flex justify-between ">
+        <IconButton>
+          <CloseIcon htmlColor="white"/>
+        </IconButton>
+        <Button 
+          onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}
+          variant="contained" 
+          size="small"
+          sx={{ backgroundColor: '' }}
+        >
+          My Account
+        </Button>
+      </div>
+      <div className="text-center pt-8 pb-10">
+        <Title title={'Street Art TO'}/>
+        <p className="text-xl pt-6 text-zinc-300">Welcome, Anthony.</p>
+      </div>
       <Menu/>
-      <Divider className='bg-zinc-700' sx={{ height:'2px'}}/><Divider/>
-      <div className=" pt-64">
-    {/* Filter and mapping out Card Display */}
-      {
-        data
-          .filter((art : IStreetArt) => {
-            return (
-              art?.properties.title.includes(artSearchQuery) 
-                && 
-              art?.properties.ward.includes(wardSearchQuery)
-                &&
-              art?.properties.program.includes(programSearchQuery)
-            )
+      <Divider className='bg-zinc-700' 
+        sx={{ height:'2px' , mt:7 , mb:2}}
+      />
+      <Divider/>
+      <div className=" pt-10 ">
+      {/* Filter and mapping out Card Display */}
+        {
+          data
+            .filter((art : IStreetArt) => {
+              return (
+                art?.properties.title.includes(artSearchQuery) 
+                  && 
+                art?.properties.ward.includes(wardSearchQuery)
+                  &&
+                art?.properties.program.includes(programSearchQuery)
+              )
+            })
+            .map((art : IStreetArt, index : number)=>{
+              if (!art) {
+                return ''
+              } 
+              return (
+                <CardDisplay
+                  key={index} 
+                  id={index}
+                  title={art?.properties.title} 
+                  icon={art?.properties.media[0].thumbnails.large.url} 
+                  address={art?.properties.address} 
+                  year={art?.properties.year}
+                />
+              )
           })
-          .map((art : IStreetArt, index : number)=>{
-            if (!art) {
-              return ''
-            } 
-            return (
-              <CardDisplay
-                key={index} 
-                id={index}
-                title={art?.properties.title} 
-                icon={art?.properties.media[0].thumbnails.large.url} 
-                address={art?.properties.address} 
-                year={art?.properties.year}
-              />
-            )
-        })
-      }
+        }
       </div>
     </div>
   )
