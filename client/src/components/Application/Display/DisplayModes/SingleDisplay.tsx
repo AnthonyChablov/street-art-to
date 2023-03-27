@@ -1,5 +1,4 @@
 import { shallow } from "zustand/shallow";
-import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Divider from '@mui/material/Divider';
 import { useArtStore } from "../../../../store/Art/artStore";
