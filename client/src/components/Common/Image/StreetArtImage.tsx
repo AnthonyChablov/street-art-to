@@ -25,7 +25,7 @@ interface IStreetArtImage{
 
 const StreetArtImage = ({mode}:IStreetArtImage) => {
   return (
-    <div className=" max-h-screen flex justify-center lg:w-7/12">
+    <div className=" max-h-screen object-scale-down flex justify-center lg:w-7/12 ">
       <motion.img className="hidden md:w-full lg:block lg:w-9/12 3xl:w-10/12 
           rounded-extraLarge, rounded-tr-extraLarge, rounded-tl-extraLarge, 
           rounded-br-extraLarge, rounded-bl-extraLarge rounded-tr-extraLarge" 

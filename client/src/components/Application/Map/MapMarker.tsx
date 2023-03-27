@@ -2,9 +2,9 @@ import {Marker, Popup} from 'react-leaflet';
 import ReactDOMServer from 'react-dom/server';
 import PlaceIcon from '@mui/icons-material/Place';
 import Leaflet from 'leaflet';
-import { useMapEvent } from 'react-leaflet';
 import { useRef } from 'react';
 import { useArtStore } from '../../../store/Art/artStore';
+import SetViewOnClick from './SetViewOnClick';
 
 interface MapMarker {
     key: number,
@@ -15,14 +15,7 @@ interface MapMarker {
     text: String
 }
 
-function SetViewOnClick({ animateRef }:any) {
-    const map = useMapEvent('click', (e) => {
-        map.setView(e.latlng, map.getZoom(), {
-            animate: animateRef.current || false,
-        })
-    });
-    return null;
-}
+
 
 const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
 
@@ -30,7 +23,6 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     const setArtId = useArtStore(state => state.setArtId); 
     const setDisplaySingleArt = useArtStore(state => state.setDisplaySingleArt);
     const setMapCenter = useArtStore(state => state.setMapCenter); 
-
     const animateRef = useRef(true); // animate map center onClick of Marker
     const iconHTML = ReactDOMServer.renderToString(<PlaceIcon sx={{ fontSize: 400 }}/>);
     const customMarkerIcon = new Leaflet.DivIcon({html: iconHTML});
@@ -38,9 +30,9 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     function setArtOnClick(){
         setArtId(id);
         setDisplaySingleArt(true);
-        setMapCenter([latitude, longitude])
+        
     }
-
+    
     return (
         <Marker 
             position={ [latitude, longitude] }
@@ -49,6 +41,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
                 click: () => {
                     console.log(`marker ${id} clicked`);
                     setArtOnClick();
+                    setMapCenter([latitude, longitude])
                 },
             }}
         >

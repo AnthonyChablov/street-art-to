@@ -35,7 +35,7 @@ export const useArtStore = create<State & Action>((set)=>({
     artSearchQuery : '',
     programSearchQuery:'',
     wardSearchQuery:'',
-    mapCenter : [],
+    mapCenter : [43.651070, -79.347015],
     setData: ( newData : [] ) => set({ data : newData }),
     setArtId: ( newArtId : number ) => set({ artId : newArtId }),
     setDisplaySingleArt: ( newDisplaySingleArt : boolean ) => set({ displaySingleArt : newDisplaySingleArt }) ,

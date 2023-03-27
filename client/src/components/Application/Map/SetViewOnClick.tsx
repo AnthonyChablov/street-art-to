@@ -1,12 +1,15 @@
-import { useMap } from "react-leaflet";
+import { useMapEvent } from "react-leaflet";
 
 interface ISetViewOnClick{
-    coordinates : any
+    animateRef : React.MutableRefObject<boolean>
 }
 
-const SetViewOnClick = ({ coordinates }:ISetViewOnClick) => {
-    const map = useMap();
-    map.setView(coordinates, map.getZoom());
+function SetViewOnClick({ animateRef }:ISetViewOnClick) {
+    const map = useMapEvent('click', (e) => {
+        map.setView(e.latlng, map.getZoom(), {
+            animate: animateRef.current || false,
+        })
+    });
     return null;
 }
 

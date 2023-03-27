@@ -9,6 +9,7 @@ import Separator from '../Common/Form/FormElements/Separator';
 import FormFooter from '../Common/Form/FormElements/FormFooter';
 import StreetArtImage from "../Common/Image/StreetArtImage";
 import FormError from "../Common/Form/FormElements/FormError";
+import useWindowSize from '../../hooks/useWindowDimensions';
 
 const registerVariants = {
   initial:{
@@ -56,14 +57,19 @@ const RegisterLayout = () => {
     setTimeout(() => setIsError(false), 5000);
   };
 
+  const windowHeight = useWindowSize().height;
+
   return (
-    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen ">
-      <div className=" 
-        flex flex-row-reverse items-center lg:justify-end h-full">
+      <div className={`bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 min-h-screen max-h-fit
+        ${windowHeight> 650 && 'max-h-full'} `}
+      >
+        <div className=" 
+          flex flex-row-reverse items-center lg:justify-end h-full"
+        >
             <StreetArtImage mode={3}/>
             <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
-                lg:max-w-full lg:w-5/12 lg:rounded-none '
+                lg:max-w-full lg:w-5/12 lg:rounded-none'
             >
               <motion.div className="lg:max-w-3xl mx-auto" 
                 variants={registerVariants}
@@ -127,7 +133,7 @@ const RegisterLayout = () => {
               </motion.div>
             </div>
         </div>
-    </div>
+      </div>
   )
 }
 

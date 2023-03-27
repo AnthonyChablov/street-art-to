@@ -3,6 +3,7 @@ import { shallow } from 'zustand/shallow';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 import { useArtStore } from '../../../store/Art/artStore';
 import MapMarker from './MapMarker';
+import SetViewOnClick from './SetViewOnClick';
 import { IStreetArt } from '../../../models/streetArt';
 
 const Map = () => {
@@ -31,7 +32,10 @@ const Map = () => {
       center={[43.651070, -79.347015]} 
       zoom={13} 
       scrollWheelZoom={true}  
-      style={{ height: "100vh", width: `${mapWidth}` }} 
+      style={{ 
+        height: "100vh", 
+        width: `${mapWidth}` 
+      }} 
       zoomControl={false}
     >
       <TileLayer
@@ -66,6 +70,7 @@ const Map = () => {
               })  
           }
         </>
+        
       <ZoomControl 
         position={`${windowDimensions.width <= 850 ? 'topright' : 'bottomright'}`} 
         zoomInText='+' 
