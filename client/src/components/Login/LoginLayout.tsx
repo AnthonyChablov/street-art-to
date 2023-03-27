@@ -9,7 +9,6 @@ import Separator from '../Common/Form/FormElements/Separator';
 import FormFooter from '../Common/Form/FormElements/FormFooter';
 import StreetArtImage from "../Common/Image/StreetArtImage";
 import FormError from '../Common/Form/FormElements/FormError';
-import useIsOverflow from '../../hooks/useIsOverflow';
 import useWindowSize from '../../hooks/useWindowDimensions';
 
 const loginVariants = {
@@ -35,7 +34,6 @@ const LoginLayout = () => {
     const [password, setPassword] = useState("");
     const [isError, setIsError]  = useState(false);
     
-
     /* console.log(auth?.currentUser?.email); */
     /* console.log(auth?.currentUser?.photoURL); */  // can also getch google profile photo or fb whatever login provider etc
 

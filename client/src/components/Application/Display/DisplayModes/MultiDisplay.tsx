@@ -47,16 +47,19 @@ const MultiDisplay = () => {
             )
           })
           .map((art : IStreetArt, index : number)=>{
-          return (
-            <CardDisplay
-              key={index} 
-              id={index}
-              title={art?.properties.title} 
-              icon={''} 
-              address={art?.properties.address} 
-              year={art?.properties.year}
-            />
-          )
+            if (!art) {
+              return ''
+            } 
+            return (
+              <CardDisplay
+                key={index} 
+                id={index}
+                title={art?.properties.title} 
+                icon={art?.properties.media[0].thumbnails.large.url} 
+                address={art?.properties.address} 
+                year={art?.properties.year}
+              />
+            )
         })
       }
       </div>

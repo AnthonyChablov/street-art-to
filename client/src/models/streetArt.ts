@@ -36,7 +36,7 @@ interface IMedia{
 interface IThumbnails{
     large:{
         height: number,
-        url: String,
+        url: string,
         width: number
     }
 }
