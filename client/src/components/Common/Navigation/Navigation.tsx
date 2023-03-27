@@ -3,7 +3,7 @@ import NavigationLink from "./NavigationLink"
 
 const Navigation = () => {
   return (
-    <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-zinc-800 top-0 z-50 absolute w-screen">
+    <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-zinc-800 top-0 z-50 fixed w-screen">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
             <NavLink to={'/'}>
                 <span className="self-center whitespace-nowrap dark:text-white font-empire text-4xl">

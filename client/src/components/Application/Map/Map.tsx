@@ -12,12 +12,14 @@ const Map = () => {
     data,
     artSearchQuery,
     wardSearchQuery, 
-    programSearchQuery   
+    programSearchQuery ,
+    mapCenter  
   } = useArtStore((state) => ({ 
       data : state.data, 
       programSearchQuery: state.programSearchQuery,
       artSearchQuery: state.artSearchQuery,
-      wardSearchQuery: state.wardSearchQuery
+      wardSearchQuery: state.wardSearchQuery,
+      mapCenter: state.mapCenter
     }), shallow
   );
   

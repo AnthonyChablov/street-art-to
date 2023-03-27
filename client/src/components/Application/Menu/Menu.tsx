@@ -14,7 +14,7 @@ import InputBase from "@mui/material/InputBase";
 
 const menuVariants = {
   initial:{
-      y:-30,
+      y:-40,
       opacity:0,
   },
   animate:{
@@ -23,7 +23,7 @@ const menuVariants = {
       transition:{
           type: 'tween',
           ease: 'easeInOut',
-          duration: .33,
+          duration: .25,
           when: '',
       }
   },
@@ -51,9 +51,8 @@ const Menu = () => {
   );
  
   const uniqueProgramCategories = [...new Set(data.map((art:IStreetArt ) => art.properties.program))];
-  const uniqueWardCategories = [...new Set(data.map((art:IStreetArt ) => art.properties.ward))];
-
-  let debounceTime = 300;
+  const uniqueWardCategories = [...new Set(data.map((art:IStreetArt ) => art.properties.ward).sort((a, b)=>(+a)-(+b)))];
+  const debounceTime = 300;
   
   function artistChangeHandeller(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
     setArtSearchQuery(e.target.value);
@@ -73,7 +72,6 @@ const Menu = () => {
 
 
   return (
-    
     <motion.div className="bg-zinc-500 rounded-b-2xl h-56 fixed top-0 right-0 
       w-4/12 z-50 p-5 px-10 shadow-xl pt-4"
       variants={menuVariants}

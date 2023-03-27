@@ -69,7 +69,7 @@ const LoginLayout = () => {
     };
 
     return (
-    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-full">
+    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen">
         <div className="  
             flex items-center lg:justify-end h-full"
         >

@@ -25,9 +25,12 @@ function SetViewOnClick({ animateRef }:any) {
 }
 
 const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
-  
-    const setArtId = useArtStore(state => state.setArtId); // state
+
+    /*  State  */
+    const setArtId = useArtStore(state => state.setArtId); 
     const setDisplaySingleArt = useArtStore(state => state.setDisplaySingleArt);
+    const setMapCenter = useArtStore(state => state.setMapCenter); 
+
     const animateRef = useRef(true); // animate map center onClick of Marker
     const iconHTML = ReactDOMServer.renderToString(<PlaceIcon sx={{ fontSize: 400 }}/>);
     const customMarkerIcon = new Leaflet.DivIcon({html: iconHTML});
@@ -35,6 +38,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     function setArtOnClick(){
         setArtId(id);
         setDisplaySingleArt(true);
+        setMapCenter([latitude, longitude])
     }
 
     return (

@@ -9,6 +9,9 @@ type State = {
     artSearchQuery : string,
     programSearchQuery: string,
     wardSearchQuery: string,
+
+    /* Map Marker State */
+    mapCenter : Array<number> 
 }
 
 type Action = {
@@ -20,6 +23,9 @@ type Action = {
     setArtSearchQuery: Function,
     setProgramSearchQuery: Function,
     setWardSearchQuery: Function,
+
+    /* Map Marker State */
+    setMapCenter: Function
 }
 
 export const useArtStore = create<State & Action>((set)=>({
@@ -29,10 +35,12 @@ export const useArtStore = create<State & Action>((set)=>({
     artSearchQuery : '',
     programSearchQuery:'',
     wardSearchQuery:'',
+    mapCenter : [],
     setData: ( newData : [] ) => set({ data : newData }),
     setArtId: ( newArtId : number ) => set({ artId : newArtId }),
     setDisplaySingleArt: ( newDisplaySingleArt : boolean ) => set({ displaySingleArt : newDisplaySingleArt }) ,
     setArtSearchQuery : ( newArtSearchQuery : string ) => set({ artSearchQuery : newArtSearchQuery }) , 
     setProgramSearchQuery: ( newProgramSearchQuery : string ) => set({ programSearchQuery : newProgramSearchQuery }) ,
     setWardSearchQuery : ( newWardSearchQuery : string ) => set({ wardSearchQuery : newWardSearchQuery }) ,
+    setMapCenter : ( newMapCenter : Array<number> ) => set({ mapCenter : newMapCenter }) ,
 }));

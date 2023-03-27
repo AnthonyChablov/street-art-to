@@ -57,7 +57,7 @@ const RegisterLayout = () => {
   };
 
   return (
-    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-full ">
+    <div className="bg-zinc-800  bg-gradient-to-r from-zinc-800 to-zinc-900 h-screen ">
       <div className=" 
         flex flex-row-reverse items-center lg:justify-end h-full">
             <StreetArtImage mode={3}/>
@@ -65,9 +65,11 @@ const RegisterLayout = () => {
                 lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
                 lg:max-w-full lg:w-5/12 lg:rounded-none '
             >
-              <motion.div className="lg:max-w-3xl mx-auto" variants={registerVariants}
-              initial='initial'
-              animate='animate'> 
+              <motion.div className="lg:max-w-3xl mx-auto" 
+                variants={registerVariants}
+                initial='initial'
+                animate='animate'
+              > 
                 <h1 className='font-empire text-6xl text-zinc-900 text-center mb-11'>
                     StreetArt To
                 </h1>
