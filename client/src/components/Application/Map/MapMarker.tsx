@@ -1,10 +1,13 @@
 import {Marker, Popup} from 'react-leaflet'; 
+import { shallow } from 'zustand/shallow';
 import ReactDOMServer from 'react-dom/server';
 import PlaceIcon from '@mui/icons-material/Place';
 import Leaflet from 'leaflet';
 import { useRef } from 'react';
 import { useArtStore } from '../../../store/Art/artStore';
+import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 import SetViewOnClick from './SetViewOnClick';
+
 
 interface MapMarker {
     key: number,
@@ -15,14 +18,20 @@ interface MapMarker {
     text: String
 }
 
-
-
 const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
 
     /*  State  */
     const setArtId = useArtStore(state => state.setArtId); 
     const setDisplaySingleArt = useArtStore(state => state.setDisplaySingleArt);
     const setMapCenter = useArtStore(state => state.setMapCenter); 
+
+    const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
+        (state) => ({ 
+            toggleArtDrawer : state.toggleArtDrawer, 
+            setToggleArtDrawer : state.setToggleArtDrawer
+        }), shallow
+    );
+
     const animateRef = useRef(true); // animate map center onClick of Marker
     const iconHTML = ReactDOMServer.renderToString(<PlaceIcon sx={{ fontSize: 400 }}/>);
     const customMarkerIcon = new Leaflet.DivIcon({html: iconHTML});
@@ -30,7 +39,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     function setArtOnClick(){
         setArtId(id);
         setDisplaySingleArt(true);
-        
+        setToggleArtDrawer(!toggleArtDrawer)
     }
     
     return (

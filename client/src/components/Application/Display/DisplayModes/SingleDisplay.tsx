@@ -2,6 +2,7 @@ import { shallow } from "zustand/shallow";
 import Button from "@mui/material/Button";
 import Divider from '@mui/material/Divider';
 import { useArtStore } from "../../../../store/Art/artStore";
+import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import SectionDisplay from "../DisplayElements/SectionDisplay";
 import { IStreetArt } from "../../../../models/streetArt";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -18,13 +19,20 @@ const SingleDisplay = () => {
         }), shallow
     );
 
+    const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
+        (state) => ({ 
+            toggleArtDrawer : state.toggleArtDrawer, 
+            setToggleArtDrawer : state.setToggleArtDrawer
+        }), shallow
+    );
+
     const selectedArt : IStreetArt = data[artId]; 
 
     return (
-        <div className="pt-5  overflow-x-auto">
+        <div className="pt-5 ">
             <div className="pt-5 pb-8 text-center">
                 <Button variant="contained" onClick={()=>{
-                    setDisplaySingleArt(false);
+                    setToggleArtDrawer(!toggleArtDrawer);
                 }}>
                     <span className="flex items-center justify-between"> 
                         <ArrowBackIcon fontSize="small"/> 

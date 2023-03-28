@@ -2,7 +2,6 @@ import { shallow } from "zustand/shallow";
 import { useEffect } from "react";
 import { useArtStore } from "../../../store/Art/artStore"
 import { IStreetArt } from "../../../models/streetArt";
-import SingleDisplay from "./DisplayModes/SingleDisplay";
 import MultiDisplay from "./DisplayModes/MultiDisplay";
 
 
@@ -28,9 +27,7 @@ const DisplayLayout = () => {
   return (
     <div className="text-white pb-40">
       {
-        displaySingleArt 
-          ? <SingleDisplay/> 
-          : <MultiDisplay/>
+        <MultiDisplay/>
       }
     </div>
   )

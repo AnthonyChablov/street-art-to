@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 
+
 const Menu = () => {
 
   const { 
@@ -73,27 +74,6 @@ const Menu = () => {
             <SearchIcon />
           </IconButton>
         </Paper>
-        {/* <TextField
-          id="search-bar"
-          className="text"
-          fullWidth
-          onChange={debouncedArtistChangeHandler}
-          value={artSearchQuery}
-          label="Search Artist ..."
-          variant="outlined"
-          placeholder="Search..."
-          size="small"
-          InputProps={{
-            endAdornment:(
-              <InputAdornment position="end">
-                <IconButton type="submit" aria-label="search">
-                  <SearchIcon style={{  }} />
-                </IconButton>
-              </InputAdornment>
-            )
-          }}
-          sx={{}}
-        /> */}
       </div>
       {/* Filter Program */}
       <div className="mt-3 shadow-lg">

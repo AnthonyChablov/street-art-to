@@ -2,6 +2,7 @@ import { useState } from "react";
 import { shallow } from "zustand/shallow";
 import Button  from "@mui/material/Button";
 import { useArtStore } from "../../../../store/Art/artStore";
+import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import  IconButton  from "@mui/material/IconButton";
@@ -29,8 +30,16 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
     }), shallow
   );
 
+  const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
+    (state) => ({ 
+        toggleArtDrawer : state.toggleArtDrawer, 
+        setToggleArtDrawer : state.setToggleArtDrawer
+    }), shallow
+);
+
   function onClickDisplayHandeller(){
     setDisplaySingleArt(true);
+    setToggleArtDrawer(!toggleArtDrawer)
     setArtId(id);
   }
 
@@ -41,6 +50,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   function onClickOpenHandeller(){
     setMinimize(!minimize);
+    
   }
 
   return (

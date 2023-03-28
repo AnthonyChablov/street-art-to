@@ -8,6 +8,7 @@ import Map from './Map/Map';
 import SwipeDrawer from './SwipeDrawer/SwipeDrawer';
 import Sidebar from './Sidebar/Sidebar';
 import SideDrawer from './SideDrawer/SideDrawer';
+import SideDrawerArt from './SideDrawer/SideDrawerArt';
 import Navbar from './Navbar/Navbar';
 
  /* TODO implement red light, yellow light, and green light for components */
@@ -51,6 +52,7 @@ const ApplicationLayout = () => {
             ? <>
                 <Sidebar/>
                 <SideDrawer userName='Anthony'/>
+                <SideDrawerArt/>
               </>      
             : <SwipeDrawer/>
         }

@@ -1,5 +1,5 @@
 interface ITitle{
-  title: string,
+  title: string
 }
 
 const Title = ({title} : ITitle) => {
