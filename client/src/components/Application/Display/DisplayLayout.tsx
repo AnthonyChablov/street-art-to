@@ -18,11 +18,6 @@ const DisplayLayout = () => {
     }), shallow
   );
 
-  const selectedArt : IStreetArt = data[artId]; 
-  
-  useEffect(()=>{
-    console.log(selectedArt)
-  },[artId]);
 
   return (
     <div className="text-white pb-40">

@@ -11,7 +11,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 
-
 const Menu = () => {
 
   const { 
@@ -33,11 +32,16 @@ const Menu = () => {
     }), shallow
   );
  
-  const uniqueProgramCategories = [...new Set(data.map((art:IStreetArt ) => art.properties.program))];
-  const uniqueWardCategories = [...new Set(data.map((art:IStreetArt ) => art.properties.ward).sort((a, b)=>(+a)-(+b)))];
-  const debounceTime = 300;
+  const uniqueProgramCategories = [
+    ...new Set(data.map((art:IStreetArt ) => art.properties.program))
+  ];
+  const uniqueWardCategories = [
+    ...new Set(data.map((art:IStreetArt ) => art.properties.ward).sort((a, b)=>(+a)-(+b)))
+  ];
+  const debounceTime = 250;
   
   function artistChangeHandeller(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
+    e.preventDefault();
     setArtSearchQuery(e.target.value);
   }
 
@@ -51,11 +55,12 @@ const Menu = () => {
 
   const debouncedArtistChangeHandler = useMemo(
     ()=> debounce(artistChangeHandeller, debounceTime)
-  , [])
+  , []);
 
   return (
     <div className="bg-gradient-to-r from-slate-600 via-zinc-600 
-    to-zinc-800 opacity-80 rounded-lg p-5 space-y-5 ">
+    to-zinc-800 opacity-80 rounded-lg p-5 space-y-5 "
+    >
       {/* Search Artists */}
       <div className=" shadow-lg">
         <Paper
@@ -69,8 +74,14 @@ const Menu = () => {
             sx={{ ml: 1, flex: 1 }}
             placeholder="Search Artists"
             inputProps={{ 'aria-label': 'search google maps' }}
+            type="search" 
+            onChange={ debouncedArtistChangeHandler }
           />
-          <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+          <IconButton 
+            sx={{ p: '10px' }} 
+            aria-label="search"
+            
+          >
             <SearchIcon />
           </IconButton>
         </Paper>

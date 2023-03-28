@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
+import { useState } from 'react';
 import { shallow } from 'zustand/shallow';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 import { useArtStore } from '../../../store/Art/artStore';
@@ -49,18 +50,18 @@ const Map = () => {
             data
               .filter((art : IStreetArt) => {
                 return (
-                  art?.properties.title.includes(artSearchQuery) 
+                  art?.properties.title.includes(artSearchQuery)  /* artist name filter */
                     && 
-                  art?.properties.ward.includes(wardSearchQuery)
+                  art?.properties.ward.includes(wardSearchQuery) /* ward filter */
                     &&
-                  art?.properties.program.includes(programSearchQuery)
+                  art?.properties.program.includes(programSearchQuery) /* program filter */
                 )
               })
               .map(( art:IStreetArt, index : number )=>{  
                 return (
                   <MapMarker 
                     key={index} 
-                    id={index}
+                    id={art.id}
                     latitude={art.geometry.coordinates[1]} 
                     longitude={art.geometry.coordinates[0]} 
                     title={art.properties.title}

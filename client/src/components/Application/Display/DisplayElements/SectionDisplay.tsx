@@ -41,7 +41,7 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
         }), shallow
     );
 
-    const selectedArt : IStreetArt = data[artId]; 
+    const selectedArt : IStreetArt = data.find((elem: IStreetArt) => elem.id === artId); 
 
     return (
         <>

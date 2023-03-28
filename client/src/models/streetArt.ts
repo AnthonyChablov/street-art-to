@@ -1,6 +1,6 @@
 export interface IStreetArt{
     geometry: IGeometry
-    id: number,
+    id: string,
     properties : IProperties,
     socials: ISocials,
     type: String

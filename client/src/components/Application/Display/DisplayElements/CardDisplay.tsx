@@ -10,7 +10,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 interface ICardDisplay{
-  id: number,
+  id: string,
   title:String,
   icon:string,
   address: String,
@@ -39,7 +39,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   function onClickDisplayHandeller(){
     setDisplaySingleArt(true);
-    setToggleArtDrawer(!toggleArtDrawer)
+    setToggleArtDrawer(!toggleArtDrawer);
     setArtId(id);
   }
 
@@ -74,8 +74,10 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
               }
             </IconButton>
           </div>
-          <div className="hover:cursor-pointer w-full" onClick={ () => onClickOpenHandeller() }>
-            <span className={` w-60 flex-initial ${minimize ? 'truncate' : ''} `}>{title}</span>
+          <div className="hover:cursor-pointer w-full inline-block" 
+            onClick={ () => onClickOpenHandeller() }
+          >
+            <span className={` w-60 flex-initial block ${minimize && 'truncate' } text-white`}>{title}</span>
           </div>
         </div>
         <Button 
@@ -88,7 +90,6 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
               },
             }}
             onClick={()=>{
-              setDisplaySingleArt(true);
               onClickDisplayHandeller();
             }}
         > 

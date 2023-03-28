@@ -11,7 +11,7 @@ import SetViewOnClick from './SetViewOnClick';
 
 interface MapMarker {
     key: number,
-    id: number,
+    id: string | number,
     latitude: number,
     longitude: number,
     title:String,
@@ -36,10 +36,18 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     const iconHTML = ReactDOMServer.renderToString(<PlaceIcon sx={{ fontSize: 400 }}/>);
     const customMarkerIcon = new Leaflet.DivIcon({html: iconHTML});
 
-    function setArtOnClick(){
+    function onClickHandeller(){
+
+        setMapCenter([latitude, longitude])
         setArtId(id);
-        setDisplaySingleArt(true);
-        setToggleArtDrawer(!toggleArtDrawer)
+        console.log(`marker ${id} clicked`);
+
+        if (toggleArtDrawer){
+            setDisplaySingleArt(true);
+        } else {
+            setToggleArtDrawer(!toggleArtDrawer)
+        }
+        
     }
     
     return (
@@ -48,9 +56,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
             icon= { customMarkerIcon }
             eventHandlers={{
                 click: () => {
-                    console.log(`marker ${id} clicked`);
-                    setArtOnClick();
-                    setMapCenter([latitude, longitude])
+                    onClickHandeller();
                 },
             }}
         >

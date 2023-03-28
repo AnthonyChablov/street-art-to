@@ -83,7 +83,7 @@ const MultiDisplay = () => {
               return (
                 <CardDisplay
                   key={index} 
-                  id={index}
+                  id={art?.id}
                   title={art?.properties.title} 
                   icon={art?.properties.media[0].thumbnails.large.url} 
                   address={art?.properties.address} 

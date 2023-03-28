@@ -6,6 +6,7 @@ import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import SectionDisplay from "../DisplayElements/SectionDisplay";
 import { IStreetArt } from "../../../../models/streetArt";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import {useEffect} from 'react'
 
 const SingleDisplay = () => {
 
@@ -26,7 +27,11 @@ const SingleDisplay = () => {
         }), shallow
     );
 
-    const selectedArt : IStreetArt = data[artId]; 
+    const selectedArt = data.find((elem: IStreetArt) => elem.id === artId); 
+
+    useEffect(()=>{
+        console.log(selectedArt);
+    },[selectedArt]);
 
     return (
         <div className="pt-5 ">

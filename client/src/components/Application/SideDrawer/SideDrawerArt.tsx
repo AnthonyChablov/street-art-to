@@ -15,32 +15,42 @@ const SideDrawerArt = () => {
         }), shallow
     );
 
+    function onClickHandeller(){
+        setToggleArtDrawer(!toggleArtDrawer);
+    }
+
     const drawerWidth ='33.34%';
 
     return (
-    <div className=''>
-          <Drawer
-            sx={{
-                width: drawerWidth,
-                flexShrink: 0,
-                '& .MuiDrawer-paper': {
+        <div className=''>
+            <Drawer
+                sx={{
                     width: drawerWidth,
-                    backgroundColor:'#191919',
-                },
-            }}
-            variant="persistent"
-            anchor="right"
-            open={toggleArtDrawer}
-        >
-            <div className="px-10 relative pt-5 pb-4  flex flex-row items-center justify-between ">
-                <IconButton onClick={()=>{setToggleArtDrawer(!toggleArtDrawer)}}>
-                  <CloseIcon htmlColor='white'/>
-                </IconButton>
+                    flexShrink: 0,
+                    '& .MuiDrawer-paper': {
+                        width: drawerWidth,
+                        backgroundColor:'#191919',
+                    },
+                }}
+                variant="persistent"
+                anchor="right"
+                open={toggleArtDrawer}
+            >
+                <div className="px-10 relative text-neutral-100 pb-20">
+                    <div className=" pt-5 pb-4  flex flex-row items-center justify-between ">
+                        <IconButton 
+                            onClick={()=>{
+                                onClickHandeller()
+                            }}
+                        >
+                            <CloseIcon htmlColor='white'/>
+                        </IconButton>
+                    </div>
+                    <SingleDisplay/>
+                </div>
                 
-            </div>
-            <SingleDisplay/>
-        </Drawer>
-    </div>
+            </Drawer>
+        </div>
   )
 }
 
