@@ -33,8 +33,6 @@ const StreetArtImage = ({mode}:IStreetArtImage) => {
 
   const [src, {blur} ] = useProgressiveImg(lowResImage, image);
 
-  
-
   return (
     <div className=" max-h-screen object-scale-down flex justify-center lg:w-7/12 ">
       <motion.img className={`hidden md:w-full lg:block lg:w-9/12 3xl:w-10/12 

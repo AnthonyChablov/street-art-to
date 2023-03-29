@@ -11,7 +11,6 @@ import FormFooter from '../Common/Form/FormElements/FormFooter';
 import StreetArtImage from "../Common/Image/StreetArtImage";
 import FormError from '../Common/Form/FormElements/FormError';
 import useWindowSize from '../../hooks/useWindowDimensions';
-import useProgressiveImg from '../../hooks/useProgressiveImg';
 
 const loginVariants = {
     initial:{
@@ -56,7 +55,7 @@ const LoginLayout = () => {
             await signInWithPopup(auth, googleProvider);
             navigate('/app');
         } catch(error) {    
-            console.error(error);
+            console.error(error); 
             setErrorMessage()
         }
     }

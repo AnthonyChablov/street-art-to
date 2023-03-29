@@ -12,6 +12,9 @@ type State = {
 
     /* Map Marker State */
     mapCenter : Array<number> 
+
+    /* Loading State */
+    loading: boolean
 }
 
 type Action = {
@@ -25,7 +28,10 @@ type Action = {
     setWardSearchQuery: Function,
 
     /* Map Marker State */
-    setMapCenter: Function
+    setMapCenter: Function,
+
+    /* Loading State */
+    setLoading: Function
 }
 
 export const useArtStore = create<State & Action>((set)=>({
@@ -36,6 +42,7 @@ export const useArtStore = create<State & Action>((set)=>({
     programSearchQuery:'',
     wardSearchQuery:'',
     mapCenter : [43.651070, -79.347015],
+    loading : false, 
     setData: ( newData : [] ) => set({ data : newData }),
     setArtId: ( newArtId :  string ) => set({ artId : newArtId }),
     setDisplaySingleArt: ( newDisplaySingleArt : boolean ) => set({ displaySingleArt : newDisplaySingleArt }) ,
@@ -43,4 +50,5 @@ export const useArtStore = create<State & Action>((set)=>({
     setProgramSearchQuery: ( newProgramSearchQuery : string ) => set({ programSearchQuery : newProgramSearchQuery }) ,
     setWardSearchQuery : ( newWardSearchQuery : string ) => set({ wardSearchQuery : newWardSearchQuery }) ,
     setMapCenter : ( newMapCenter : Array<number> ) => set({ mapCenter : newMapCenter }) ,
+    setLoading: ( newLoading : boolean ) => set({ loading : newLoading }) 
 }));

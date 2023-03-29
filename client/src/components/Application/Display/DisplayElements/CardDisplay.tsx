@@ -8,6 +8,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import  IconButton  from "@mui/material/IconButton";
 import RemoveIcon from '@mui/icons-material/Remove';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import useProgressiveImg from "../../../../hooks/useProgressiveImg";
+import lowResImg from './../../../../assets/images/lowRes/graffitti-img-1-low.png';
 
 interface ICardDisplay{
   id: string,
@@ -21,6 +23,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   const [liked, setLiked] = useState(false);
   const [minimize, setMinimize] = useState(true);
+  
   const {artId, setArtId, displaySingleArt, setDisplaySingleArt } = useArtStore(
     (state) => ({ 
       artId : state.artId, 
@@ -35,7 +38,9 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
         toggleArtDrawer : state.toggleArtDrawer, 
         setToggleArtDrawer : state.setToggleArtDrawer
     }), shallow
-);
+  );
+
+  const [src, {blur} ] = useProgressiveImg(lowResImg, icon);
 
   function onClickDisplayHandeller(){
     setDisplaySingleArt(true);
@@ -96,7 +101,15 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex items-center justify-between w-full ">
               <div className="h-52 w-full overflow-hidden my-20 absolute left-0 bg-zinc-500 ">
-                <img src={icon} alt="grafitti-thumbnail" />
+
+                <img className={`${blur ? 'blur-lg' : 'blur-none'}`}
+                  src={`${src} `} 
+                  alt="grafitti-thumbnail" 
+                  style={{
+                    transition: blur ? "none" : "filter .5s ease-out"
+                  }}
+                />
+                
                 <div className="absolute top-0 right-0 bottom-0 
                   left-0 z-0 h-full w-full overflow-hidden 
                   bg-gradient-to-r from-slate-800 via-zinc-800 

@@ -3,7 +3,6 @@ import { Drawer  } from '@mui/material';
 import {  useTheme } from '@mui/material/styles';
 import DisplayLayout from '../Display/DisplayLayout';
 
-
 const Sidebar = () => {
 
     const drawerWidth ='33.34%';
@@ -29,7 +28,7 @@ const Sidebar = () => {
                 },
             }}
             variant="persistent"
-            anchor="right"
+            anchor="left"
             open={true}
         >
             <div className="px-10 relative ">

@@ -5,7 +5,6 @@ interface ISubDisplay{
     detail: String | number
 }
 
-
 const SubDisplay = ({title, detail}:ISubDisplay) => {
     return (
         <div className="mb-7">

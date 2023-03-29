@@ -26,11 +26,11 @@ const Map = () => {
   );
   
   const windowDimensions = useWindowSize();
-  const mapWidth = windowDimensions.width >= 850 ? '66.66%' : '100%';
+  const mapWidth =  '100%';
 
   return (
     <MapContainer 
-      center={[43.651070, -79.347015]} 
+      center={[43.65306, -79.40125 ]} 
       zoom={13} 
       scrollWheelZoom={true}  
       style={{ 

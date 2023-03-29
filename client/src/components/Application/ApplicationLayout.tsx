@@ -24,7 +24,7 @@ const ApplicationLayout = () => {
     const newArtCollectionRef = collectionGroup(db, 'newArt');
 
     /* State */
-    const { data, setData, artId, artSearchQuery, wardSearchQuery, programSearchQuery } = useArtStore(
+    const { data, setData, artId, artSearchQuery, wardSearchQuery, programSearchQuery, setLoading } = useArtStore(
       (state) => ({ 
         data : state.data, 
         setData : state.setData,
@@ -32,6 +32,7 @@ const ApplicationLayout = () => {
         wardSearchQuery: state.wardSearchQuery,
         artSearchQuery: state.artSearchQuery,
         programSearchQuery:state.programSearchQuery,
+        setLoading: state.setLoading
       }), shallow
     );
 
@@ -54,15 +55,16 @@ const ApplicationLayout = () => {
     useEffect(()=>{
       console.log(data);
       console.log(auth.currentUser);
+      setLoading(isLoading)
     },[])
 
     if(isError){
       return (<Error/>)
     }
-    if(isLoading){
+    else if(isLoading){
       return (<Loading/>)
     }
-    if(isSuccess)
+    else
       return (
         <>
           <div className='h-screen'>

@@ -44,19 +44,20 @@ const SideDrawer = ({userName} : ISideDrawer) => {
               },
           }}
           variant="persistent"
-          anchor="right"
+          anchor="left"
           open={toggleSideDrawer}
         >
           <div className="px-10 relative h-screen flex flex-col justify-between">
             <div className=" ">
-              <div className=" pt-5 pb-4 overflow-y-auto  flex flex-row-reverse items-center justify-between ">
-                  <IconButton onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}>
-                    <CloseIcon htmlColor='white'/>
-                  </IconButton>
-                  <div className="text-white text-2xl">
-                    <p>Account Settings</p>
-                  </div>
+              <div className=" pt-5 pb-4 overflow-y-auto flex flex-row-reverse items-center justify-between ">
+                <IconButton onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}>
+                  <CloseIcon htmlColor='white'/>
+                </IconButton>
+                <div className=" text-zinc-100 text-3xl text-center ">
+                  <p>Account Settings</p>
+                </div>
               </div>
+              
               <Button 
                 fullWidth
                 variant='contained' 

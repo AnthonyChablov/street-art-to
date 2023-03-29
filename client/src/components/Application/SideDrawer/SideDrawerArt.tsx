@@ -2,7 +2,7 @@ import Drawer from '@mui/material/Drawer';
 import { shallow } from 'zustand/shallow';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+
 import UserDisplayCard from './UserDisplay/UserDisplayCard';
 import SingleDisplay from '../Display/DisplayModes/SingleDisplay';
 
@@ -34,19 +34,10 @@ const SideDrawerArt = () => {
                     },
                 }}
                 variant="persistent"
-                anchor="right"
+                anchor="left"
                 open={toggleArtDrawer}
             >
                 <div className="px-10 relative text-neutral-100 pb-20">
-                    <div className=" pt-5 pb-4  flex flex-row items-center justify-between ">
-                        <IconButton 
-                            onClick={()=>{
-                                onClickHandeller()
-                            }}
-                        >
-                            <CloseIcon htmlColor='white'/>
-                        </IconButton>
-                    </div>
                     <SingleDisplay/>
                 </div>
                 
