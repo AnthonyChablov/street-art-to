@@ -10,7 +10,8 @@ import SwipeDrawer from './SwipeDrawer/SwipeDrawer';
 import Sidebar from './Sidebar/Sidebar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import SideDrawerArt from './SideDrawer/SideDrawerArt';
-import { IStreetArt } from '../../models/streetArt';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 import Navbar from './Navbar/Navbar';
 import { auth } from '../../config/firebase';
 
@@ -55,21 +56,31 @@ const ApplicationLayout = () => {
       console.log(auth.currentUser);
     },[])
 
-    return (
-      <div className='h-screen'>
-        {!isLoading && isSuccess && <Map/>}
-        {
-          /* render Sidebar for mobile, Card for large screens */
-          windowDimensions.width >= 850
-            ? <>
-                <Sidebar/>
-                <SideDrawer userName='Anthony'/>
-                <SideDrawerArt/>
-              </>      
-            : <SwipeDrawer/>
-        }
-      </div>
-    )
+    if(isError){
+      return (<Error/>)
+    }
+    if(isLoading){
+      return (<Loading/>)
+    }
+    if(isSuccess)
+      return (
+        <>
+          <div className='h-screen'>
+            <Map/>
+            {
+              /* render Sidebar for mobile, Card for large screens */
+              windowDimensions.width >= 850
+                ? <>
+                    <Sidebar/>
+                    <SideDrawer userName='Anthony'/>
+                    <SideDrawerArt/>
+                  </>      
+                : <SwipeDrawer/>
+            }
+          </div>
+        </>
+      )
+    
 }
 
 export default ApplicationLayout
