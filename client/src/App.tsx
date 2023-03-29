@@ -2,6 +2,7 @@ import React, {lazy} from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Loading from './components/Loading/Loading';
 
+
 const HomePage = lazy(()=> import('./pages/Home'));
 const AppPage = lazy(()=> import ('./pages/App'));
 const RouteNotFoundPage = React.lazy(() => import('./pages/RouteNotFound'));

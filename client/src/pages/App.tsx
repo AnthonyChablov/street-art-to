@@ -1,7 +1,12 @@
-import React from 'react'
-import ApplicationLayout from '../components/Application/ApplicationLayout'
+import { auth } from '../config/firebase'
+import ApplicationLayout from '../components/Application/ApplicationLayout';
+import { useNavigate } from 'react-router-dom';
+
 
 const AppPage = () => {
+
+
+
   return (
     <>
       <ApplicationLayout/>

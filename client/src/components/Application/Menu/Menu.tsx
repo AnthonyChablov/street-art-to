@@ -4,6 +4,7 @@ import { TextField} from "@mui/material";
 import { shallow } from "zustand/shallow";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useArtStore } from "../../../store/Art/artStore";
+import { useDrawerStore } from "../../../store/Drawer/drawerStore";
 import { IStreetArt } from "../../../models/streetArt";
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from "@mui/material/IconButton";
@@ -31,6 +32,13 @@ const Menu = () => {
       setProgramSearchQuery : state.setProgramSearchQuery,
     }), shallow
   );
+
+  const { 
+    setToggleArtDrawer
+} = useDrawerStore((state) => ({ 
+    setToggleArtDrawer : state.setToggleArtDrawer,
+  }), shallow
+);
  
   const uniqueProgramCategories = [
     ...new Set(data.map((art:IStreetArt ) => art.properties.program))
@@ -67,7 +75,7 @@ const Menu = () => {
           component="form"
           sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'100%' }}
         >
-          <IconButton sx={{ p: '10px' }} aria-label="menu">
+          <IconButton sx={{ p: '10px' }} aria-label="menu" onClick={()=>setToggleArtDrawer(true)}>
             <MenuIcon />
           </IconButton>
           <InputBase

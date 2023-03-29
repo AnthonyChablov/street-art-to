@@ -2,7 +2,7 @@ import create from 'zustand';
 
 type State = {
     data: [],
-    artId : number | string,
+    artId : string,
     displaySingleArt: boolean, 
 
     /* Search Query State */
@@ -30,14 +30,14 @@ type Action = {
 
 export const useArtStore = create<State & Action>((set)=>({
     data:[],
-    artId : 0,
+    artId : '0loTunpZy2jRt3u5cnqk',
     displaySingleArt : false,
     artSearchQuery : '',
     programSearchQuery:'',
     wardSearchQuery:'',
     mapCenter : [43.651070, -79.347015],
     setData: ( newData : [] ) => set({ data : newData }),
-    setArtId: ( newArtId : number | string ) => set({ artId : newArtId }),
+    setArtId: ( newArtId :  string ) => set({ artId : newArtId }),
     setDisplaySingleArt: ( newDisplaySingleArt : boolean ) => set({ displaySingleArt : newDisplaySingleArt }) ,
     setArtSearchQuery : ( newArtSearchQuery : string ) => set({ artSearchQuery : newArtSearchQuery }) , 
     setProgramSearchQuery: ( newProgramSearchQuery : string ) => set({ programSearchQuery : newProgramSearchQuery }) ,

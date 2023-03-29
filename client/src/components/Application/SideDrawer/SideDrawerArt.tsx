@@ -6,6 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import UserDisplayCard from './UserDisplay/UserDisplayCard';
 import SingleDisplay from '../Display/DisplayModes/SingleDisplay';
 
+
 const SideDrawerArt = () => {
 
     const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(

@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'; // the auth variable is used for signing in user and retrieving already signed in user 
+import { useNavigate } from "react-router-dom";
 import {auth, googleProvider, db} from '../../config/firebase';
 import { signInWithEmailAndPassword , signInWithPopup, signOut } from 'firebase/auth';
 import { motion } from 'framer-motion';
@@ -33,6 +34,8 @@ const LoginLayout = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isError, setIsError]  = useState(false);
+
+    const navigate = useNavigate();
     
     /* console.log(auth?.currentUser?.email); */
     /* console.log(auth?.currentUser?.photoURL); */  // can also getch google profile photo or fb whatever login provider etc
@@ -40,6 +43,7 @@ const LoginLayout = () => {
     async function login(){
         try{ // whenever we are dealing with async functions need to be error handelling
             await signInWithEmailAndPassword(auth, email, password);
+            navigate('/app');
         } catch(error) {
             console.error(error);
             setErrorMessage()
@@ -48,7 +52,8 @@ const LoginLayout = () => {
 
     async function loginWithGoogle(){
         try {
-            await signInWithPopup(auth, googleProvider)
+            await signInWithPopup(auth, googleProvider);
+            navigate('/app');
         } catch(error) {    
             console.error(error);
             setErrorMessage()

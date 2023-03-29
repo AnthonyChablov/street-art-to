@@ -1,19 +1,21 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { auth } from '../../../../config/firebase';
 
 interface IUserDisplayCard {
-    userName: string,
-    email: string, 
-
+    userName: string | null | undefined,
+    email: string | null | undefined, 
 }
 
 const UserDisplayCard = ({userName, email} : IUserDisplayCard) => {
   return (
-    <div className='bg-gradient-to-r from-slate-600 via-zinc-600 
-        to-zinc-800 opacity-80 flex justify-between w-4/6 mx-auto rounded-md '
-    >
-        <AccountCircleIcon htmlColor='white' fontSize='large'/>
-        <p className=' text-zinc-100 text-2xl '>{userName}</p>
-        <p className=' text-zinc-100 text-2xl '>{email}</p>
+    <div className='mb-6 flex justify-between items-center rounded-md text-lg text-zinc-100 '>
+      {
+        auth?.currentUser?.photoURL 
+          ? <img className='rounded-full max-w-full h-10' src={auth?.currentUser?.photoURL} alt="" /> 
+          : <AccountCircleIcon fontSize='large' />
+      }
+      <p className=''>{userName}</p>
+      <p className=''>{email}</p>
     </div>
   )
 }

@@ -12,6 +12,7 @@ import SideDrawer from './SideDrawer/SideDrawer';
 import SideDrawerArt from './SideDrawer/SideDrawerArt';
 import { IStreetArt } from '../../models/streetArt';
 import Navbar from './Navbar/Navbar';
+import { auth } from '../../config/firebase';
 
  /* TODO implement red light, yellow light, and green light for components */
 
@@ -51,6 +52,7 @@ const ApplicationLayout = () => {
    
     useEffect(()=>{
       console.log(data);
+      console.log(auth.currentUser);
     },[])
 
     return (
