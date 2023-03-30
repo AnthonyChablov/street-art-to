@@ -37,7 +37,7 @@ const SideDrawerArt = () => {
                 anchor="left"
                 open={toggleArtDrawer}
             >
-                <div className="px-10 relative text-neutral-100 pb-20">
+                <div className="px-10 relative text-neutral-100 pb-20 ">
                     <SingleDisplay/>
                 </div>
                 

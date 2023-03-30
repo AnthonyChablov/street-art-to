@@ -47,7 +47,7 @@ const SideDrawer = ({userName} : ISideDrawer) => {
           anchor="left"
           open={toggleSideDrawer}
         >
-          <div className="px-10 relative h-screen flex flex-col justify-between">
+          <div className="px-10 relative h-screen flex flex-col justify-between ">
             <div className=" ">
               <div className=" pt-5 pb-4 overflow-y-auto flex flex-row-reverse items-center justify-between ">
                 <IconButton onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}>

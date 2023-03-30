@@ -23,7 +23,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   const [liked, setLiked] = useState(false);
   const [minimize, setMinimize] = useState(true);
-  
+
   const {artId, setArtId, displaySingleArt, setDisplaySingleArt } = useArtStore(
     (state) => ({ 
       artId : state.artId, 
@@ -59,11 +59,12 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
   }
 
   return (
-    <div className=" rounded-md  mb-8 relative overflow-hidden shadow-lg">
-        <div className=" pt-2 pb-2 absolute top-0 right-0 z-20 w-full flex 
+    <div className=" rounded-md  mb-10  relative overflow-hidden shadow-lg">
+      {/* button header */}
+        <div className=" pt-2 pb-2 absolute top-0 right-0 z-10 w-full flex 
           text-lg items-start justify-between pl-5 flex-row-reverse font-bold text-zinc-300"
         >
-          <div className="pr-3 flex">
+          <div className="pr-3 flex ">
             <IconButton onClick={()=>onClickLikeHandeller()}>
               { 
                 !liked 
@@ -82,7 +83,9 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           <div className="hover:cursor-pointer w-full inline-block" 
             onClick={ () => onClickOpenHandeller() }
           >
-            <span className={` w-60 flex-initial block ${minimize && 'truncate' } text-white`}>{title}</span>
+            <span className={` w-60 flex-initial block pt-1 ${minimize && 'truncate ' } text-white`}>
+              {title}
+            </span>
           </div>
         </div>
         <Button 
@@ -100,8 +103,11 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
         > 
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex items-center justify-between w-full ">
+              <div className={`text-white absolute z-20 ${!minimize ? 'top-4' : 'top-4' } right-28 font-bold w-11 hover:underline`}>
+                View
+              </div>
               <div className="h-52 w-full overflow-hidden my-20 absolute left-0 bg-zinc-500 ">
-
+                
                 <img className={`${blur ? 'blur-lg' : 'blur-none'}`}
                   src={`${src} `} 
                   alt="grafitti-thumbnail" 
@@ -109,7 +115,6 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
                     transition: blur ? "none" : "filter .5s ease-out"
                   }}
                 />
-                
                 <div className="absolute top-0 right-0 bottom-0 
                   left-0 z-0 h-full w-full overflow-hidden 
                   bg-gradient-to-r from-slate-800 via-zinc-800 
