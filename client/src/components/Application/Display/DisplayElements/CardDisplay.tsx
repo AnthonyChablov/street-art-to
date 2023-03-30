@@ -59,7 +59,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
   }
 
   return (
-    <div className=" rounded-md  mb-10  relative overflow-hidden shadow-lg">
+    <div className=" rounded-md  mb-5  relative overflow-hidden shadow-lg">
       {/* button header */}
         <div className=" pt-2 pb-2 absolute top-0 right-0 z-10 w-full flex 
           text-lg items-start justify-between pl-5 flex-row-reverse font-bold text-zinc-300"
@@ -118,7 +118,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
                 <div className="absolute top-0 right-0 bottom-0 
                   left-0 z-0 h-full w-full overflow-hidden 
                   bg-gradient-to-r from-slate-800 via-zinc-800 
-                  to-zinc-900 opacity-70"
+                  to-zinc-900 opacity-80 brightness-60"
                 >  
                 </div>
               </div>

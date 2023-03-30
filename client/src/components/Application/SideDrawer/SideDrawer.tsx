@@ -8,7 +8,7 @@ import UserDisplayCard from './UserDisplay/UserDisplayCard';
 import { logOutUser } from '../../../api/User/logoutUser';
 import { Button } from '@mui/material';
 import { auth } from '../../../config/firebase';
-import { redirect } from 'react-router-dom';
+import Divider from '@mui/material/Divider';
 
 interface ISideDrawer{
   userName : string,
@@ -54,10 +54,14 @@ const SideDrawer = ({userName} : ISideDrawer) => {
                   <CloseIcon htmlColor='white'/>
                 </IconButton>
                 <div className=" text-zinc-100 text-3xl text-center ">
-                  <p>Account Settings</p>
+                  <p>My Account</p>
                 </div>
               </div>
-              
+              <div className="mb-5">
+                <Divider className='bg-zinc-700' 
+                  sx={{ height:'2px'}}
+                />
+              </div>
               <Button 
                 fullWidth
                 variant='contained' 

@@ -27,7 +27,7 @@ const SingleDisplay = () => {
         }), shallow
     );
 
-    const selectedArt = data.find((elem: IStreetArt) => elem.id === artId); 
+    const selectedArt:any = data.find((elem: IStreetArt) => elem.id === artId); 
 
     useEffect(()=>{
         console.log(selectedArt);
@@ -51,7 +51,7 @@ const SingleDisplay = () => {
             <Divider className='bg-zinc-700' 
                 sx={{ height:'2px'}}
             />
-            <Divider/>
+            
             <SectionDisplay mode={'Image'}/>
             <SectionDisplay mode={'General'}/>
             <SectionDisplay mode={'Comments'}/>

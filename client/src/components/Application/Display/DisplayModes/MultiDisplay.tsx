@@ -42,7 +42,7 @@ const MultiDisplay = () => {
   );
 
   return (
-    <div className={`overflow-y-auto flex-grow`}>
+    <div className={`overflow-y-auto flex-grow `}>
       <div className=" pt-5 pb-4 flex justify-between ">
         <IconButton>
           <CloseIcon htmlColor="white"/>
@@ -65,12 +65,13 @@ const MultiDisplay = () => {
         sx={{ height:'2px' , mt:7 , mb:2}}
       />
       <Divider/>
-      <div className=" pt-10">
+      <div className=" pt-10 ">
       {/* Filter and mapping out Card Display */}
         {
           
           data
               .filter((art : IStreetArt) => {
+
                 return (
                   art?.properties.title.includes(artSearchQuery) 
                     && 
@@ -79,9 +80,10 @@ const MultiDisplay = () => {
                   art?.properties.program.includes(programSearchQuery)
                 )
               })
-              .map((art : IStreetArt, index : number)=>{
-                if (!art) {
-                  return ''
+              .map((art : IStreetArt, index : number, arr)=>{
+                
+                if (!art ) {
+                  return (<p className="text-white">Nothing to display</p>)
                 } 
                 return (
                   <CardDisplay
