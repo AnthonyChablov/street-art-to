@@ -83,8 +83,8 @@ const LoginLayout = () => {
             ${windowHeight> 650 && 'max-h-full'} `}
             ref={layoutRef }
         >
-            <div className={`
-                flex items-center lg:justify-end ${windowHeight> 650 && 'h-screen'}`}
+            <div className={`flex flex-row-reverse items-center lg:justify-end 
+                ${windowHeight> 650 && 'h-screen'}`}
             >
                 <StreetArtImage mode={1}/>
                 <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 

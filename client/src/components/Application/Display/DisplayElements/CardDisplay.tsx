@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState } from "react";
 import { shallow } from "zustand/shallow";
 import Button  from "@mui/material/Button";
@@ -10,6 +12,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import useProgressiveImg from "../../../../hooks/useProgressiveImg";
 import lowResImg from './../../../../assets/images/lowRes/graffitti-img-1-low.png';
+import useWindowSize from "../../../../hooks/useWindowDimensions";
 
 interface ICardDisplay{
   id: string,
@@ -23,6 +26,8 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   const [liked, setLiked] = useState(false);
   const [minimize, setMinimize] = useState(true);
+
+  const windowWidth = useWindowSize().width;
 
   const {artId, setArtId, displaySingleArt, setDisplaySingleArt } = useArtStore(
     (state) => ({ 
@@ -59,7 +64,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
   }
 
   return (
-    <div className=" rounded-md  mb-5  relative overflow-hidden shadow-lg">
+    <div className=" rounded-md mb-5 relative overflow-hidden shadow-lg">
       {/* button header */}
         <div className=" pt-2 pb-2 absolute top-0 right-0 z-10 w-full flex 
           text-lg items-start justify-between pl-5 flex-row-reverse font-bold text-zinc-300"
@@ -83,7 +88,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           <div className="hover:cursor-pointer w-full inline-block" 
             onClick={ () => onClickOpenHandeller() }
           >
-            <span className={` w-60 flex-initial block pt-1 ${minimize && 'truncate ' } text-white`}>
+            <span className={` ${windowWidth && 'w-20'} flex-initial block pt-1 ${minimize && 'truncate ' } text-white`}>
               {title}
             </span>
           </div>
@@ -101,9 +106,11 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
               onClickDisplayHandeller();
             }}
         > 
-          <div className="flex flex-col justify-center items-center h-full">
+          <div className="flex flex-col justify-center h-full w-full">
             <div className="flex items-center justify-between w-full ">
-              <div className={`text-white absolute z-20 ${!minimize ? 'top-4' : 'top-4' } right-28 font-bold w-11 hover:underline`}>
+              <div className={`${windowWidth >= 1100 ? 'right-28 text-sm' : 'right-24 text-xs top-5' } ${!minimize ? 'top-4' : 'top-4' } 
+              text-white absolute z-20 font-bold w-11 hover:underline`}
+              >
                 View
               </div>
               <div className="h-52 w-full overflow-hidden my-20 absolute left-0 bg-zinc-500 ">
@@ -123,9 +130,10 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
                 </div>
               </div>
             </div>
-            <div className={`flex items-center justify-between min-w-full w-96 
+            <div className={`flex  justify-between 
               mb-3 text-sm text-zinc-50 font-roboto
               ${!minimize && 'mt-32'}
+              ${windowWidth <= 1000 ? 'flex-col ' : 'flex-row items-center'}
             `}>
               <p>{year}</p>
               <p>{address}</p>

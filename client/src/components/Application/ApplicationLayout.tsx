@@ -14,13 +14,15 @@ import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import Navbar from './Navbar/Navbar';
 import { auth } from '../../config/firebase';
+import Button from '@mui/material/Button';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useDrawerStore } from '../../store/Drawer/drawerStore';
 
  /* TODO implement red light, yellow light, and green light for components */
 
 const ApplicationLayout = () => {
 
     const windowDimensions = useWindowSize();
-    const artCollectionRef = collectionGroup(db, 'art');
     const newArtCollectionRef = collectionGroup(db, 'newArt');
 
     /* State */
@@ -36,6 +38,13 @@ const ApplicationLayout = () => {
       }), shallow
     );
 
+    const { toggleSideBar, setToggleSideBar } = useDrawerStore(
+      (state) => ({ 
+        toggleSideBar: state.toggleSideBar,
+        setToggleSideBar: state.setToggleSideBar,
+      }), shallow
+    );
+
     /* Fetch all art */
     const {isFetching, isLoading, isError, isSuccess, refetch} = useQuery( 
       'art', 
@@ -48,7 +57,6 @@ const ApplicationLayout = () => {
         ...doc.data(),
         id: doc.id,
       }));
-      
       setData(filteredData);
     }
    
@@ -58,13 +66,11 @@ const ApplicationLayout = () => {
       setLoading(isLoading)
     },[])
 
-    if(isError){
+    if(isError) 
       return (<Error/>)
-    }
-    else if(isLoading){
-      return (<Loading/>)
-    }
-    else
+    else if(isLoading) 
+      return (<Loading/>) 
+    else 
       return (
         <>
           <div className='h-screen'>
@@ -73,6 +79,13 @@ const ApplicationLayout = () => {
               /* render Sidebar for mobile, Card for large screens */
               windowDimensions.width >= 850
                 ? <>
+                    <div className="fixed top-5 left-5 z-0">
+                      <Button variant='contained'
+                        onClick={()=>{setToggleSideBar(!toggleSideBar)}}
+                      >
+                        <MenuIcon fontSize='medium'/>
+                      </Button>
+                    </div>
                     <Sidebar/>
                     <SideDrawer userName='Anthony'/>
                     <SideDrawerArt/>
@@ -82,7 +95,6 @@ const ApplicationLayout = () => {
           </div>
         </>
       )
-    
 }
 
 export default ApplicationLayout

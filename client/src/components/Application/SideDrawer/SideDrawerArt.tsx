@@ -2,7 +2,7 @@ import Drawer from '@mui/material/Drawer';
 import { shallow } from 'zustand/shallow';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 import IconButton from '@mui/material/IconButton';
-
+import useWindowSize from '../../../hooks/useWindowDimensions';
 import UserDisplayCard from './UserDisplay/UserDisplayCard';
 import SingleDisplay from '../Display/DisplayModes/SingleDisplay';
 
@@ -20,7 +20,8 @@ const SideDrawerArt = () => {
         setToggleArtDrawer(!toggleArtDrawer);
     }
 
-    const drawerWidth ='33.34%';
+    const windowWidth = useWindowSize().width;
+    const drawerWidth = windowWidth <= 1100 ? '41%' : '33.34%';
 
     return (
         <div className=''>

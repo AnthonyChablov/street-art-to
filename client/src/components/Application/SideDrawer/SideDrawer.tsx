@@ -9,6 +9,7 @@ import { logOutUser } from '../../../api/User/logoutUser';
 import { Button } from '@mui/material';
 import { auth } from '../../../config/firebase';
 import Divider from '@mui/material/Divider';
+import useWindowSize from '../../../hooks/useWindowDimensions';
 
 interface ISideDrawer{
   userName : string,
@@ -23,7 +24,8 @@ const SideDrawer = ({userName} : ISideDrawer) => {
     }), shallow
   );
 
-  const drawerWidth ='33.34%';
+  const windowWidth = useWindowSize().width;
+  const drawerWidth = windowWidth <= 1100 ? '41%' : '33.34%';
 
   const navigate = useNavigate();
 

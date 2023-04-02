@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState } from "react";
 import  IconButton  from "@mui/material/IconButton";
 import {motion} from 'framer-motion';

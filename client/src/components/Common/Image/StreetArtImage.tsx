@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { motion } from "framer-motion";
 import graffittiImg from './../../../assets/images/graffitti-img-1.png';
 import graffittiImg3 from './../../../assets/images/graffitti-img-3.png';

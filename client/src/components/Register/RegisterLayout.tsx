@@ -75,13 +75,13 @@ const RegisterLayout = () => {
         ${( windowHeight > 650 ) && 'max-h-full'} `
       }
       >
-        <div className="flex flex-row-reverse items-center lg:justify-end h-full" >
+        <div className={`flex flex-row-reverse items-center lg:justify-end ${windowHeight> 650 && 'h-screen'}`} >
           <StreetArtImage 
             mode={3}
           />
           <div className=' bg-zinc-300 w-5/6 mx-auto p-10 rounded-xl h-fit md:max-w-xl 
-              lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
-              lg:max-w-full lg:w-5/12 lg:rounded-none'
+            lg:mx-0 lg:h-screen lg:flex lg:flex-col lg:justify-center 
+            lg:max-w-full lg:w-5/12 lg:rounded-none'
           >
             <motion.div className="lg:max-w-3xl mx-auto" 
               variants={registerVariants}

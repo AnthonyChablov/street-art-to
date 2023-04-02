@@ -34,28 +34,11 @@ const MultiDisplay = () => {
     }), shallow
   );
 
-  const { toggleSideDrawer, setToggleSideDrawer } = useDrawerStore(
-    (state) => ({ 
-      toggleSideDrawer : state.toggleSideDrawer, 
-      setToggleSideDrawer : state.setToggleSideDrawer
-    }), shallow
-  );
+  
 
   return (
     <div className={`overflow-y-auto flex-grow `}>
-      <div className=" pt-5 pb-4 flex justify-between ">
-        <IconButton>
-          <CloseIcon htmlColor="white"/>
-        </IconButton>
-        <Button 
-          onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}
-          variant="contained" 
-          size="small"
-          sx={{ backgroundColor: '' }}
-        >
-          My Account
-        </Button>
-      </div>
+      
       <div className="text-center pt-8 pb-10">
         <Title title={'Street Art TO'}/>
         <p className="text-xl pt-6 text-zinc-300">Welcome, Anthony.</p>
