@@ -37,7 +37,7 @@ const Sidebar = () => {
             open={toggleSideBar}
         >
         <div className="px-10 relative">
-            <div className=" pt-5 pb-4 flex justify-between ">
+            <div className=" pt-5 pb-5 mb-3 flex justify-between ">
                 <IconButton
                     onClick={()=>{
                         setToggleSideBar(!toggleSideBar)
@@ -45,16 +45,14 @@ const Sidebar = () => {
                 >
                     <CloseIcon htmlColor="white"/>
                 </IconButton>
-                <Button 
-                    className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
+                <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
                     onClick={()=>{
                         setToggleSideDrawer(!toggleSideDrawer)
                     }}
                     variant="contained" 
                     size="small"
-                    sx={{py:1.1, fontSize:'.75rem' }}
                 >
-                    My Account
+                    <p className='text-md py-1 font-medium font-roboto'>My Account</p>
                 </Button>
             </div>
             <DisplayLayout/>

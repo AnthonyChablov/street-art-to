@@ -80,7 +80,8 @@ const ApplicationLayout = () => {
               windowDimensions.width >= 850
                 ? <>
                     <div className="fixed top-5 left-8 z-0">
-                      <Button variant='contained'
+                      <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
+                        variant='contained' 
                         onClick={()=>{setToggleSideBar(!toggleSideBar)}}
                       >
                         <MenuIcon fontSize='medium'/>

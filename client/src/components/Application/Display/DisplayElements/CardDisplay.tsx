@@ -88,20 +88,20 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           <div className="hover:cursor-pointer w-full inline-block" 
             onClick={ () => onClickOpenHandeller() }
           >
-            <span className={` ${windowWidth && 'w-20'} flex-initial block pt-1 ${minimize && 'truncate ' } text-white`}>
+            <span className={` ${windowWidth < 1000 ? 'w-28' : 'w-44'} flex-initial block pt-1 ${minimize && 'truncate ' } text-white`}>
               {title}
             </span>
           </div>
         </div>
         <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
-            variant='contained' 
-            sx={{
-              py:1.1, 
-              width:'100%', 
-            }}
-            onClick={()=>{
-              onClickDisplayHandeller();
-            }}
+          variant='contained' 
+          sx={{
+            py:1.1, 
+            width:'100%', 
+          }}
+          onClick={()=>{
+            onClickDisplayHandeller();
+          }}
         > 
           <div className="flex flex-col justify-center h-full w-full">
             <div className="flex items-center justify-between w-full ">

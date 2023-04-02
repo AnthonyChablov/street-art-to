@@ -43,7 +43,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
         setArtId(id);
         console.log(`marker ${id} clicked`);
 
-        if (toggleArtDrawer || toggleSideBar){
+        if (toggleArtDrawer ){
             setDisplaySingleArt(true);
         } else {
             setToggleArtDrawer(!toggleArtDrawer);

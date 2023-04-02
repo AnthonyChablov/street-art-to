@@ -7,12 +7,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Menu from '../Menu/Menu';
+import Button from '@mui/material/Button';
 import DisplayLayout from '../Display/DisplayLayout';
 import { useArtStore } from '../../../store/Art/artStore';
 import { shallow } from 'zustand/shallow';
 
 /* How much drawer extends outwards */
-const drawerBleeding = 56;
+const drawerBleeding = 80;
 
 const Root = styled('div')(({ theme }) => ({
     height: '100%',
@@ -47,14 +48,18 @@ export default function SwipeDrawer(props: any) {
     );
 
     const { window } = props;
+
     const [open, setOpen] = React.useState(false);
 
-    const toggleDrawer = (newOpen: boolean) => () => {
+    const container = window !== undefined ? () => window().document.body : undefined;
+
+    const toggleSwipeDrawer = (newOpen: boolean) => () => {
         setOpen(newOpen);
     };
 
-    // This is used only for the example
-    const container = window !== undefined ? () => window().document.body : undefined;
+    function onClickHandeller(){
+        setOpen(!open);
+    }
 
 return (
     <div className='top-0 z-50 absolute'>
@@ -72,8 +77,8 @@ return (
             container={container}
             anchor="bottom"
             open={open}
-            onClose={toggleDrawer(false)}
-            onOpen={toggleDrawer(true)}
+            onClose={toggleSwipeDrawer(false)}
+            onOpen={toggleSwipeDrawer(true)}
             swipeAreaWidth={drawerBleeding}
             disableSwipeToOpen={false}
             ModalProps={{
@@ -91,12 +96,22 @@ return (
                     left: 0,
                 }}
             >
-                
-                <Puller />
-                <Typography sx={{ p: 2, color: 'white' }}>
-                    {`${data.length} results`}
-                </Typography>
-                
+                <div className={`h-${100 - drawerBleeding}`}>
+                    <Puller />
+                    <div className="flex justify-between">
+                        <Typography sx={{ p: 2, color: 'white' }}>
+                            {`${data.length} results`}
+                        </Typography>
+                        <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
+                            variant='contained' 
+                            onClick={()=>{
+                                onClickHandeller();
+                            }}
+                        >
+                            <p>{`${!open ? 'Open' : 'Close'}`}</p>
+                        </Button>
+                    </div>
+                </div>
             </StyledBox>
             <StyledBox
                 sx={{

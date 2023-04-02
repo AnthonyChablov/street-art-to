@@ -18,7 +18,6 @@ const DisplayLayout = () => {
     }), shallow
   );
 
-
   return (
     <div className="text-white pb-40">
       {
