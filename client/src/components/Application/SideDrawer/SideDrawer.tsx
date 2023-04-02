@@ -64,7 +64,7 @@ const SideDrawer = ({userName} : ISideDrawer) => {
                   sx={{ height:'2px'}}
                 />
               </div>
-              <Button 
+              <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
                 fullWidth
                 variant='contained' 
                 onClick={()=>{

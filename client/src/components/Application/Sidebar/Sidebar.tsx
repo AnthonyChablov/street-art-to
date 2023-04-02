@@ -1,7 +1,5 @@
-import {useState} from 'react'
 import { shallow } from 'zustand/shallow';
 import { Drawer  } from '@mui/material';
-import {  useTheme } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
@@ -11,6 +9,7 @@ import DisplayLayout from '../Display/DisplayLayout';
 
 const Sidebar = () => {
 
+    /* State */
     const { toggleSideBar, setToggleSideBar, toggleSideDrawer, setToggleSideDrawer } = useDrawerStore(
         (state) => ({ 
             toggleSideBar : state.toggleSideBar, 
@@ -22,14 +21,6 @@ const Sidebar = () => {
 
     const windowWidth = useWindowSize().width;
     const drawerWidth = windowWidth <= 1100 ? '41%' : '33.34%';
-
-    function handleDrawerOpen(){
-        
-    };
-    
-    function handleSideBarClose(){
-        setToggleSideBar(!toggleSideBar)
-    };
   
     return (
         <Drawer
@@ -45,20 +36,23 @@ const Sidebar = () => {
             anchor="left"
             open={toggleSideBar}
         >
-        <div className="px-10 relative ">
+        <div className="px-10 relative">
             <div className=" pt-5 pb-4 flex justify-between ">
                 <IconButton
                     onClick={()=>{
-                        handleSideBarClose();
+                        setToggleSideBar(!toggleSideBar)
                     }}
                 >
                     <CloseIcon htmlColor="white"/>
                 </IconButton>
                 <Button 
-                    onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}
+                    className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
+                    onClick={()=>{
+                        setToggleSideDrawer(!toggleSideDrawer)
+                    }}
                     variant="contained" 
                     size="small"
-                    sx={{ backgroundColor: '' }}
+                    sx={{py:1.1, fontSize:'.75rem' }}
                 >
                     My Account
                 </Button>
@@ -66,7 +60,6 @@ const Sidebar = () => {
             <DisplayLayout/>
         </div>
         </Drawer>
-
     )
 }
 

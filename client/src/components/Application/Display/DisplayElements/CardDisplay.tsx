@@ -93,14 +93,11 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
             </span>
           </div>
         </div>
-        <Button 
+        <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
             variant='contained' 
             sx={{
               py:1.1, 
               width:'100%', 
-              backgroundColor:'#262626',
-              '&:hover': {
-              },
             }}
             onClick={()=>{
               onClickDisplayHandeller();

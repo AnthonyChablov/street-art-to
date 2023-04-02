@@ -25,8 +25,10 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     const setDisplaySingleArt = useArtStore(state => state.setDisplaySingleArt);
     const setMapCenter = useArtStore(state => state.setMapCenter); 
 
-    const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
+    const { toggleSideBar, setToggleSideBar,toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
         (state) => ({ 
+            toggleSideBar : state.toggleSideBar, 
+            setToggleSideBar : state.setToggleSideBar,
             toggleArtDrawer : state.toggleArtDrawer, 
             setToggleArtDrawer : state.setToggleArtDrawer
         }), shallow
@@ -37,17 +39,16 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     const customMarkerIcon = new Leaflet.DivIcon({html: iconHTML});
 
     function onClickHandeller(){
-
         setMapCenter([latitude, longitude])
         setArtId(id);
         console.log(`marker ${id} clicked`);
 
-        if (toggleArtDrawer){
+        if (toggleArtDrawer || toggleSideBar){
             setDisplaySingleArt(true);
         } else {
-            setToggleArtDrawer(!toggleArtDrawer)
+            setToggleArtDrawer(!toggleArtDrawer);
+            setToggleSideBar(!toggleSideBar);
         }
-        
     }
     
     return (
@@ -68,7 +69,6 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
             </Popup>
             <SetViewOnClick animateRef={animateRef} />
         </Marker>
-        
     )
 }
 

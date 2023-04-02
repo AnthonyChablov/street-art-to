@@ -79,7 +79,7 @@ const ApplicationLayout = () => {
               /* render Sidebar for mobile, Card for large screens */
               windowDimensions.width >= 850
                 ? <>
-                    <div className="fixed top-5 left-5 z-0">
+                    <div className="fixed top-5 left-8 z-0">
                       <Button variant='contained'
                         onClick={()=>{setToggleSideBar(!toggleSideBar)}}
                       >
