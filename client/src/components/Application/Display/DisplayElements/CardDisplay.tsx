@@ -63,6 +63,19 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
     
   }
 
+  function setCardHeaderWidth(windowWidth){
+    if (windowWidth >= 300 && windowWidth <= 350) {
+      return 'w-18';
+    }
+    if (windowWidth > 350 && windowWidth <= 400) {
+        return 'w-34';
+    }
+    if (windowWidth > 400 && windowWidth <= 500) {
+      return 'w-48';
+    }
+    return 'w-72';
+  }
+
   return (
     <div className=" rounded-md mb-5 relative overflow-hidden shadow-lg">
       {/* button header */}
@@ -88,9 +101,9 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           <div className="hover:cursor-pointer w-full inline-block" 
             onClick={ () => onClickOpenHandeller() }
           >
-            <span className={`flex-initial block pt-1 text-white w-20
-              ${ windowWidth <= 700 ? 'w-18' : 'w-40'  } 
-              ${minimize && 'truncate ' }
+            <span className={`flex-initial block pt-1 text-white w-20 
+              ${ setCardHeaderWidth(windowWidth) } 
+              ${minimize && 'truncate' }
             `}>
               {title}
             </span>

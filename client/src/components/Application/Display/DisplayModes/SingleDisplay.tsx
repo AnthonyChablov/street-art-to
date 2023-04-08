@@ -47,7 +47,6 @@ const SingleDisplay = () => {
                     { selectedArt?.properties.title }
                 </h1>
             </div>
-            
             <Divider className='bg-zinc-700' 
                 sx={{ height:'2px'}}
             />

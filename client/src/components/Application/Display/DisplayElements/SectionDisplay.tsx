@@ -48,7 +48,7 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
 
     return (
         <>
-            <section className="mt-4 bg-zinc-800 px-9 py-5 rounded-xl bg-gradient-to-br from-zinc-700  to-zinc-800 shadow-xl">
+            <section className="mt-4 bg-zinc-800 px-9 py-5 rounded-xl bg-gradient-to-br from-zinc-700 to-zinc-800 shadow-xl">
                 {/* Header */}
                 <div className={`${ minimize ? 'mb-0' : 'mb-7'} flex justify-between items-center `}>
                     <h2 className="uppercase text-sm font-bold ">{mode}</h2>
@@ -62,7 +62,9 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
                     </IconButton>
                 </div>
                 {/* Content */}
-                <motion.div className={`${minimize ? 'collapse h-0 pb-0' : 'visible h-100 pb-1'} overflow-hidden `} 
+                <motion.div className={`overflow-hidden
+                    ${minimize ? 'collapse h-0 pb-0' : 'visible h-100 pb-1'} 
+                `} 
                     variants={minimizeVariants}
                     animate={ !minimize ? 'open' : 'close'}
                 >

@@ -37,11 +37,10 @@ const MultiDisplay = () => {
   
 
   return (
-    <div className={`overflow-y-auto flex-grow `}>
+    <div className={`overflow-y-auto flex-grow`}>
       
-      <div className="text-center pt-8 pb-10">
+      <div className="text-center pt-8 pb-16">
         <Title title={'Street Art TO'}/>
-        <p className="text-xl pt-6 text-zinc-300">Welcome, Anthony.</p>
       </div>
       <Menu/>
       <Divider className='bg-zinc-700' 
