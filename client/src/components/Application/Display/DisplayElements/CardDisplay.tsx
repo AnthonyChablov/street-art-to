@@ -66,8 +66,8 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
   return (
     <div className=" rounded-md mb-5 relative overflow-hidden shadow-lg">
       {/* button header */}
-        <div className=" pt-2 pb-2 absolute top-0 right-0 z-10 w-full flex 
-          text-lg items-start justify-between pl-5 flex-row-reverse font-bold text-zinc-300"
+        <div className=" pt-2 pb-2 absolute top-0 right-0 z-10 w-full flex flex-row-reverse
+          text-lg items-start justify-between pl-5  font-bold text-zinc-300"
         >
           <div className="pr-3 flex ">
             <IconButton onClick={()=>onClickLikeHandeller()}>
@@ -88,7 +88,10 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           <div className="hover:cursor-pointer w-full inline-block" 
             onClick={ () => onClickOpenHandeller() }
           >
-            <span className={` ${windowWidth < 1000 ? 'w-28' : 'w-44'} flex-initial block pt-1 ${minimize && 'truncate ' } text-white`}>
+            <span className={`flex-initial block pt-1 text-white w-20
+              ${ windowWidth <= 700 ? 'w-18' : 'w-72'  } 
+              ${minimize && 'truncate ' }
+            `}>
               {title}
             </span>
           </div>
@@ -105,13 +108,14 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
         > 
           <div className="flex flex-col justify-center h-full w-full">
             <div className="flex items-center justify-between w-full ">
-              <div className={`${windowWidth >= 1100 ? 'right-28 text-sm' : 'right-24 text-xs top-5' } ${!minimize ? 'top-4' : 'top-4' } 
-              text-white absolute z-20 font-bold w-11 hover:underline`}
+              <div className={` text-white absolute z-20 font-bold w-11 hover:underline
+                ${windowWidth >= 1100 ? 'right-28 text-sm' : 'right-24 text-xs top-5' } 
+                ${!minimize ? 'top-4' : 'top-4' } 
+              `}
               >
                 View
               </div>
               <div className="h-52 w-full overflow-hidden my-20 absolute left-0 bg-zinc-500 ">
-                
                 <img className={`${blur ? 'blur-lg' : 'blur-none'}`}
                   src={`${src} `} 
                   alt="grafitti-thumbnail" 

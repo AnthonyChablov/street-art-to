@@ -103,7 +103,7 @@ return (
                 <div className={`h-${100 - drawerBleeding}`}>
                     <Puller />
                     <div className="flex justify-between">
-                        <Typography sx={{ p: 2, pt:4, pb:2.94, color: 'white' }}>
+                        <Typography sx={{ p: 2, pt:4, pb:3, color: 'white' }}>
                             {`${data.length} results`}
                         </Typography>
                         {/* <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
