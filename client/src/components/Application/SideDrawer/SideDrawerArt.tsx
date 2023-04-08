@@ -32,7 +32,7 @@ const SideDrawerArt = () => {
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         backgroundColor:'#191919',
-                    },
+                    }
                 }}
                 variant="persistent"
                 anchor="left"
@@ -41,7 +41,6 @@ const SideDrawerArt = () => {
                 <div className="px-10 relative text-neutral-100 pb-20 ">
                     <SingleDisplay/>
                 </div>
-                
             </Drawer>
         </div>
   )

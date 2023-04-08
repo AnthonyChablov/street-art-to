@@ -33,7 +33,6 @@ const Puller = styled(Box)(({ theme }) => ({
     position: 'absolute',
     top: 13,
     left: 'calc(50% - 15px)',
-    
 }));
   
 export default function SwipeDrawer(props: any) {
@@ -46,11 +45,14 @@ export default function SwipeDrawer(props: any) {
         artId: state.artId,
         }), shallow
     );
+    const [open, setOpen] = React.useState(false);
 
     const { window } = props;
 
-    const [open, setOpen] = React.useState(false);
+    /* IOS optimizations */
+    const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
+    /* Set dimensions of drawer container */
     const container = window !== undefined ? () => window().document.body : undefined;
 
     const toggleSwipeDrawer = (newOpen: boolean) => () => {
@@ -68,12 +70,14 @@ return (
         <Global
             styles={{
                 '.MuiDrawer-root > .MuiPaper-root': {
-                    height: `calc(70% - ${drawerBleeding}px)`,
+                    height: `calc(66.5% - ${drawerBleeding}px)`,
                     overflow: 'visible',
                 },
             }}
         />
         <SwipeableDrawer
+            disableBackdropTransition={!iOS} 
+            disableDiscovery={iOS}
             container={container}
             anchor="bottom"
             open={open}
@@ -99,17 +103,17 @@ return (
                 <div className={`h-${100 - drawerBleeding}`}>
                     <Puller />
                     <div className="flex justify-between">
-                        <Typography sx={{ p: 2, color: 'white' }}>
+                        <Typography sx={{ p: 2, pt:4, pb:2.94, color: 'white' }}>
                             {`${data.length} results`}
                         </Typography>
-                        <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
+                        {/* <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
                             variant='contained' 
                             onClick={()=>{
                                 onClickHandeller();
                             }}
                         >
                             <p>{`${!open ? 'Open' : 'Close'}`}</p>
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </StyledBox>

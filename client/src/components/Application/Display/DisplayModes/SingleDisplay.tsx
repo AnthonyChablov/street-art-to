@@ -35,7 +35,7 @@ const SingleDisplay = () => {
 
     return (
         <div className="pt-5 ">
-            <div className="pt-5 pb-8 flex flex-row-reverse items-center justify-between">
+            <div className="pt-5 pb-8 flex flex-row-reverse items-center justify-between ">
                 <IconButton 
                     onClick={()=>{
                         setToggleArtDrawer(!toggleArtDrawer);
@@ -51,7 +51,6 @@ const SingleDisplay = () => {
             <Divider className='bg-zinc-700' 
                 sx={{ height:'2px'}}
             />
-            
             <SectionDisplay mode={'Image'}/>
             <SectionDisplay mode={'General'}/>
             <SectionDisplay mode={'Comments'}/>

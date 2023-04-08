@@ -51,10 +51,8 @@ const MultiDisplay = () => {
       <div className=" pt-10 ">
       {/* Filter and mapping out Card Display */}
         {
-          
           data
               .filter((art : IStreetArt) => {
-
                 return (
                   art?.properties.title.includes(artSearchQuery) 
                     && 

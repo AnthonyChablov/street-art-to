@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import SubDisplay from "./SubDisplay";
 import { useArtStore } from "../../../../store/Art/artStore";
 import { IStreetArt } from "../../../../models/streetArt";
+import Divider from '@mui/material/Divider';
 
 interface ISectionDisplay{
     mode: String
@@ -47,7 +48,7 @@ const SectionDisplay = ({mode}:ISectionDisplay) => {
 
     return (
         <>
-            <section className="mt-4 bg-zinc-800  px-9 py-5 rounded-xl">
+            <section className="mt-4 bg-zinc-800 px-9 py-5 rounded-xl bg-gradient-to-br from-zinc-700  to-zinc-800 shadow-xl">
                 {/* Header */}
                 <div className={`${ minimize ? 'mb-0' : 'mb-7'} flex justify-between items-center `}>
                     <h2 className="uppercase text-sm font-bold ">{mode}</h2>
