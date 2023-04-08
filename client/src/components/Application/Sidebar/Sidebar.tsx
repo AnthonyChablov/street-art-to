@@ -20,15 +20,22 @@ const Sidebar = () => {
     );
 
     const windowWidth = useWindowSize().width;
-    const drawerWidth = windowWidth <= 1100 ? '41%' : '33.34%';
-  
+   
+    function setDrawerWidth(windowWidth:number){
+        if (windowWidth >= 850 && windowWidth <= 1100) return '41%';
+        if (windowWidth <= 850) {
+            return '100%';
+        }
+        return '33.34%';
+    };
+
     return (
         <Drawer
             sx={{
-                width: drawerWidth,
+                width: setDrawerWidth(windowWidth),
                 flexShrink: 0,
                 '& .MuiDrawer-paper': {
-                    width: drawerWidth,
+                    width: setDrawerWidth(windowWidth),
                     backgroundColor:'#191919',
                 },
             }}
@@ -36,8 +43,8 @@ const Sidebar = () => {
             anchor="left"
             open={toggleSideBar}
         >
-        <div className="px-10 relative">
-            <div className=" pt-5 pb-5 mb-3 flex justify-between ">
+        <div className="px-5 relative"> {/* need to make a max width  */}
+            <div className={`pt-5 pb-5 mb-3 flex justify-between ${windowWidth <= 850 && 'flex-row-reverse'}`}>
                 <IconButton
                     onClick={()=>{
                         setToggleSideBar(!toggleSideBar)

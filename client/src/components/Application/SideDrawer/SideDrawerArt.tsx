@@ -6,7 +6,6 @@ import useWindowSize from '../../../hooks/useWindowDimensions';
 import UserDisplayCard from './UserDisplay/UserDisplayCard';
 import SingleDisplay from '../Display/DisplayModes/SingleDisplay';
 
-
 const SideDrawerArt = () => {
 
     const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
@@ -16,21 +15,28 @@ const SideDrawerArt = () => {
         }), shallow
     );
 
+    const windowWidth = useWindowSize().width;
+
     function onClickHandeller(){
         setToggleArtDrawer(!toggleArtDrawer);
     }
 
-    const windowWidth = useWindowSize().width;
-    const drawerWidth = windowWidth <= 1100 ? '41%' : '33.34%';
+    function setDrawerWidth(windowWidth:number){
+        if (windowWidth >= 850 && windowWidth <= 1100) return '41%';
+        if (windowWidth <= 850) {
+            return '100%';
+        }
+        return '33.34%';
+    };
 
     return (
         <div className=''>
             <Drawer
                 sx={{
-                    width: drawerWidth,
+                    width: setDrawerWidth(windowWidth),
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: drawerWidth,
+                        width: '100%',
                         backgroundColor:'#191919',
                     }
                 }}
@@ -38,7 +44,7 @@ const SideDrawerArt = () => {
                 anchor="left"
                 open={toggleArtDrawer}
             >
-                <div className="px-10 relative text-neutral-100 pb-20 ">
+                <div className="px-5 relative text-neutral-100 pb-20 ">
                     <SingleDisplay/>
                 </div>
             </Drawer>

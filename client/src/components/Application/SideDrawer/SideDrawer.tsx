@@ -25,7 +25,14 @@ const SideDrawer = ({userName} : ISideDrawer) => {
   );
 
   const windowWidth = useWindowSize().width;
-  const drawerWidth = windowWidth <= 1100 ? '41%' : '33.34%';
+
+  function setDrawerWidth(windowWidth:number){
+    if (windowWidth >= 850 && windowWidth <= 1100) return '41%';
+    if (windowWidth <= 850) {
+        return '100%';
+    }
+    return '33.34%';
+};
 
   const navigate = useNavigate();
 
@@ -38,10 +45,10 @@ const SideDrawer = ({userName} : ISideDrawer) => {
     <div className=''>
         <Drawer
           sx={{
-              width: drawerWidth,
+              width: setDrawerWidth(windowWidth),
               flexShrink: 0,
               '& .MuiDrawer-paper': {
-                  width: drawerWidth,
+                  width: setDrawerWidth(windowWidth),
                   backgroundColor:'#191919',
               },
           }}

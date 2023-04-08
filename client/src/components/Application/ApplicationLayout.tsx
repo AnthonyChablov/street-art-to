@@ -17,6 +17,7 @@ import { auth } from '../../config/firebase';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDrawerStore } from '../../store/Drawer/drawerStore';
+import SpeedDialMenu from './SpeedDial/SpeedDialMenu';
 
  /* TODO implement red light, yellow light, and green light for components */
 
@@ -91,7 +92,14 @@ const ApplicationLayout = () => {
                     <SideDrawer userName='Anthony'/>
                     <SideDrawerArt/>
                   </>      
-                : <SwipeDrawer/>
+                : ( // on mobile and small tablets
+                    <>
+                      <SpeedDialMenu/>
+                      <Sidebar/>
+                      <SideDrawer userName='Anthony'/>
+                      <SideDrawerArt/>
+                    </>
+                  )
             }
           </div>
         </>

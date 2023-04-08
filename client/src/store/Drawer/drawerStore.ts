@@ -5,6 +5,8 @@ type State={
     toggleSideDrawer : boolean,
     toggleArtDrawer: boolean,
     toggleSwipeDrawer: boolean
+    toggleModal: boolean,
+
 }
 
 type Action={
@@ -12,6 +14,7 @@ type Action={
     setToggleSideDrawer : Function,
     setToggleArtDrawer: Function,
     setToggleSwipeDrawer: Function,
+    setToggleModal: Function,
 }
 
 export const useDrawerStore = create<State & Action>((set)=>({
@@ -19,8 +22,10 @@ export const useDrawerStore = create<State & Action>((set)=>({
     toggleSideDrawer: false,
     toggleArtDrawer: false,
     toggleSwipeDrawer:true,
+    toggleModal: false,
     setToggleSideBar: ( newToggleSideBar : boolean ) => set({ toggleSideBar : newToggleSideBar }),
     setToggleSideDrawer: ( newToggleSideDrawer : boolean ) => set({ toggleSideDrawer : newToggleSideDrawer }),
     setToggleArtDrawer:( newToggleArtDrawer : boolean ) => set({ toggleArtDrawer : newToggleArtDrawer }),
     setToggleSwipeDrawer:( newToggleSwipeDrawer : boolean ) => set({ toggleSwipeDrawer : newToggleSwipeDrawer }),
+    setToggleModal: ( newToggleModal : boolean ) => set({ toggleModal : newToggleModal })
 }))
