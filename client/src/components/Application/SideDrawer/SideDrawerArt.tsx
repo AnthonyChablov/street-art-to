@@ -36,7 +36,7 @@ const SideDrawerArt = () => {
                     width: setDrawerWidth(windowWidth),
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: '100%',
+                        width: setDrawerWidth(windowWidth),
                         backgroundColor:'#191919',
                     }
                 }}

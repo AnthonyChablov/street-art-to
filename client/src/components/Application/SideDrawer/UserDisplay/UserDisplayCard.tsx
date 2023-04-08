@@ -14,7 +14,7 @@ const UserDisplayCard = ({userName, email} : IUserDisplayCard) => {
           ? <img className='rounded-full max-w-full h-10' src={auth?.currentUser?.photoURL} alt="" /> 
           : <AccountCircleIcon fontSize='large' />
       }
-      <p className=''>{userName}</p>
+      
       <p className=''>{email}</p>
     </div>
   )

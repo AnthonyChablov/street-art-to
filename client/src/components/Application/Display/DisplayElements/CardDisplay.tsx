@@ -89,7 +89,7 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
             onClick={ () => onClickOpenHandeller() }
           >
             <span className={`flex-initial block pt-1 text-white w-20
-              ${ windowWidth <= 700 ? 'w-18' : 'w-72'  } 
+              ${ windowWidth <= 700 ? 'w-18' : 'w-40'  } 
               ${minimize && 'truncate ' }
             `}>
               {title}

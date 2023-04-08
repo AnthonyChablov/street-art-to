@@ -7,7 +7,7 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
-import SaveIcon from '@mui/icons-material/Save';
+import FaceIcon from '@mui/icons-material/Face';
 import ArticleIcon from '@mui/icons-material/Article';
 import ShareIcon from '@mui/icons-material/Share';
 import CloseIcon from '@mui/icons-material/Close';
@@ -16,9 +16,11 @@ import LayersIcon from '@mui/icons-material/Layers';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 
 const actions = [
+  
+ 
+  { icon: <FaceIcon />, name: 'Account' },
+  { icon: <ArticleIcon />, name: 'Select' },
   { icon: <SearchIcon />, name: 'Menu' },
-  { icon: <ArticleIcon />, name: 'View' },
-  { icon: <LayersIcon />, name: 'Select' },
 ];
 
 const SpeedDialMenu = () => {
@@ -66,14 +68,24 @@ const SpeedDialMenu = () => {
             onClick={()=>{
               handleClose();
               
-              if(i === 0){
-                setToggleArtDrawer(!toggleArtDrawer);
-              }else if (i ===1){
+              // associate state of drawers to speed dial buttons
+              if(i === 0){  // menu select
                 setToggleSideDrawer(!toggleSideDrawer);
-              }else{
+              }else if (i ===1){  // single
+                setToggleArtDrawer(!toggleArtDrawer);
+              }else{  // multiple
                 setToggleSideBar(!toggleSideBar)
+                
               }
               
+            }}
+            FabProps={{
+              sx: {
+                bgcolor: 'rgb(241 245 249)',
+                '&:hover': {
+                  
+                }
+              }
             }}
           />
         ))}

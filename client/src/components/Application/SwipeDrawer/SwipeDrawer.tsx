@@ -106,14 +106,6 @@ return (
                         <Typography sx={{ p: 2, pt:4, pb:3, color: 'white' }}>
                             {`${data.length} results`}
                         </Typography>
-                        {/* <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
-                            variant='contained' 
-                            onClick={()=>{
-                                onClickHandeller();
-                            }}
-                        >
-                            <p>{`${!open ? 'Open' : 'Close'}`}</p>
-                        </Button> */}
                     </div>
                 </div>
             </StyledBox>

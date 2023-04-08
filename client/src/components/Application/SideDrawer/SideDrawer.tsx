@@ -27,12 +27,14 @@ const SideDrawer = ({userName} : ISideDrawer) => {
   const windowWidth = useWindowSize().width;
 
   function setDrawerWidth(windowWidth:number){
-    if (windowWidth >= 850 && windowWidth <= 1100) return '41%';
+    if (windowWidth >= 850 && windowWidth <= 1100){ 
+      return '41%';
+    }
     if (windowWidth <= 850) {
         return '100%';
     }
     return '33.34%';
-};
+  };
 
   const navigate = useNavigate();
 
