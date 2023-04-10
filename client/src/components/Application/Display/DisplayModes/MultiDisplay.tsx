@@ -10,6 +10,10 @@ import IconButton from '@mui/material/IconButton';
 import Skeleton from '@mui/material/Skeleton';
 import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import { useArtStore } from "../../../../store/Art/artStore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+
+const auth = getAuth();
 
 const MultiDisplay = () => {
 
@@ -34,7 +38,7 @@ const MultiDisplay = () => {
     }), shallow
   );
 
-  
+  /* We have to get the user id here and see if it is in the liked array within that specific art collection in our db */
 
   return (
     <div className={`overflow-y-auto flex-grow`}>
@@ -73,6 +77,7 @@ const MultiDisplay = () => {
                     icon={art?.properties.media[0].thumbnails.large.url} 
                     address={art?.properties.address} 
                     year={art?.properties.year}
+                    isLiked={false}
                   />
                 )
             })

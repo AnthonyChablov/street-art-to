@@ -1,12 +1,18 @@
 import { shallow } from "zustand/shallow";
+import { useState } from "react";
 import IconButton from "@mui/material/IconButton/IconButton";
+import Button from "@mui/material/Button/Button";
 import Divider from '@mui/material/Divider';
 import { useArtStore } from "../../../../store/Art/artStore";
 import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import SectionDisplay from "../DisplayElements/SectionDisplay";
 import { IStreetArt } from "../../../../models/streetArt";
 import CloseIcon from '@mui/icons-material/Close';
+import CommentIcon from '@mui/icons-material/Comment';
 import {useEffect} from 'react'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 const SingleDisplay = () => {
 
@@ -19,7 +25,7 @@ const SingleDisplay = () => {
         setDisplaySingleArt: state.setDisplaySingleArt
         }), shallow
     );
-
+   
     const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
         (state) => ({ 
             toggleArtDrawer : state.toggleArtDrawer, 
@@ -27,7 +33,14 @@ const SingleDisplay = () => {
         }), shallow
     );
 
+    const [liked, setLiked] = useState(false);
+
     const selectedArt:any = data.find((elem: IStreetArt) => elem.id === artId); 
+
+    function onClickLikeHandeller(){
+        setLiked(!liked);
+        // todo send request to server to save as liked to counter and remember which user liked it 
+    }
 
     useEffect(()=>{
         console.log(selectedArt);
@@ -50,6 +63,38 @@ const SingleDisplay = () => {
             <Divider className='bg-zinc-700' 
                 sx={{ height:'2px'}}
             />
+            <div className="text-center">
+                {/* Multi Button */}
+                <ButtonGroup
+                    className="my-10 "
+                    disableElevation
+                    variant="contained"
+                    aria-label="Disabled elevation buttons"
+                >
+                    <Button
+                        className="bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr"
+                        onClick={()=>onClickLikeHandeller()}
+                    >
+                        { 
+                            !liked 
+                                ? <FavoriteBorderIcon htmlColor="white"/> 
+                                : <FavoriteIcon htmlColor="white"/>
+                        }
+                        <span className="ml-3  normal-case">
+                            {
+                                `${selectedArt?.socials.likes.length} Likes`
+                            }
+                        </span>
+                    </Button>
+                    <Button className="bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr">
+                        <CommentIcon/>
+                        <span className="ml-3 normal-case">
+                        {
+                            `Comments`
+                        }</span>
+                    </Button>
+                </ButtonGroup>
+            </div>
             <SectionDisplay mode={'Image'}/>
             <SectionDisplay mode={'General'}/>
             <SectionDisplay mode={'Comments'}/>

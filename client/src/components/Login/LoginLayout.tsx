@@ -140,17 +140,19 @@ const LoginLayout = () => {
                             </div>
                             <div className="flex flex-col pt-2">
                                 <Button 
+                                    className='bg-gradient-to-tr from-zinc-400 to-zinc-500 hover:bg-gradient-to-bl '
                                     onClick={login} 
                                     variant='contained' 
-                                    sx={{backgroundColor:"grey", borderRadius:100, py:1.1 }}
+                                    sx={{borderRadius:100, py:1.1 }}
                                 >
                                     Sign In
                                 </Button>
                                 <Separator/>
                                 <Button 
+                                    className='bg-gradient-to-tr from-zinc-400 to-zinc-500 hover:bg-gradient-to-bl '
                                     variant='contained' 
-                                    sx={{backgroundColor:"grey" , borderRadius:100, py:1.1}}
                                     onClick={loginWithGoogle} 
+                                    sx={{borderRadius:100, py:1.1 }}
                                 > 
                                     <GoogleIcon fontSize='small'/>
                                     <span className='ml-2.5'>Sign in with google</span>

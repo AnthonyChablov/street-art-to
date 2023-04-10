@@ -50,7 +50,7 @@ const SideDrawer = ({userName} : ISideDrawer) => {
           sx={{
               width: setDrawerWidth(windowWidth),
               flexShrink: 0,
-              '& .MuiDrawer-paper': {
+              '& .MuiDrawer-paper' : {
                   width: setDrawerWidth(windowWidth),
                   backgroundColor:'#191919',
               },
@@ -62,7 +62,9 @@ const SideDrawer = ({userName} : ISideDrawer) => {
           <div className="px-10 relative h-screen flex flex-col justify-between">
             <div className=" ">
               <div className=" pt-5 pb-4 overflow-y-auto flex flex-row-reverse items-center justify-between ">
-                <IconButton onClick={()=>{setToggleSideDrawer(!toggleSideDrawer)}}>
+                <IconButton onClick={()=>{
+                  setToggleSideDrawer(!toggleSideDrawer)
+                }}>
                   <CloseIcon htmlColor='white'/>
                 </IconButton>
                 <div className=" text-zinc-100 text-3xl text-center ">
@@ -79,7 +81,6 @@ const SideDrawer = ({userName} : ISideDrawer) => {
               </div>
               <div className=" max-w-xs">
                 <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
-                  
                   variant='contained' 
                   onClick={()=>{
                     onClickHandeller();

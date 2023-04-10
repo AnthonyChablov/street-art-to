@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import { useState } from "react";
 import { shallow } from "zustand/shallow";
 import Button  from "@mui/material/Button";
@@ -20,9 +19,10 @@ interface ICardDisplay{
   icon:string,
   address: String,
   year:number,
+  isLiked ?: boolean
 }
 
-const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
+const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
 
   const [liked, setLiked] = useState(false);
   const [minimize, setMinimize] = useState(true);
@@ -38,10 +38,12 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
     }), shallow
   );
 
-  const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
+  const { toggleArtDrawer, setToggleArtDrawer, toggleToast, setToggleToast } = useDrawerStore(
     (state) => ({ 
         toggleArtDrawer : state.toggleArtDrawer, 
-        setToggleArtDrawer : state.setToggleArtDrawer
+        setToggleArtDrawer : state.setToggleArtDrawer,
+        toggleToast: state.toggleToast,
+        setToggleToast: state.setToggleToast
     }), shallow
   );
 
@@ -55,13 +57,16 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
 
   function onClickLikeHandeller(){
     setLiked(!liked);
+    setToggleToast(!toggleToast)
     // todo send request to server to save as liked to counter and remember which user liked it 
   }
 
   function onClickOpenHandeller(){
     setMinimize(!minimize);
-    
   }
+
+  
+
 
   function setCardHeaderWidth(windowWidth){
     if (windowWidth >= 300 && windowWidth <= 350) {
@@ -83,6 +88,8 @@ const CardDisplay = ({id, title, icon,address, year}:ICardDisplay) => {
           text-lg items-start justify-between pl-5  font-bold text-zinc-300"
         >
           <div className="pr-3 flex ">
+            {/* Button Group */}
+            
             <IconButton onClick={()=>onClickLikeHandeller()}>
               { 
                 !liked 

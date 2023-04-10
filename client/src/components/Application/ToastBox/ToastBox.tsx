@@ -1,7 +1,8 @@
 import Snackbar from "@mui/material/Snackbar";
 import { shallow } from "zustand/shallow";
 import { useDrawerStore } from "../../../store/Drawer/drawerStore";
-
+import IconButton from "@mui/material/IconButton/IconButton";
+import CloseIcon from '@mui/icons-material/Close';
 
 const ToastBox = () => {
 
@@ -17,13 +18,28 @@ const ToastBox = () => {
         setToggleToast(!toggleToast)
     }
 
+    const action = (
+        <>
+
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        </>
+      );
+
     return (
         <Snackbar
-            open={toggleToast}
-            autoHideDuration={6000}
-            onClose={handleClose}
-            message="Note archived"
             
+            open={toggleToast}
+            autoHideDuration={3400}
+            onClose={handleClose}
+            message={toggleToast ? 'Added to Favourites' : 'Removed From Favourites'}
+            action={action}
         />
     )
 }

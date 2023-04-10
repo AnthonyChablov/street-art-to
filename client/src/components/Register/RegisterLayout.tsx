@@ -127,6 +127,7 @@ const RegisterLayout = () => {
                 </div>
                 <div className="flex flex-col pt-4">
                   <Button 
+                    className='bg-gradient-to-tr from-zinc-400 to-zinc-500 hover:bg-gradient-to-bl '
                     onClick={register} 
                     variant='contained' 
                     sx={{backgroundColor:"grey", borderRadius:100, py:1.1 }}
@@ -135,6 +136,7 @@ const RegisterLayout = () => {
                   </Button>
                   <Separator/>
                   <Button 
+                    className='bg-gradient-to-tr from-zinc-400 to-zinc-500 hover:bg-gradient-to-bl '
                     variant='contained' 
                     sx={{backgroundColor:"grey" , borderRadius:100, py:1.1}}
                     onClick={loginWithGoogle} 

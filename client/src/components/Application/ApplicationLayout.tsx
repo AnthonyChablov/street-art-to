@@ -6,19 +6,17 @@ import { db } from '../../config/firebase';
 import { getDocs, collectionGroup } from 'firebase/firestore';
 import { useArtStore } from '../../store/Art/artStore';
 import Map from './Map/Map';
-import SwipeDrawer from './SwipeDrawer/SwipeDrawer';
 import Sidebar from './Sidebar/Sidebar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import SideDrawerArt from './SideDrawer/SideDrawerArt';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
-import Navbar from './Navbar/Navbar';
 import { auth } from '../../config/firebase';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDrawerStore } from '../../store/Drawer/drawerStore';
 import SpeedDialMenu from './SpeedDial/SpeedDialMenu';
-import Snackbar from "@mui/material/Snackbar";
+import ToastBox from './ToastBox/ToastBox';
 
  /* TODO implement red light, yellow light, and green light for components */
 
@@ -77,6 +75,7 @@ const ApplicationLayout = () => {
         <>
           <div className='h-screen'>
             <Map/>
+            <ToastBox/>
             {
               /* render Sidebar for mobile, Card for large screens */
               windowDimensions.width >= 850

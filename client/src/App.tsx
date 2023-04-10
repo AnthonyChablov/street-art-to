@@ -4,7 +4,7 @@ import Loading from './components/Loading/Loading';
 
 
 const HomePage = lazy(()=> import('./pages/Home'));
-const AppPage = lazy(()=> import ('./pages/App'));
+const AppPage = lazy(()=> import ('./pages/Application'));
 const RouteNotFoundPage = React.lazy(() => import('./pages/RouteNotFound'));
 const GlobalErrorPage = React.lazy(() => import('./pages/GlobalError'));
 const Login = React.lazy(() => import('./pages/Login'));
