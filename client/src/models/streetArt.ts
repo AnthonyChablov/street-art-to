@@ -43,5 +43,5 @@ interface IThumbnails{
 
 interface ISocials{
     comments: (string | number)[],
-    likes: [],
+    likes: string[],
 }

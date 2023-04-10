@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { useState } from "react";
+import { getAuth } from "firebase/auth";
 import { shallow } from "zustand/shallow";
 import Button  from "@mui/material/Button";
 import { useArtStore } from "../../../../store/Art/artStore";
@@ -24,11 +25,8 @@ interface ICardDisplay{
 
 const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
 
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(isLiked);
   const [minimize, setMinimize] = useState(true);
-
-  const windowWidth = useWindowSize().width;
-
   const {artId, setArtId, displaySingleArt, setDisplaySingleArt } = useArtStore(
     (state) => ({ 
       artId : state.artId, 
@@ -37,7 +35,6 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
       setDisplaySingleArt : state.setDisplaySingleArt
     }), shallow
   );
-
   const { toggleArtDrawer, setToggleArtDrawer, toggleToast, setToggleToast } = useDrawerStore(
     (state) => ({ 
         toggleArtDrawer : state.toggleArtDrawer, 
@@ -47,6 +44,7 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
     }), shallow
   );
 
+  const windowWidth = useWindowSize().width;
   const [src, {blur} ] = useProgressiveImg(lowResImg, icon);
 
   function onClickDisplayHandeller(){
@@ -59,14 +57,12 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
     setLiked(!liked);
     setToggleToast(!toggleToast)
     // todo send request to server to save as liked to counter and remember which user liked it 
+    
   }
 
   function onClickOpenHandeller(){
     setMinimize(!minimize);
   }
-
-  
-
 
   function setCardHeaderWidth(windowWidth){
     if (windowWidth >= 300 && windowWidth <= 350) {

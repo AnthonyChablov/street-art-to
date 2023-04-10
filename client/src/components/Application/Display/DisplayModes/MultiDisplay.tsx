@@ -12,7 +12,6 @@ import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import { useArtStore } from "../../../../store/Art/artStore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-
 const auth = getAuth();
 
 const MultiDisplay = () => {
@@ -39,10 +38,10 @@ const MultiDisplay = () => {
   );
 
   /* We have to get the user id here and see if it is in the liked array within that specific art collection in our db */
+  
 
   return (
     <div className={`overflow-y-auto flex-grow`}>
-      
       <div className="text-center pt-8 pb-16">
         <Title title={'Street Art TO'}/>
       </div>
@@ -65,6 +64,8 @@ const MultiDisplay = () => {
                 )
               })
               .map((art : IStreetArt, index : number, arr)=>{
+
+                const userLiked = art?.socials.likes.includes(String(auth.currentUser?.email));
                 
                 if (!art ) {
                   return (<p className="text-white">Nothing to display</p>)
@@ -77,7 +78,7 @@ const MultiDisplay = () => {
                     icon={art?.properties.media[0].thumbnails.large.url} 
                     address={art?.properties.address} 
                     year={art?.properties.year}
-                    isLiked={false}
+                    isLiked={userLiked}
                   />
                 )
             })

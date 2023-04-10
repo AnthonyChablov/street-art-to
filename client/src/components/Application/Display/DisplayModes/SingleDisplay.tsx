@@ -26,20 +26,25 @@ const SingleDisplay = () => {
         }), shallow
     );
    
-    const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
+    const { toggleArtDrawer, setToggleArtDrawer, toggleToast, setToggleToast } = useDrawerStore(
         (state) => ({ 
             toggleArtDrawer : state.toggleArtDrawer, 
-            setToggleArtDrawer : state.setToggleArtDrawer
+            setToggleArtDrawer : state.setToggleArtDrawer,
+            toggleToast: state.toggleToast,
+            setToggleToast: state.setToggleToast
         }), shallow
     );
 
     const [liked, setLiked] = useState(false);
+    const [likeCount , setLikeCount]  = useState(0);
 
     const selectedArt:any = data.find((elem: IStreetArt) => elem.id === artId); 
+    
 
     function onClickLikeHandeller(){
         setLiked(!liked);
         // todo send request to server to save as liked to counter and remember which user liked it 
+        setToggleToast(!toggleToast);
     }
 
     useEffect(()=>{
@@ -82,7 +87,11 @@ const SingleDisplay = () => {
                         }
                         <span className="ml-3  normal-case">
                             {
-                                `${selectedArt?.socials.likes.length} Likes`
+                                `${
+                                    !liked /* Optimistically update UI when user likes art */
+                                        ? selectedArt?.socials.likes.length
+                                        : selectedArt?.socials.likes.length+1
+                                } Likes`
                             }
                         </span>
                     </Button>

@@ -30,11 +30,10 @@ const ToastBox = () => {
             <CloseIcon fontSize="small" />
           </IconButton>
         </>
-      );
+    );
 
     return (
         <Snackbar
-            
             open={toggleToast}
             autoHideDuration={3400}
             onClose={handleClose}
