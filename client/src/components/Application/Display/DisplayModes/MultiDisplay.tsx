@@ -8,11 +8,12 @@ import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import Skeleton from '@mui/material/Skeleton';
+import { auth } from "../../../../config/firebase";
 import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import { useArtStore } from "../../../../store/Art/artStore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-const auth = getAuth();
+
 
 const MultiDisplay = () => {
 
@@ -37,8 +38,9 @@ const MultiDisplay = () => {
     }), shallow
   );
 
-  /* We have to get the user id here and see if it is in the liked array within that specific art collection in our db */
-  
+  /* Hooks */
+  /* Logged in User Info From Firebase */
+  const [user] = useAuthState(auth);
 
   return (
     <div className={`overflow-y-auto flex-grow`}>
@@ -54,7 +56,7 @@ const MultiDisplay = () => {
       {/* Filter and mapping out Card Display */}
         {
           data
-              .filter((art : IStreetArt) => {
+              .filter((art : IStreetArt) => { /* Search filters */
                 return (
                   art?.properties.title.includes(artSearchQuery) 
                     && 
@@ -70,6 +72,7 @@ const MultiDisplay = () => {
                 if (!art ) {
                   return (<p className="text-white">Nothing to display</p>)
                 } 
+                
                 return (
                   <CardDisplay
                     key={index} 

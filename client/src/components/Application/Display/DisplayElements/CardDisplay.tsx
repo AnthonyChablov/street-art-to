@@ -1,18 +1,20 @@
 // @ts-nocheck
 import { useState } from "react";
-import { getAuth } from "firebase/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../../../../config/firebase";
 import { shallow } from "zustand/shallow";
-import Button  from "@mui/material/Button";
-import { useArtStore } from "../../../../store/Art/artStore";
-import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Button  from "@mui/material/Button";
 import  IconButton  from "@mui/material/IconButton";
 import RemoveIcon from '@mui/icons-material/Remove';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useArtStore } from "../../../../store/Art/artStore";
+import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import useProgressiveImg from "../../../../hooks/useProgressiveImg";
 import lowResImg from './../../../../assets/images/lowRes/graffitti-img-1-low.png';
 import useWindowSize from "../../../../hooks/useWindowDimensions";
+import { addLike } from "../../../../api/Art/addLike";
 
 interface ICardDisplay{
   id: string,
@@ -25,6 +27,7 @@ interface ICardDisplay{
 
 const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
 
+  /* State */
   const [liked, setLiked] = useState(isLiked);
   const [minimize, setMinimize] = useState(true);
   const {artId, setArtId, displaySingleArt, setDisplaySingleArt } = useArtStore(
@@ -44,8 +47,14 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
     }), shallow
   );
 
+  /* Hooks */
+  /* Logged in User Info From Firebase */
+  const [user] = useAuthState(auth);
+  /* Viewport Width */
   const windowWidth = useWindowSize().width;
+  /* Progressive Image Blur Loading */
   const [src, {blur} ] = useProgressiveImg(lowResImg, icon);
+
 
   function onClickDisplayHandeller(){
     setDisplaySingleArt(true);
@@ -56,7 +65,7 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
   function onClickLikeHandeller(){
     setLiked(!liked);
     setToggleToast(!toggleToast)
-    // todo send request to server to save as liked to counter and remember which user liked it 
+    // send request to server to save as liked to counter and remember which user liked it 
     
   }
 
@@ -69,7 +78,7 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
       return 'w-18';
     }
     if (windowWidth > 350 && windowWidth <= 400) {
-        return 'w-34';
+      return 'w-34';
     }
     if (windowWidth > 400 && windowWidth <= 500) {
       return 'w-48';
@@ -85,15 +94,19 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
         >
           <div className="pr-3 flex ">
             {/* Button Group */}
-            
-            <IconButton onClick={()=>onClickLikeHandeller()}>
+            <IconButton onClick={()=>{
+              onClickLikeHandeller()
+              addLike(user?.uid, artId)
+            }}>
               { 
                 !liked 
                   ? <FavoriteBorderIcon htmlColor="white"/> 
                   : <FavoriteIcon htmlColor="white"/>
               }
             </IconButton>
-            <IconButton onClick={()=>onClickOpenHandeller()}>
+            <IconButton onClick={()=>{
+              onClickOpenHandeller()
+            }}>
               { 
                 minimize 
                   ? <KeyboardArrowDownIcon htmlColor="white" fontSize="medium"/> 
@@ -102,7 +115,9 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
             </IconButton>
           </div>
           <div className="hover:cursor-pointer w-full inline-block" 
-            onClick={ () => onClickOpenHandeller() }
+            onClick={() => {
+              onClickOpenHandeller()
+            }}
           >
             <span className={`flex-initial block pt-1 text-white w-20 
               ${ setCardHeaderWidth(windowWidth) } 
