@@ -10,9 +10,12 @@ import IconButton from '@mui/material/IconButton';
 import Skeleton from '@mui/material/Skeleton';
 import { auth } from "../../../../config/firebase";
 import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
+import { useLikeStore } from "../../../../store/Like/likeStore";
 import { useArtStore } from "../../../../store/Art/artStore";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import { collection, query, where } from 'firebase/firestore';
+import { likesRef } from "../../../../api/Likes/addLike";
+import { ILikes } from "../../../../models/likes";
 
 
 const MultiDisplay = () => {
@@ -38,6 +41,16 @@ const MultiDisplay = () => {
     }), shallow
   );
 
+  const { 
+    likeData,
+    setLikeData
+  } = useLikeStore(
+    (state) => ({ 
+      likeData : state.likeData, 
+      setLikeData: state.setLikeData,
+    }), shallow
+  );
+
   /* Hooks */
   /* Logged in User Info From Firebase */
   const [user] = useAuthState(auth);
@@ -56,34 +69,38 @@ const MultiDisplay = () => {
       {/* Filter and mapping out Card Display */}
         {
           data
-              .filter((art : IStreetArt) => { /* Search filters */
-                return (
-                  art?.properties.title.includes(artSearchQuery) 
-                    && 
-                  art?.properties.ward.includes(wardSearchQuery)
-                    &&
-                  art?.properties.program.includes(programSearchQuery)
-                )
-              })
-              .map((art : IStreetArt, index : number, arr)=>{
+            .filter((art : IStreetArt) => { /* Search filters */
+              return (
+                art?.properties.title.includes(artSearchQuery) 
+                  && 
+                art?.properties.ward.includes(wardSearchQuery)
+                  &&
+                art?.properties.program.includes(programSearchQuery)
+              )
+            })
+            .map((art : IStreetArt, index : number, arr)=>{
 
-                const userLiked = art?.socials.likes.includes(String(auth.currentUser?.email));
-                
-                if (!art ) {
-                  return (<p className="text-white">Nothing to display</p>)
-                } 
-                
-                return (
-                  <CardDisplay
-                    key={index} 
-                    id={art?.id}
-                    title={art?.properties.title} 
-                    icon={art?.properties.media[0].thumbnails.large.url} 
-                    address={art?.properties.address} 
-                    year={art?.properties.year}
-                    isLiked={userLiked}
-                  />
-                )
+              if (!art) {
+                return (<p className="text-white">Nothing to display</p>)
+              } 
+              
+
+              return (
+                <CardDisplay
+                  key={index} 
+                  id={art?.id}
+                  title={art?.properties.title} 
+                  icon={art?.properties.media[0].thumbnails.large.url} 
+                  address={art?.properties.address} 
+                  year={art?.properties.year}
+                  isLiked={
+                    likeData.some((elem:ILikes)=>{
+                      
+                      return (elem.artId === art?.id);
+                    })
+                  }
+                />
+              )
             })
         }
         

@@ -15,7 +15,7 @@ import {useEffect} from 'react'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { addLike } from "../../../../api/Art/addLike";
+import { addLike } from "../../../../api/Likes/addLike";
 
 const SingleDisplay = () => {
 

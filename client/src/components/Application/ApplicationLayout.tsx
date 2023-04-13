@@ -2,28 +2,34 @@ import { useQuery } from 'react-query';
 import { useEffect } from 'react';
 import {shallow} from 'zustand/shallow';
 import useWindowSize from '../../hooks/useWindowDimensions';
-import { db } from '../../config/firebase';
-import { getDocs, collectionGroup } from 'firebase/firestore';
+import { getDocs, query, where } from 'firebase/firestore';
 import { useArtStore } from '../../store/Art/artStore';
 import Map from './Map/Map';
 import Sidebar from './Sidebar/Sidebar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import SideDrawerArt from './SideDrawer/SideDrawerArt';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import { auth } from '../../config/firebase';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDrawerStore } from '../../store/Drawer/drawerStore';
+import { useLikeStore } from '../../store/Like/likeStore';
 import SpeedDialMenu from './SpeedDial/SpeedDialMenu';
 import ToastBox from './ToastBox/ToastBox';
+import { likesRef } from '../../api/Likes/addLike';
+import { newArtCollectionRef } from '../../api/Art/getArt';
 
- /* TODO implement red light, yellow light, and green light for components */
+/* TODO implement red light, yellow light, and green light for components */
 
 const ApplicationLayout = () => {
 
     const windowDimensions = useWindowSize();
-    const newArtCollectionRef = collectionGroup(db, 'newArt');
+    /* Logged in User Info From Firebase */
+    const [user] = useAuthState(auth);
+    
+        
 
     /* State */
     const { data, setData, artId, artSearchQuery, wardSearchQuery, programSearchQuery, setLoading } = useArtStore(
@@ -45,12 +51,39 @@ const ApplicationLayout = () => {
       }), shallow
     );
 
+    const {likeData, setLikeData} = useLikeStore((state) => ({ 
+      likeData: state.likeData,
+      setLikeData: state.setLikeData,
+    }), shallow);
+
+
+    /* Fetch Data */
     /* Fetch all art */
-    const {isFetching, isLoading, isError, isSuccess, refetch} = useQuery( 
+    const {
+
+      isFetching : isFetchingArt, 
+      isLoading : isLoadingArt, 
+      isError:isErrorArt, 
+      isSuccess:isSuccessArt} = useQuery( 
       'art', 
       () => getArt
     ); 
-    
+
+    /* Fetch all Likes */
+    const {
+
+      isFetching : isFetchingLikes, 
+      isLoading : isLoadingLikes, 
+      isError:isErrorLikes, 
+      isSuccess:isSuccessLikes, 
+      refetch
+    } = useQuery( 
+      'likes', 
+      () => getLikes
+        
+    ); 
+
+          
     async function getArt() {
       let fetchedData = await getDocs(newArtCollectionRef);
       const filteredData = fetchedData.docs.map((doc)=>({
@@ -58,18 +91,29 @@ const ApplicationLayout = () => {
         id: doc.id,
       }));
       setData(filteredData);
+      
+    }
+
+    async function getLikes() {
+      const likesDocs = query(likesRef, where("userId", "==", user?.uid ||''));
+      let fetchedData = await getDocs(likesRef);
+      const filteredData = fetchedData.docs.map((doc)=>({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setLikeData(filteredData);
+      
     }
    
     useEffect(()=>{
-      console.log(data);
-      console.log(auth.currentUser);
-      setLoading(isLoading)
+      
+      setLoading(isLoadingArt);
     },[])
 
-    if(isError) 
-      return (<Error/>)
-    else if(isLoading) 
-      return (<Loading/>) 
+    if(isErrorArt) 
+      return (<Error/>);
+    else if(isLoadingArt) 
+      return (<Loading/>);
     else 
       return (
         <>
@@ -103,7 +147,7 @@ const ApplicationLayout = () => {
             }
           </div>
         </>
-      )
+      );
 }
 
 export default ApplicationLayout

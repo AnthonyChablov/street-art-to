@@ -14,7 +14,7 @@ import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import useProgressiveImg from "../../../../hooks/useProgressiveImg";
 import lowResImg from './../../../../assets/images/lowRes/graffitti-img-1-low.png';
 import useWindowSize from "../../../../hooks/useWindowDimensions";
-import { addLike } from "../../../../api/Art/addLike";
+import { addLike } from "../../../../api/Likes/addLike";
 
 interface ICardDisplay{
   id: string,
@@ -66,7 +66,7 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
     setLiked(!liked);
     setToggleToast(!toggleToast)
     // send request to server to save as liked to counter and remember which user liked it 
-    
+    addLike(user?.uid, artId);
   }
 
   function onClickOpenHandeller(){
