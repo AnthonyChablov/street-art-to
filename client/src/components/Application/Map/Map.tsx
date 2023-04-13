@@ -29,6 +29,7 @@ const Map = () => {
   const mapWidth =  '100%';
 
   return (
+    <div className="">
     <MapContainer 
       center={[43.65306, -79.40125 ]} 
       zoom={13} 
@@ -77,6 +78,7 @@ const Map = () => {
         zoomOutText="-" 
       />
     </MapContainer>
+    </div>
   )
 }
 

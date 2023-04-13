@@ -45,7 +45,7 @@ const SpeedDialMenu = () => {
     <Box sx={{ transform: 'translateZ(0px)', flexGrow: 1 }}>
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
-        sx={{ position: 'absolute', bottom: 110, right: 16 ,}}
+        sx={{ position: 'absolute', bottom: 150, right: 16 ,}}
         icon={
           <SpeedDialIcon 
             icon={ <MenuIcon/> } 

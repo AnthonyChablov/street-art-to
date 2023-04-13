@@ -112,8 +112,7 @@ const ApplicationLayout = () => {
     else 
       return (
         <>
-          <div className='h-screen'>
-            
+          <div className=''>
             <Map/>
             <ToastBox/>
             <Header/>
