@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 import DisplayLayout from '../Display/DisplayLayout';
+import { useEffect } from 'react';
 
 const Sidebar = () => {
 
@@ -28,6 +29,12 @@ const Sidebar = () => {
         }
         return '33.34%';
     };
+
+    useEffect(()=>{
+        if (windowWidth >= 850) {
+            setToggleSideBar(true);
+        }
+    },[])
 
     return (
         <Drawer

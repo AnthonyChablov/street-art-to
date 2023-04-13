@@ -45,16 +45,21 @@ const SpeedDialMenu = () => {
     <Box sx={{ transform: 'translateZ(0px)', flexGrow: 1 }}>
       <SpeedDial
         ariaLabel="SpeedDial tooltip example"
-        sx={{ position: 'absolute', bottom: 50, right: 16 ,}}
-        icon={<SpeedDialIcon icon={<MenuIcon/>} openIcon={<CloseIcon/>}/>}
+        sx={{ position: 'absolute', bottom: 110, right: 16 ,}}
+        icon={
+          <SpeedDialIcon 
+            icon={ <MenuIcon/> } 
+            openIcon={ <CloseIcon/> }
+          />
+        }
         onClose={handleClose}
         onOpen={handleOpen}
         open={open}
         FabProps={{
           sx: {
-            bgcolor: 'rgb(51 65 85)',
+            bgcolor: 'rgb(63 63 70)',
             '&:hover': {
-              bgcolor: 'rgb(51 65 85)',
+              bgcolor: ' rgb(82 82 91)',
             }
           }
         }}
@@ -75,9 +80,7 @@ const SpeedDialMenu = () => {
                 setToggleArtDrawer(!toggleArtDrawer);
               }else{  // multiple
                 setToggleSideBar(!toggleSideBar)
-                
               }
-              
             }}
             FabProps={{
               sx: {

@@ -19,7 +19,7 @@ type Action={
 }
 
 export const useDrawerStore = create<State & Action>((set)=>({
-    toggleSideBar: true,
+    toggleSideBar: false,
     toggleSideDrawer: false,
     toggleArtDrawer: false,
     toggleSwipeDrawer:true,

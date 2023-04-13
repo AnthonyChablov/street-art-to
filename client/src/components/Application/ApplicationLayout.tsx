@@ -20,6 +20,7 @@ import SpeedDialMenu from './SpeedDial/SpeedDialMenu';
 import ToastBox from './ToastBox/ToastBox';
 import { likesRef } from '../../api/Likes/addLike';
 import { newArtCollectionRef } from '../../api/Art/getArt';
+import Header from '../Common/Header/Header';
 
 /* TODO implement red light, yellow light, and green light for components */
 
@@ -28,9 +29,7 @@ const ApplicationLayout = () => {
     const windowDimensions = useWindowSize();
     /* Logged in User Info From Firebase */
     const [user] = useAuthState(auth);
-    
-        
-
+  
     /* State */
     const { data, setData, artId, artSearchQuery, wardSearchQuery, programSearchQuery, setLoading } = useArtStore(
       (state) => ({ 
@@ -55,7 +54,6 @@ const ApplicationLayout = () => {
       likeData: state.likeData,
       setLikeData: state.setLikeData,
     }), shallow);
-
 
     /* Fetch Data */
     /* Fetch all art */
@@ -82,7 +80,6 @@ const ApplicationLayout = () => {
       () => getLikes
         
     ); 
-
           
     async function getArt() {
       let fetchedData = await getDocs(newArtCollectionRef);
@@ -102,11 +99,9 @@ const ApplicationLayout = () => {
         id: doc.id,
       }));
       setLikeData(filteredData);
-      
     }
    
     useEffect(()=>{
-      
       setLoading(isLoadingArt);
     },[])
 
@@ -118,8 +113,10 @@ const ApplicationLayout = () => {
       return (
         <>
           <div className='h-screen'>
+            
             <Map/>
             <ToastBox/>
+            <Header/>
             {
               /* render Sidebar for mobile, Card for large screens */
               windowDimensions.width >= 850

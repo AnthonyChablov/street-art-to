@@ -71,7 +71,6 @@ const Map = () => {
               })  
           }
         </>
-        
       <ZoomControl 
         position={`${windowDimensions.width <= 850 ? 'topright' : 'bottomright'}`} 
         zoomInText='+' 
