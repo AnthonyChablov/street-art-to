@@ -123,7 +123,9 @@ const ApplicationLayout = () => {
                     <div className="fixed top-5 left-8 z-0">
                       <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr'
                         variant='contained' 
-                        onClick={()=>{setToggleSideBar(!toggleSideBar)}}
+                        onClick={()=>{
+                          setToggleSideBar(!toggleSideBar)
+                        }}
                       >
                         <MenuIcon fontSize='medium'/>
                       </Button>
