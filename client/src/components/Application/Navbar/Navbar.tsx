@@ -12,6 +12,7 @@ import useWindowSize from '../../../hooks/useWindowDimensions';
 
 
 const Navbar = () => {
+    
     const windowDimension = useWindowSize();
     const drawerWidth = '3.5rem';
 

@@ -69,7 +69,6 @@ const ApplicationLayout = () => {
 
     /* Fetch all Likes */
     const {
-
       isFetching : isFetchingLikes, 
       isLoading : isLoadingLikes, 
       isError:isErrorLikes, 
@@ -115,7 +114,7 @@ const ApplicationLayout = () => {
           <div className=''>
             <Map/>
             <ToastBox/>
-            <Header/>
+            
             {
               /* render Sidebar for mobile, Card for large screens */
               windowDimensions.width >= 850
@@ -136,6 +135,7 @@ const ApplicationLayout = () => {
                   </>      
                 : ( // on mobile and small tablets
                     <>
+                      <Header/>
                       <SpeedDialMenu/>
                       <Sidebar/>
                       <SideDrawer userName='Anthony'/>
