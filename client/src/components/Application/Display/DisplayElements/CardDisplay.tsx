@@ -83,7 +83,10 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
     if (windowWidth > 400 && windowWidth <= 500) {
       return 'w-48';
     }
-    if (windowWidth > 500 && windowWidth <= 1300) {
+    if (windowWidth > 500 && windowWidth <= 700) {
+      return 'w-44';
+    }
+    if (windowWidth > 1100 && windowWidth <= 1300) {
       return 'w-44';
     }
     return 'w-52';
