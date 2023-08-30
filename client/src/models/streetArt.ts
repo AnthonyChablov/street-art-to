@@ -3,7 +3,7 @@ export interface IStreetArt{
     id: string,
     properties : IProperties,
     socials: ISocials,
-    type: String
+    type: string
 }
 
 interface IGeometry{
@@ -12,22 +12,22 @@ interface IGeometry{
 }
 
 interface IProperties{
-    address: String,
-    description : String,
+    address: string,
+    description : string,
     media: Array<IMedia>,
-    medium: String,
-    organizations: String,
-    program: String, 
-    status: String,
-    title: String,
+    medium: string,
+    organizations: string,
+    program: string, 
+    status: string,
+    title: string,
     uid: number,
-    ward: String,
+    ward: string,
     year: number
 }
 
 interface IMedia{
-    filename: String,
-    id: String,
+    filename: string,
+    id: string,
     size: number,
     thumbnails: IThumbnails
     

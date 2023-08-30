@@ -35,9 +35,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     );
 
     const animateRef = useRef(true); // animate map center onClick of Marker
-    const iconHTML = ReactDOMServer.renderToString(<PlaceIcon sx={{ fontSize: 400 }}/>);
-    const customMarkerIcon = new Leaflet.DivIcon({html: iconHTML});
-
+    
     function onClickHandeller(){
         setMapCenter([latitude, longitude])
         setArtId(id);
@@ -53,7 +51,7 @@ const MapMarker = ({id, latitude, longitude, title, text} : MapMarker) => {
     return (
         <Marker 
             position={ [latitude, longitude] }
-            icon= { customMarkerIcon }
+            
             eventHandlers={{
                 click: () => {
                     onClickHandeller();

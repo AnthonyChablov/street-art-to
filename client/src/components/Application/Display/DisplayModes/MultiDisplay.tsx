@@ -95,7 +95,6 @@ const MultiDisplay = () => {
                   year={art?.properties.year}
                   isLiked={
                     likeData.some((elem:ILikes)=>{
-                      
                       return (elem.artId === art?.id);
                     })
                   }

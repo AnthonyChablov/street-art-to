@@ -27,57 +27,19 @@ import Header from '../Common/Header/Header';
 const ApplicationLayout = () => {
 
     const windowDimensions = useWindowSize();
-    /* Logged in User Info From Firebase */
-    const [user] = useAuthState(auth);
-  
+
     /* State */
-    const { data, setData, artId, artSearchQuery, wardSearchQuery, programSearchQuery, setLoading } = useArtStore(
-      (state) => ({ 
-        data : state.data, 
-        setData : state.setData,
-        artId: state.artId,
-        wardSearchQuery: state.wardSearchQuery,
-        artSearchQuery: state.artSearchQuery,
-        programSearchQuery:state.programSearchQuery,
-        setLoading: state.setLoading
-      }), shallow
-    );
-
-    const { toggleSideBar, setToggleSideBar } = useDrawerStore(
-      (state) => ({ 
-        toggleSideBar: state.toggleSideBar,
-        setToggleSideBar: state.setToggleSideBar,
-      }), shallow
-    );
-
-    const {likeData, setLikeData} = useLikeStore((state) => ({ 
-      likeData: state.likeData,
-      setLikeData: state.setLikeData,
-    }), shallow);
+    const { setData,  } = useArtStore();
+    const { toggleSideBar, setToggleSideBar } = useDrawerStore();
 
     /* Fetch Data */
-    /* Fetch all art */
     const {
-
       isFetching : isFetchingArt, 
       isLoading : isLoadingArt, 
       isError:isErrorArt, 
       isSuccess:isSuccessArt} = useQuery( 
       'art', 
       () => getArt
-    ); 
-
-    /* Fetch all Likes */
-    const {
-      isFetching : isFetchingLikes, 
-      isLoading : isLoadingLikes, 
-      isError:isErrorLikes, 
-      isSuccess:isSuccessLikes, 
-      refetch
-    } = useQuery( 
-      'likes', 
-      () => getLikes
-        
     ); 
           
     async function getArt() {
@@ -87,22 +49,7 @@ const ApplicationLayout = () => {
         id: doc.id,
       }));
       setData(filteredData);
-      
     }
-
-    async function getLikes() {
-      const likesDocs = query(likesRef, where("userId", "==", user?.uid ||''));
-      let fetchedData = await getDocs(likesRef);
-      const filteredData = fetchedData.docs.map((doc)=>({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setLikeData(filteredData);
-    }
-   
-    useEffect(()=>{
-      setLoading(isLoadingArt);
-    },[])
 
     if(isErrorArt) 
       return (<Error/>);
@@ -113,8 +60,6 @@ const ApplicationLayout = () => {
         <>
           <div className=''>
             <Map/>
-            <ToastBox/>
-            
             {
               /* render Sidebar for mobile, Card for large screens */
               windowDimensions.width >= 850

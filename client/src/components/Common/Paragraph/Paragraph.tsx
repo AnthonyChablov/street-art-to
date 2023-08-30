@@ -5,7 +5,7 @@ interface IParagraph{
 
 const Paragraph = ({text} : IParagraph) => {
   return (
-    <p className="text-zinc-700 text-md">{text}</p>
+    <p className="text-white text-md">{text}</p>
   )
 }
 

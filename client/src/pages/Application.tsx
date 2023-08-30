@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const AppPage = () => {
-
-
-
   return (
     <>
       <ApplicationLayout/>
