@@ -9,18 +9,8 @@ import SingleDisplay from '../Display/DisplayModes/SingleDisplay';
 
 const SideDrawerArt = () => {
 
-    const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore(
-        (state) => ({ 
-            toggleArtDrawer : state.toggleArtDrawer, 
-            setToggleArtDrawer : state.setToggleArtDrawer
-        }), shallow
-    );
-
+    const { toggleArtDrawer, setToggleArtDrawer } = useDrawerStore();
     const windowWidth = useWindowSize().width;
-
-    function onClickHandeller(){
-        setToggleArtDrawer(!toggleArtDrawer);
-    }
 
     function setDrawerWidth(windowWidth:number){
         if (windowWidth >= 850 && windowWidth <= 1100) return '41%';

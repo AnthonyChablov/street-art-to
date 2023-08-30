@@ -59,7 +59,8 @@ const Sidebar = () => {
                 >
                     <CloseIcon htmlColor="white"/>
                 </IconButton>
-                <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
+                {/* To toggle user account page */}
+                {/* <Button className='bg-gradient-to-r from-slate-600 to-zinc-800 hover:bg-gradient-to-tr '
                     onClick={()=>{
                         setToggleSideDrawer(!toggleSideDrawer)
                     }}
@@ -67,7 +68,7 @@ const Sidebar = () => {
                     size="small"
                 >
                     <p className='text-md py-1 font-medium font-roboto'>My Account</p>
-                </Button>
+                </Button> */}
             </div>
             <DisplayLayout/>
         </div>
