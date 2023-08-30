@@ -16,9 +16,6 @@ import LayersIcon from '@mui/icons-material/Layers';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 
 const actions = [
-  
- 
-  { icon: <FaceIcon />, name: 'Account' },
   { icon: <ArticleIcon />, name: 'Select' },
   { icon: <SearchIcon />, name: 'Menu' },
 ];
@@ -26,16 +23,14 @@ const actions = [
 const SpeedDialMenu = () => {
 
   /* State */
-  const { toggleArtDrawer, setToggleArtDrawer, toggleSideBar, setToggleSideBar, toggleSideDrawer, setToggleSideDrawer } = useDrawerStore(
-    (state) => ({ 
-      toggleArtDrawer : state.toggleArtDrawer, 
-      setToggleArtDrawer : state.setToggleArtDrawer,
-      toggleSideBar : state.toggleSideBar,
-      setToggleSideBar: state.setToggleSideBar,
-      toggleSideDrawer: state.toggleSideDrawer,
-      setToggleSideDrawer: state.setToggleSideDrawer
-    }), shallow
-  );
+  const { 
+    toggleArtDrawer, 
+    setToggleArtDrawer, 
+    toggleSideBar,
+    setToggleSideBar, 
+    toggleSideDrawer, 
+    setToggleSideDrawer 
+  } = useDrawerStore();
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -74,9 +69,7 @@ const SpeedDialMenu = () => {
               handleClose();
               
               // associate state of drawers to speed dial buttons
-              if(i === 0){  // menu select
-                setToggleSideDrawer(!toggleSideDrawer);
-              }else if (i ===1){  // single
+              if (i ===1){  // single
                 setToggleArtDrawer(!toggleArtDrawer);
               }else{  // multiple
                 setToggleSideBar(!toggleSideBar)

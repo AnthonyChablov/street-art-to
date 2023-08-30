@@ -15,7 +15,6 @@ const Map = () => {
     artSearchQuery,
     wardSearchQuery, 
     programSearchQuery ,
-    mapCenter  
   } = useArtStore((state) => ({ 
       data : state.data, 
       programSearchQuery: state.programSearchQuery,
@@ -38,6 +37,7 @@ const Map = () => {
         height: "100vh", 
         width: `${mapWidth}` 
       }} 
+      tap={false} // Disable Leaflet's default tap handling
       zoomControl={false}
     >
       <TileLayer
