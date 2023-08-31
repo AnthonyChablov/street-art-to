@@ -1,20 +1,10 @@
-import { shallow } from "zustand/shallow";
 import CardDisplay from "../DisplayElements/CardDisplay";
 import { IStreetArt } from "../../../../models/streetArt";
 import Divider from "@mui/material/Divider";
 import Menu from "../../Menu/Menu";
 import Title from "../../Title/Title";
-import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close';
-import IconButton from '@mui/material/IconButton';
-import Skeleton from '@mui/material/Skeleton';
-import { auth } from "../../../../config/firebase";
-import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import { useLikeStore } from "../../../../store/Like/likeStore";
 import { useArtStore } from "../../../../store/Art/artStore";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { collection, query, where } from 'firebase/firestore';
-import { likesRef } from "../../../../api/Likes/addLike";
 import { ILikes } from "../../../../models/likes";
 
 
@@ -23,37 +13,14 @@ const MultiDisplay = () => {
   /* State */
   const { 
     data, 
-    setData, 
-    artId, 
     artSearchQuery,
     wardSearchQuery, 
     programSearchQuery,
-    loading
-  } = useArtStore(
-    (state) => ({ 
-      data : state.data, 
-      programSearchQuery: state.programSearchQuery,
-      artSearchQuery: state.artSearchQuery,
-      wardSearchQuery: state.wardSearchQuery,
-      setData : state.setData,
-      artId: state.artId,
-      loading:state.loading
-    }), shallow
-  );
+  } = useArtStore( );
 
   const { 
     likeData,
-    setLikeData
-  } = useLikeStore(
-    (state) => ({ 
-      likeData : state.likeData, 
-      setLikeData: state.setLikeData,
-    }), shallow
-  );
-
-  /* Hooks */
-  /* Logged in User Info From Firebase */
-  const [user] = useAuthState(auth);
+  } = useLikeStore();
 
   return (
     <div className={`overflow-y-auto flex-grow`}>
@@ -83,8 +50,6 @@ const MultiDisplay = () => {
               if (!art) {
                 return (<p className="text-white">Nothing to display</p>)
               } 
-              
-
               return (
                 <CardDisplay
                   key={index} 

@@ -1,8 +1,5 @@
 import {Marker, Popup} from 'react-leaflet'; 
 import { shallow } from 'zustand/shallow';
-import ReactDOMServer from 'react-dom/server';
-import PlaceIcon from '@mui/icons-material/Place';
-import Leaflet from 'leaflet';
 import { useRef } from 'react';
 import { useArtStore } from '../../../store/Art/artStore';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';

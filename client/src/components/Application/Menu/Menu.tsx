@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { debounce } from "lodash";
 import { TextField} from "@mui/material";
 import { shallow } from "zustand/shallow";
-import InputAdornment from "@mui/material/InputAdornment";
 import { useArtStore } from "../../../store/Art/artStore";
 import { useDrawerStore } from "../../../store/Drawer/drawerStore";
 import { IStreetArt } from "../../../models/streetArt";

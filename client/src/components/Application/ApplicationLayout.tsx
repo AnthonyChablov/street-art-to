@@ -1,24 +1,17 @@
 import { useQuery } from 'react-query';
-import { useEffect } from 'react';
-import {shallow} from 'zustand/shallow';
 import useWindowSize from '../../hooks/useWindowDimensions';
-import { getDocs, query, where } from 'firebase/firestore';
+import { getDocs } from 'firebase/firestore';
 import { useArtStore } from '../../store/Art/artStore';
 import Map from './Map/Map';
 import Sidebar from './Sidebar/Sidebar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import SideDrawerArt from './SideDrawer/SideDrawerArt';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
-import { auth } from '../../config/firebase';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDrawerStore } from '../../store/Drawer/drawerStore';
-import { useLikeStore } from '../../store/Like/likeStore';
 import SpeedDialMenu from './SpeedDial/SpeedDialMenu';
-import ToastBox from './ToastBox/ToastBox';
-import { likesRef } from '../../api/Likes/addLike';
 import { newArtCollectionRef } from '../../api/Art/getArt';
 import Header from '../Common/Header/Header';
 
@@ -37,7 +30,8 @@ const ApplicationLayout = () => {
       isFetching : isFetchingArt, 
       isLoading : isLoadingArt, 
       isError:isErrorArt, 
-      isSuccess:isSuccessArt} = useQuery( 
+      isSuccess:isSuccessArt
+    } = useQuery( 
       'art', 
       () => getArt
     ); 

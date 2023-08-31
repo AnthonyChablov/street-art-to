@@ -10,7 +10,6 @@ import { Button } from '@mui/material';
 import { auth } from '../../../config/firebase';
 import Divider from '@mui/material/Divider';
 import useWindowSize from '../../../hooks/useWindowDimensions';
-import ToastBox from '../ToastBox/ToastBox';
 
 interface ISideDrawer{
   userName : string,

@@ -1,10 +1,6 @@
 import Drawer from '@mui/material/Drawer';
-import { shallow } from 'zustand/shallow';
-
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
-import IconButton from '@mui/material/IconButton';
 import useWindowSize from '../../../hooks/useWindowDimensions';
-import UserDisplayCard from './UserDisplay/UserDisplayCard';
 import SingleDisplay from '../Display/DisplayModes/SingleDisplay';
 
 const SideDrawerArt = () => {

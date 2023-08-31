@@ -1,10 +1,9 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import Divider from "@mui/material/Divider";
 import Navigation from "../Common/Navigation/Navigation";
 import Paragraph from "../Common/Paragraph/Paragraph";
-import grafittiImg2 from '../../assets/images/graffitti-img-2.png';
-import { imgVariants, paragraphVariants } from "../../variants/animationVariants";
+import {  paragraphVariants } from "../../variants/animationVariants";
 
 const AboutLayout = () => {
   return (
@@ -33,15 +32,7 @@ const AboutLayout = () => {
             "Whether you're a local Torontonian or a visitor to the city, our street art mural display web application is the perfect way to experience the beauty and creativity of Toronto's street art culture. So why wait? Start exploring today and see what amazing street art you can discover!"
           } />
         </motion.div>
-        <div className="w-full lg:w-5/12 pb-32 lg:pb-0">
-          <motion.img className="rounded-3xl shadow-xl border-2 border-white"
-            src={grafittiImg2}
-            alt="street-art"
-            variants={imgVariants}
-            initial='initial'
-            animate='animate'
-          />
-        </div>
+        
       </div>
     </div>
   )

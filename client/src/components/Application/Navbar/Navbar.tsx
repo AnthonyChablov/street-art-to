@@ -1,13 +1,7 @@
-import React from 'react';
 import { Drawer  } from '@mui/material';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import List from '@mui/material/List';
-import HomeIcon from '@mui/icons-material/Home';
 import NavIcon from './NavIcon/NavIcon';
-import MapIcon from '@mui/icons-material/Map';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 
 

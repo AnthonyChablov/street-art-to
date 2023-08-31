@@ -1,9 +1,6 @@
-
-
 interface IForm{
   mode: String
 }
-
 
 const Form = ({mode}:IForm) => {
   return (

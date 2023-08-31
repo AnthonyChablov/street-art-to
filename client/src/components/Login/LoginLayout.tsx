@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'; // the auth variable is used for signing in user and retrieving already signed in user 
 import { useNavigate } from "react-router-dom";
-import {auth, googleProvider, db} from '../../config/firebase';
+import {auth, googleProvider, } from '../../config/firebase';
 import { signInWithEmailAndPassword , signInWithPopup, signOut } from 'firebase/auth';
 import { motion } from 'framer-motion';
 import Button from '@mui/material/Button';

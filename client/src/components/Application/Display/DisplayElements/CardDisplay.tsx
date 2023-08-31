@@ -115,7 +115,7 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
           <div className="flex flex-col justify-center h-full w-full">
             <div className="flex items-center justify-between w-full ">
               <div className={` text-white absolute z-20 font-bold w-11 hover:underline
-                ${windowWidth >= 1100 ? 'right-20 text-sm mt-[0.125rem]' : 'right-22 text-xs top-5' } 
+                ${windowWidth >= 1100 ? 'right-20 text-sm mt-[0.125rem]' : 'right-20 text-xs top-5' } 
                 ${!minimize ? 'top-4' : 'top-4' } 
               `}
               >
