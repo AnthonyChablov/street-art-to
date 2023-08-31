@@ -16,8 +16,8 @@ import LayersIcon from '@mui/icons-material/Layers';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 
 const actions = [
-  { icon: <ArticleIcon />, name: 'Select' },
-  { icon: <SearchIcon />, name: 'Menu' },
+  { icon: <SearchIcon />, name: 'Select' },
+  { icon: <ArticleIcon />, name: 'Menu' },
 ];
 
 const SpeedDialMenu = () => {
