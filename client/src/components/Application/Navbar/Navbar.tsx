@@ -2,12 +2,9 @@ import { Drawer  } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import NavIcon from './NavIcon/NavIcon';
-import useWindowSize from '../../../hooks/useWindowDimensions';
-
 
 const Navbar = () => {
     
-    const windowDimension = useWindowSize();
     const drawerWidth = '3.5rem';
 
     return (

@@ -1,16 +1,22 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import NavigationLink from "./NavigationLink";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import NavigationLink from './NavigationLink';
+import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 
 const navigationLinks = [
-  { linkTo: "/", text: "Home" },
-  { linkTo: "/about", text: "About" },
-  { linkTo: "/app", text: "Launch App" },
-  /* { linkTo: "/login", text: "Login" },
-  { linkTo: "/register", text: "Signup" }, */
+  { linkTo: '/', text: 'Home' },
+  { linkTo: '/about', text: 'About' },
+  { linkTo: '/app', text: 'Launch App'},
 ];
 
 const Navigation = () => {
+  const { toggleNavDrawer, setToggleNavDrawer } = useDrawerStore();
+
+  const handleDrawerToggle = () => {
+    console.log('Toggling drawer...');
+    setToggleNavDrawer(!toggleNavDrawer);
+  };
+
   return (
     <nav className="border-gray-200 px-2 sm:px-4 py-2.5 bg-zinc-800 top-0 z-50 fixed w-screen">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -25,6 +31,7 @@ const Navigation = () => {
           className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false"
+          onClick={handleDrawerToggle}
         >
           <span className="sr-only">Open main menu</span>
           <svg
@@ -43,9 +50,11 @@ const Navigation = () => {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
-            {navigationLinks.map((link, index) => (
-              <NavigationLink key={index} linkTo={link.linkTo} text={link.text} />
-            ))}
+            {
+              navigationLinks.map((link, index) => (
+                <NavigationLink key={index} linkTo={link.linkTo} text={link.text} index={index}/>
+              ))
+            }
           </ul>
         </div>
       </div>

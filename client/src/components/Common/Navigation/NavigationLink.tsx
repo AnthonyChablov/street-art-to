@@ -1,24 +1,35 @@
-import { NavLink } from "react-router-dom"
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-interface INavLink{
-    linkTo :String,
-    text: String,
+interface INavLink {
+  linkTo: string;
+  text: string;
+  index: number;
 }
 
-const NavigationLink = ({linkTo, text}:INavLink) => {
+const NavigationLink = ({ linkTo, text, index }: INavLink) => {
+
+  const isLastLink = index === 2;
+
   return (
     <li>
-        <NavLink to={`${linkTo}`}>
-            <div className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 
-                md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 
-                md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white 
-                md:dark:hover:bg-transparent text-sm"
-            >
-                {text}
-            </div>
-        </NavLink>
+      <NavLink to={linkTo}>
+        <div
+          className={`
+            block py-2 pl-4 pr-4 text-gray-700 font-semibold text-md rounded-full hover:opacity-90
+            md:border-0 ${
+              isLastLink
+                ? 'bg-blue-400 text-white' // Apply special style for last link
+                : 'dark:text-gray-400 '
+            }
+          `}
+            style={isLastLink ? { backgroundColor: "#4682B4" } : {}}
+        >
+          {text}
+        </div>
+      </NavLink>
     </li>
-  )
-}
+  );
+};
 
-export default NavigationLink
+export default NavigationLink;

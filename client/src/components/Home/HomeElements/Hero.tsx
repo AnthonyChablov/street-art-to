@@ -26,10 +26,13 @@ const Hero = () => {
             <Link to={'/about'}>
               <Button
                 variant="outlined"
-                sx={{ py: 1.1, borderColor: "#4682B4", color: "#4682B4", '&:hover': { backgroundColor: "#4682B4", color: "#4682B4" } }}
+                sx={{ 
+                  py: 1.1, 
+                  borderColor: "#4682B4", 
+                  color: "#4682B4", '&:hover': { backgroundColor: "#4682B4", color: "white" }}}
               >
                 <span className="flex items-center">
-                  <p className="pr-1">Learn More</p>
+                  <p className="pr-1 ">Learn More</p>
                   <ArrowForwardIcon fontSize="small" />
                 </span>
               </Button>
