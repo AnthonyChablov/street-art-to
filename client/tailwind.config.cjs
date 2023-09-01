@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
@@ -11,11 +10,20 @@ module.exports = {
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
-        'empire' : ['Empire' , 'sans-serif']
+        'empire': ['Empire', 'sans-serif']
       },
       borderRadius: {
         extraLarge: '12rem'
-      }
+      },
+      screens: {
+        'xxs' : '300px',
+        'xs' : '400px',
+        'sm': '640px',    // Small screens and up
+        'md': '768px',    // Medium screens and up
+        'lg': '1024px',   // Large screens and up
+        'xl': '1280px',   // Extra large screens and up
+        '2xl': '1536px',  // 2x extra large screens and up
+      },
     },
     container: {
       center: true,
@@ -28,7 +36,5 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    
-  ],
+  plugins: [],
 }

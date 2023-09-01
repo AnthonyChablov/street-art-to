@@ -89,13 +89,12 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
               }
             </IconButton>
           </div>
-          <div className="hover:cursor-pointer w-full inline-block" 
+          <div className="hover:cursor-pointer  inline-block flex-grow" 
             onClick={() => {
               onClickOpenHandeller()
             }}
           >
-            <span className={`flex-initial block pt-1 text-white w-full 
-             
+            <span className={`block w-14 flex-grow xxs:w-28 xs:w-44 sm:w-48 md:w-36 lg:w-48 xl:w-52 2xl:w-72 pt-1 text-white 
               ${minimize && 'truncate' }
             `}>
               {title}
@@ -115,7 +114,7 @@ const CardDisplay = ({id, title, icon,address, year, isLiked}:ICardDisplay) => {
           <div className="flex flex-col justify-center h-full w-full">
             <div className="flex items-center justify-between w-full ">
               <div className={` text-white absolute z-20 font-bold w-11 hover:underline
-                ${windowWidth >= 1100 ? 'right-20 text-sm mt-[0.125rem]' : 'right-20 text-xs top-5' } 
+                ${windowWidth >= 1100 ? 'right-16 text-sm mt-[0.125rem]' : 'right-16 text-xs top-5' } 
                 ${!minimize ? 'top-4' : 'top-4' } 
               `}
               >
