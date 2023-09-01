@@ -16,8 +16,8 @@ import LayersIcon from '@mui/icons-material/Layers';
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
 
 const actions = [
-  { icon: <SearchIcon />, name: 'Select' },
-  { icon: <ArticleIcon />, name: 'Menu' },
+  { icon: <ArticleIcon />, name: 'Menu'},
+  { icon: <SearchIcon />, name: 'Selection' },
 ];
 
 const SpeedDialMenu = () => {
@@ -28,8 +28,6 @@ const SpeedDialMenu = () => {
     setToggleArtDrawer, 
     toggleSideBar,
     setToggleSideBar, 
-    toggleSideDrawer, 
-    setToggleSideDrawer 
   } = useDrawerStore();
 
   const [open, setOpen] = useState(false);

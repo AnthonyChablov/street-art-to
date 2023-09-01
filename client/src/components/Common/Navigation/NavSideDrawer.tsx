@@ -1,10 +1,15 @@
-import React from 'react';
 import Drawer from '@mui/material/Drawer';
+import { ReactNode } from 'react'; // Import ReactNode for typing children
 import { useDrawerStore } from '../../../store/Drawer/drawerStore';
+import CloseButton from '../Buttons/CloseButton';
 
-const NavSideDrawer = () => {
+interface NavSideDrawerProps {
+    children: ReactNode; // Properly type children as ReactNode
+}
+
+const NavSideDrawer = ({ children }: NavSideDrawerProps) => {
     const { toggleNavDrawer, setToggleNavDrawer } = useDrawerStore();
-    
+
     const closeDrawer = () => {
         setToggleNavDrawer(false);
     };
@@ -14,10 +19,13 @@ const NavSideDrawer = () => {
             anchor="right"
             open={toggleNavDrawer}
             onClose={closeDrawer}
+            PaperProps={{ style: { width: '45%' } }} // Set width using PaperProps
         >
-            <div className="w-64 p-4 bg-white">
-                {/* Drawer content */}
-                <p>Drawer Content</p>
+            <div className="p-4 bg-gradient-to-br from-zinc-600 to-zinc-800 h-screen">
+                <div className="text-right">
+                    <CloseButton onClick={closeDrawer} />
+                </div>
+                {children}
             </div>
         </Drawer>
     );
