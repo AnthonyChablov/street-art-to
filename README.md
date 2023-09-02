@@ -1,55 +1,59 @@
-Street Art TO Web Application
+# Street Art TO Web Application
 
-Street Art TO Logo
-Overview
+![Street Art TO Logo](StreetArtTOLogo.png)
 
-Welcome to the Street Art TO web application! This application is designed to showcase the vibrant and colorful street art and murals across Toronto, all made possible by the StreetARToronto (StART) initiative. StART is a suite of innovative programs initiated in 2012 as a part of the City's Graffiti Management Plan, aimed at reducing graffiti vandalism and replacing it with captivating community-engaged street art.
+## Overview
+
+Welcome to the Street Art TO web application! This platform celebrates the vibrant and captivating street art and murals that adorn the streets of Toronto, all made possible by the StreetARToronto (StART) initiative. StART is a suite of innovative programs initiated in 2012 as a part of the City's Graffiti Management Plan, aimed at reducing graffiti vandalism and replacing it with captivating community-engaged street art.
 
 Through this web application, you can explore Toronto's ever-evolving street art scene, discover local artists, and learn more about the StART programs that have contributed to the city's transformation. Whether you're an art enthusiast, a visitor to Toronto, or a local resident, Street Art TO is your gateway to the world of urban creativity.
-Features
-Explore Street Art
 
-    Interactive Map: Navigate through Toronto's neighborhoods and explore street art locations with an easy-to-use interactive map.
+## Features
 
-    Artwork Gallery: Browse through a curated collection of street art and murals, complete with high-quality images and artist information.
+### Explore Street Art
 
-StART Initiatives
+- **Interactive Map**: Navigate through Toronto's neighborhoods and explore street art locations with an easy-to-use interactive map.
 
-    Learn About StART: Gain insight into the various StART programs that have beautified Toronto's streets, encouraged active transportation, showcased local talent, and reduced infrastructure maintenance costs.
+- **Artwork Gallery**: Browse through a curated collection of street art and murals, complete with high-quality images and artist information.
 
-    Download Resources: Access StART program resources, including presentation PDFs and Q&A documents to learn more about the initiatives.
+### StART Initiatives
 
-Artist Profiles
+- **Learn About StART**: Gain insight into the various StART programs that have beautified Toronto's streets, encouraged active transportation, showcased local talent, and reduced infrastructure maintenance costs.
 
-    Meet the Artists: Get to know the talented artists behind the stunning street art pieces featured in the application. Discover their backgrounds, styles, and artistic journeys.
+- **Download Resources**: Access StART program resources, including presentation PDFs and Q&A documents to learn more about the initiatives.
 
-User Contributions
+### Artist Profiles
 
-    Contribute Your Finds: Have you come across a beautiful piece of street art not yet featured in the application? Share it with the community by submitting your own findings.
+- **Meet the Artists**: Get to know the talented artists behind the stunning street art pieces featured in the application. Discover their backgrounds, styles, and artistic journeys.
 
-    Share Your Stories: Share your experiences and stories related to Toronto's street art scene. Connect with other art enthusiasts and share your passion.
+### User Contributions
 
-Getting Started
+- **Contribute Your Finds**: Have you come across a beautiful piece of street art not yet featured in the application? Share it with the community by submitting your own findings.
+
+- **Share Your Stories**: Share your experiences and stories related to Toronto's street art scene. Connect with other art enthusiasts and share your passion.
+
+## Getting Started
 
 To start exploring the Street Art TO web application, follow these steps:
 
-    Visit the Website: Go to www.streetartto.com.
+1. **Visit the Website**: Go to [www.streetartto.com](https://www.streetartto.com).
 
-    Explore: Use the interactive map or browse the gallery to discover Toronto's vibrant street art.
+2. **Explore**: Dive into Toronto's dynamic street art landscape using our interactive map or by browsing our extensive gallery.
 
-    Learn About StART: Dive into the StART initiatives section to understand the impact of this program on the city.
+3. **Learn About StART**: Delve deeper into the impact of StART programs on the city's artistic identity by exploring the StART initiatives section.
 
-    Meet the Artists: Discover the talented individuals behind the art by exploring artist profiles.
+4. **Meet the Artists**: Discover the inspiring individuals behind the captivating street art pieces by exploring artist profiles.
 
-    Contribute: If you have new street art finds or stories to share, contribute to the community by submitting your content.
+5. **Contribute**: Become an active participant in our community by sharing your newfound street art treasures or your personal stories related to Toronto's street art scene.
 
-Contact and Support
+## Contact and Support
 
-For any inquiries, feedback, or support related to the Street Art TO web application, please reach out to us at contact@streetartto.com.
-Credits
+For inquiries, feedback, or any assistance regarding the Street Art TO web application, please feel free to reach out to us at [contact@streetartto.com](mailto:contact@streetartto.com).
 
-    Street Art TO is made possible by the StreetARToronto (StART) initiative.
-    Special thanks to the talented artists who have transformed Toronto's streets.
-    This application is a project by [Your Company Name].
+## Credits
 
-Thank you for joining us on this artistic journey through the streets of Toronto. We hope you enjoy exploring the beauty and creativity that the city has to offer through the Street Art TO web application!
+- Street Art TO is made possible by the StreetARToronto (StART) initiative.
+- A special acknowledgment to the talented artists who have enriched Toronto's streets with their creativity.
+- This application is proudly developed by [Your Company Name](https://www.yourcompanywebsite.com).
+
+Thank you for embarking on this artistic journey through Toronto's streets with us. We hope you enjoy exploring the city's beauty, culture, and creativity through the Street Art TO web application!
