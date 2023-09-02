@@ -20,35 +20,20 @@ Through this web application, you can explore Toronto's ever-evolving street art
 
 - **Learn About StART**: Gain insight into the various StART programs that have beautified Toronto's streets, encouraged active transportation, showcased local talent, and reduced infrastructure maintenance costs.
 
-- **Download Resources**: Access StART program resources, including presentation PDFs and Q&A documents to learn more about the initiatives.
-
-### Artist Profiles
-
-- **Meet the Artists**: Get to know the talented artists behind the stunning street art pieces featured in the application. Discover their backgrounds, styles, and artistic journeys.
-
-### User Contributions
-
-- **Contribute Your Finds**: Have you come across a beautiful piece of street art not yet featured in the application? Share it with the community by submitting your own findings.
-
-- **Share Your Stories**: Share your experiences and stories related to Toronto's street art scene. Connect with other art enthusiasts and share your passion.
 
 ## Getting Started
 
 To start exploring the Street Art TO web application, follow these steps:
 
-1. **Visit the Website**: Go to [www.streetartto.com](https://www.streetartto.com).
+1. **Visit the Website**: Go to [https://street-art-to-ada52.firebaseapp.com/](https://street-art-to-ada52.firebaseapp.com/).
 
 2. **Explore**: Dive into Toronto's dynamic street art landscape using our interactive map or by browsing our extensive gallery.
 
 3. **Learn About StART**: Delve deeper into the impact of StART programs on the city's artistic identity by exploring the StART initiatives section.
 
-4. **Meet the Artists**: Discover the inspiring individuals behind the captivating street art pieces by exploring artist profiles.
-
-5. **Contribute**: Become an active participant in our community by sharing your newfound street art treasures or your personal stories related to Toronto's street art scene.
-
 ## Contact and Support
 
-For inquiries, feedback, or any assistance regarding the Street Art TO web application, please feel free to reach out to us at [contact@streetartto.com](mailto:contact@streetartto.com).
+For inquiries, feedback, or any assistance regarding the Street Art TO web application, please feel free to reach out to myself at [aechablov@gmail.com](mailto:aechablov@gmail.com).
 
 ## Credits
 
