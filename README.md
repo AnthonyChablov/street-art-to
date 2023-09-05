@@ -37,8 +37,7 @@ For inquiries, feedback, or any assistance regarding the Street Art TO web appli
 
 ## Credits
 
-- Street Art TO is made possible by the StreetARToronto (StART) initiative.
+- Street Art TO is made possible by the [StreetARToronto (StART)](https://www.toronto.ca/services-payments/streets-parking-transportation/enhancing-our-streets-and-public-realm/streetartoronto/) initiative.
 - A special acknowledgment to the talented artists who have enriched Toronto's streets with their creativity.
-- This application is proudly developed by [Your Company Name](https://www.yourcompanywebsite.com).
 
 Thank you for embarking on this artistic journey through Toronto's streets with us. We hope you enjoy exploring the city's beauty, culture, and creativity through the Street Art TO web application!
