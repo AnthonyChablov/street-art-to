@@ -1,11 +1,9 @@
-interface IForm{
-  mode: String
+interface IForm {
+  mode: String;
 }
 
-const Form = ({mode}:IForm) => {
-  return (
-    <div>Form</div>
-  )
-}
+const Form = ({ mode }: IForm) => {
+  return <div>Form</div>;
+};
 
-export default Form
+export default Form;

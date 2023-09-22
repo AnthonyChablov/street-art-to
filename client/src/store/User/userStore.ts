@@ -1,13 +1,7 @@
-import create from 'zustand';
+import create from "zustand";
 
-type State = {
-    
-}
+type State = {};
 
-type Action = {
-    
-}
+type Action = {};
 
-export const useUserStore = create<State & Action>((set)=>({
-   
-}));
+export const useUserStore = create<State & Action>((set) => ({}));

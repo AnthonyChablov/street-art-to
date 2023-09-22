@@ -1,11 +1,11 @@
-import AboutLayout from "../components/About/AboutLayout"
+import AboutLayout from "../components/About/AboutLayout";
 
 const About = () => {
   return (
     <>
-       <AboutLayout/>
+      <AboutLayout />
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;

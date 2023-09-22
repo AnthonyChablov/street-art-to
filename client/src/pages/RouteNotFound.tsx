@@ -1,8 +1,5 @@
-
 const RouteNotFoundPage = () => {
-  return (
-    <>RouteNotFoundPage</>
-  )
-}
+  return <>RouteNotFoundPage</>;
+};
 
-export default RouteNotFoundPage
+export default RouteNotFoundPage;

@@ -8,7 +8,6 @@ interface INavLink {
 }
 
 const NavigationLink = ({ linkTo, text, index }: INavLink) => {
-
   const isLastLink = index === 2;
 
   return (
@@ -19,11 +18,11 @@ const NavigationLink = ({ linkTo, text, index }: INavLink) => {
             block py-2 pl-4 pr-4 text-gray-700 font-semibold text-md rounded-full hover:opacity-90
             md:border-0 ${
               isLastLink
-                ? 'bg-blue-400 text-white' // Apply special style for last link
-                : 'dark:text-gray-400 '
+                ? "bg-blue-400 text-white" // Apply special style for last link
+                : "dark:text-gray-400 "
             }
           `}
-            style={isLastLink ? { backgroundColor: "#4682B4" } : {}}
+          style={isLastLink ? { backgroundColor: "#4682B4" } : {}}
         >
           {text}
         </div>

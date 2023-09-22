@@ -1,13 +1,11 @@
-import HomeLayout from '../components/Home/HomeLayout'
-
+import HomeLayout from "../components/Home/HomeLayout";
 
 const Homepage = () => {
   return (
     <>
-      <HomeLayout/>
-      
+      <HomeLayout />
     </>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

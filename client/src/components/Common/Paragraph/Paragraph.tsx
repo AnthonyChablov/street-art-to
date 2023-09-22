@@ -1,12 +1,9 @@
-
-interface IParagraph{
-    text:String
+interface IParagraph {
+  text: String;
 }
 
-const Paragraph = ({text} : IParagraph) => {
-  return (
-    <p className="text-white text-md">{text}</p>
-  )
-}
+const Paragraph = ({ text }: IParagraph) => {
+  return <p className="text-white text-md">{text}</p>;
+};
 
-export default Paragraph
+export default Paragraph;

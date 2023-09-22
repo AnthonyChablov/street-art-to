@@ -1,14 +1,14 @@
-import create from 'zustand';
+import create from "zustand";
 
 type State = {
-    likeData : []
-}
+  likeData: [];
+};
 
 type Action = {
-    setLikeData : Function
-}
+  setLikeData: Function;
+};
 
-export const useLikeStore = create<State & Action>((set)=>({
-    likeData:[],
-    setLikeData: ( newLikeData : [] ) => set({ likeData : newLikeData }),
+export const useLikeStore = create<State & Action>((set) => ({
+  likeData: [],
+  setLikeData: (newLikeData: []) => set({ likeData: newLikeData }),
 }));

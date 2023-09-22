@@ -1,14 +1,13 @@
-import Hero from "./HomeElements/Hero"
-import Navigation from "../Common/Navigation/Navigation"
+import Hero from "./HomeElements/Hero";
+import Navigation from "../Common/Navigation/Navigation";
 
 const HomeLayout = () => {
   return (
     <>
-      <Navigation/>
-      <Hero/>
+      <Navigation />
+      <Hero />
     </>
-    
-  )
-}
+  );
+};
 
-export default HomeLayout
+export default HomeLayout;

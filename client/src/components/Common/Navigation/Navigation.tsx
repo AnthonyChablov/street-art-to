@@ -1,21 +1,20 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import NavigationLink from './NavigationLink';
-import { useDrawerStore } from '../../../store/Drawer/drawerStore';
-import NavSideDrawer from './NavSideDrawer';
-
+import React from "react";
+import { NavLink } from "react-router-dom";
+import NavigationLink from "./NavigationLink";
+import { useDrawerStore } from "../../../store/Drawer/drawerStore";
+import NavSideDrawer from "./NavSideDrawer";
 
 const navigationLinks = [
-  { linkTo: '/', text: 'Home' },
-  { linkTo: '/about', text: 'About' },
-  { linkTo: '/app', text: 'Launch App'},
+  { linkTo: "/", text: "Home" },
+  { linkTo: "/about", text: "About" },
+  { linkTo: "/app", text: "Launch App" },
 ];
 
 const Navigation = () => {
   const { toggleNavDrawer, setToggleNavDrawer } = useDrawerStore();
 
   const handleDrawerToggle = () => {
-    console.log('Toggling drawer...');
+    console.log("Toggling drawer...");
     setToggleNavDrawer(!toggleNavDrawer);
   };
 
@@ -57,23 +56,28 @@ const Navigation = () => {
         {/* Nav  */}
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
-            {
-              navigationLinks.map((link, index) => (
-                <NavigationLink key={index} linkTo={link.linkTo} text={link.text} index={index}/>
-              ))
-            }
+            {navigationLinks.map((link, index) => (
+              <NavigationLink
+                key={index}
+                linkTo={link.linkTo}
+                text={link.text}
+                index={index}
+              />
+            ))}
           </ul>
         </div>
       </div>
       <NavSideDrawer>
-        <ul className='flex flex-col space-y-6 pt-2 items-center'>
-          {
-            navigationLinks.map((link, index) => (
-              <div key={index} onClick={handleDrawerToggle}>
-                <NavigationLink linkTo={link.linkTo} text={link.text} index={index} />
-              </div>
-            ))
-          }
+        <ul className="flex flex-col space-y-6 pt-2 items-center">
+          {navigationLinks.map((link, index) => (
+            <div key={index} onClick={handleDrawerToggle}>
+              <NavigationLink
+                linkTo={link.linkTo}
+                text={link.text}
+                index={index}
+              />
+            </div>
+          ))}
         </ul>
       </NavSideDrawer>
     </nav>

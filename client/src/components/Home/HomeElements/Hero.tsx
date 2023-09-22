@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Button from "@mui/material/Button";
 
 const Hero = () => {
@@ -12,24 +12,31 @@ const Hero = () => {
             Explore Street Art Across Toronto
           </h1>
           <p className="mt-6 text-lg leading-8 text-white">
-            Welcome to StreetArt-To! Here, you can explore the vibrant and ever-changing street art scene across Toronto.
+            Welcome to StreetArt-To! Here, you can explore the vibrant and
+            ever-changing street art scene across Toronto.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-4">
-            <Link to={'/app'}>
+            <Link to={"/app"}>
               <Button
                 variant="contained"
-                sx={{ py: 1.1, backgroundColor: "#4682B4", '&:hover': { backgroundColor: "#4682B4" } }}
+                sx={{
+                  py: 1.1,
+                  backgroundColor: "#4682B4",
+                  "&:hover": { backgroundColor: "#4682B4" },
+                }}
               >
                 Get Started
               </Button>
             </Link>
-            <Link to={'/about'}>
+            <Link to={"/about"}>
               <Button
                 variant="outlined"
-                sx={{ 
-                  py: 1.1, 
-                  borderColor: "#4682B4", 
-                  color: "#4682B4", '&:hover': { backgroundColor: "#4682B4", color: "white" }}}
+                sx={{
+                  py: 1.1,
+                  borderColor: "#4682B4",
+                  color: "#4682B4",
+                  "&:hover": { backgroundColor: "#4682B4", color: "white" },
+                }}
               >
                 <span className="flex items-center">
                   <p className="pr-1 ">Learn More</p>
@@ -41,7 +48,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Hero;
