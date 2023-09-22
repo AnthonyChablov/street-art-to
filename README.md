@@ -1,43 +1,61 @@
-# Street Art TO Web Application
+# To Do List Application
 
-![Street Art TO Logo](StreetArtTOLogo.png)
+A fully responsive and mobile-friendly street-art and mural viewer that allows users to view information about street art and murals across Toronto. The app displays the locations of popular street art destinations on a map along with its information.
 
-## Overview
+## Mobile View
 
-Welcome to the Street Art TO web application! This platform celebrates the vibrant and captivating street art and murals that adorn the streets of Toronto, all made possible by the StreetARToronto (StART) initiative. StART is a suite of innovative programs initiated in 2012 as a part of the City's Graffiti Management Plan, aimed at reducing graffiti vandalism and replacing it with captivating community-engaged street art.
+## Desktop View
 
-Through this web application, you can explore Toronto's ever-evolving street art scene, discover local artists, and learn more about the StART programs that have contributed to the city's transformation. Whether you're an art enthusiast, a visitor to Toronto, or a local resident, Street Art TO is your gateway to the world of urban creativity.
+## Description
 
-## Features
+This application is made with:
 
-### Explore Street Art
-
-- **Interactive Map**: Navigate through Toronto's neighborhoods and explore street art locations with an easy-to-use interactive map.
-
-- **Artwork Gallery**: Browse through a curated collection of street art and murals, complete with high-quality images and artist information.
-
-### StART Initiatives
-
-- **Learn About StART**: Gain insight into the various StART programs that have beautified Toronto's streets, encouraged active transportation, showcased local talent, and reduced infrastructure maintenance costs.
-
+- React.js
+- Tailwind CSS
+- TypeScript
+- Firebase
+- Firebase Firestore Database
+- Material UI
+- Framer-Motion
+- Zustand
+- The features of this application include:
+  - Fully-Responsive Layout
+  - Mobile-Friendly Design
 
 ## Getting Started
 
-To start exploring the Street Art TO web application, follow these steps:
+### Dependencies
 
-1. **Visit the Website**: Go to [https://street-art-to-ada52.firebaseapp.com/](https://street-art-to-ada52.firebaseapp.com/).
+Node.js v16.13.0
 
-2. **Explore**: Dive into Toronto's dynamic street art landscape using our interactive map or by browsing our extensive gallery.
+### Installing
 
-3. **Learn About StART**: Delve deeper into the impact of StART programs on the city's artistic identity by exploring the StART initiatives section.
+1. Clone the repo
+2. Run `npm install` for both the server and client
 
-## Contact and Support
+### Executing program
 
-For inquiries, feedback, or any assistance regarding the Street Art TO web application, please feel free to reach out to myself at [aechablov@gmail.com](mailto:aechablov@gmail.com).
+```
+npm run dev // run dev environment
 
-## Credits
+Or
 
-- Street Art TO is made possible by the [StreetARToronto (StART)](https://www.toronto.ca/services-payments/streets-parking-transportation/enhancing-our-streets-and-public-realm/streetartoronto/) initiative.
-- A special acknowledgment to the talented artists who have enriched Toronto's streets with their creativity.
+npm run build // run build environment
+```
 
-Thank you for embarking on this artistic journey through Toronto's streets with us. We hope you enjoy exploring the city's beauty, culture, and creativity through the Street Art TO web application!
+## Authors
+
+Created by:
+[Anthony Chablov](https://www.linkedin.com/in/anthonychablov/)
+
+## Version History
+
+- 0.1
+  - Initial Release
+
+## Acknowledgments
+
+Inspiration, code snippets, etc.
+The data for this application is provided by the City of Toronto's StreetARToronto (StART) initiative.
+
+- [Design Inspiration](https://brittanychiang.com/#about)
