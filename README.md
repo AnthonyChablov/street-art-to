@@ -1,4 +1,4 @@
-# To Do List Application
+# Street Art To - Street Art / Mural Viewer Application
 
 A fully responsive and mobile-friendly street-art and mural viewer that allows users to view information about street art and murals across Toronto. The app displays the locations of popular street art destinations on a map along with its information.
 
