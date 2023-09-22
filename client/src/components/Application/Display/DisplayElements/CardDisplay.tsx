@@ -9,7 +9,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useArtStore } from "../../../../store/Art/artStore";
 import { useDrawerStore } from "../../../../store/Drawer/drawerStore";
 import useWindowSize from "../../../../hooks/useWindowDimensions";
-import { addLike } from "../../../../api/Likes/addLike";
 
 interface ICardDisplay {
   id: string;
